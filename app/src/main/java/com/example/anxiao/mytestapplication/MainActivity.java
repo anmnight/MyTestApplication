@@ -5,12 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
+import com.example.anxiao.mytestapplication.lesson_gaodemap.BaseMapView;
+import com.example.anxiao.mytestapplication.lesson_http.HttpTest;
 import com.example.anxiao.mytestapplication.lesson_java.ListIterator;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import butterknife.BindView;
@@ -37,7 +37,14 @@ public class MainActivity extends AppCompatActivity {
 
         MainListItemBean listIterator = new MainListItemBean(ListIterator.class, "队列遍历时不可操作，可用Iterator操作");
 
+        MainListItemBean mapDemo = new MainListItemBean(BaseMapView.class, "高德地图");
+
+        MainListItemBean httpDemo = new MainListItemBean(HttpTest.class, "retrofit");
+
         testItem.add(listIterator);
+        testItem.add(mapDemo);
+        testItem.add(httpDemo);
+
 
         adapter.setDates(testItem);
 

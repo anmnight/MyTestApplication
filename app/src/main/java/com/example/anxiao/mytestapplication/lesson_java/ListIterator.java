@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.anxiao.mytestapplication.Logger;
 import com.example.anxiao.mytestapplication.R;
 
 import java.util.ArrayList;
@@ -16,6 +17,8 @@ public class ListIterator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_iterator);
+
+        Logger.DEBUG("im hotfix..");
 
         int i = 1;
         List<Integer> num = new ArrayList<>();

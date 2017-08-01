@@ -1,8 +1,12 @@
 package com.example.anxiao.mytestapplication;
 
-/**
- * Created by anxiao on 2017/7/17.
- */
+import android.util.Log;
+
 
 public class Logger {
+
+    public static void DEBUG(Object log) {
+        Log.d("anmnight", String.valueOf(log));
+    }
+
 }

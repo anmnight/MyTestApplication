@@ -1,8 +1,9 @@
 package com.example.anxiao.mytestapplication.lesson_android;
 
-/**
- * Created by anxiao on 2017/7/25.
- */
+import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 
-public class ServiceActivity {
+
+public class ServiceActivity extends AppCompatActivity {
+
 }

@@ -2,13 +2,44 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.anxiao.mytestapplication">
 
+    <!-- 允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 允许程序设置内置sd卡的写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 允许程序获取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 允许程序访问WiFi网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 允许程序读写手机状态和身份 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
+        android:name=".HomeApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- hotfix -->
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="118541-1" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="9cc3ef521f9c53ca6d205d52d32bbdc7" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCbku7f5gkaIgi7AnZnlJ6091/TSB1lAeTryi9+HAMWqft3DUNpRODP2svhtf0ikjYQwBYJS+6Joh/FcTe02DuTkSSGtB7P0A472ck3LfGUo3YjxXhUurBFzSj2VisAAXdVWmcQAdoJRVOo5gdch1EApZTmKUtjHJ9Lfz8mE/sfzJI4CFMUfCAEDchH8sJhvgjQ2mU9W2a6TOA3BFRUhBYJcPPO0t0eIi7MEZ7uAaMJJk4UYFQTnypvlD1f/6JXORxmSCejohscxsYXXmM2OTU2irebubZVl+l+oJ5nVHXwxRNjXSi5KWzEzO3rpD4uGwckiD88J9YfYGR1mC1D/BGPAgMBAAECggEASWpiXbiBjRqIgi/cTm8dIgsm5l6+uF7Xd8n29Y0ki/p1V64jpLbDXHNFCWPHbBwRdYAgJgz2KW8fjR4riqUMIEw7L3IqpCjrvqS8xtRgj6M/6guTCHD9JEN31B+/tQX8GYRK5IvrJ7rWivraeHjG6gY5qQ/NqpzkM01+MGr3c/5qNbUrCLF7SKDRxdkrF+juCdUgxTK0PwIYo2+sGf7wGTDL7SzA8zCS/X3My3WBtxYSzlVmIB1Q8qEkM4URQWlOljQN06KFfzHqaoZi6zyvI53sC4oGvZrqNx5QCyRrT47gFBtppdtzFw4WIU1/jA5C+Stt0upo3xGscIUpi9S3eQKBgQDU8tqY2aILqdvGcjS2RLrxKj6JSDHuWLDYGsLJkiV2W5kGAQE6TviB9JgBvOEWoy6L8umlopSr/BiMa8QAAihne1NPzu5dbMUWaLlXB7+yU8GSpRZomlwOHd64vDm4P1ZyEATAvWy5gcYnGX2uO3fY6dvjLVSaqHcnYBgcgGINAwKBgQC7Bqe1KkjCR4lwjuuKj4YLNA3pIgGApQkf4Q1n0Gyx30DJvSioKk+X2Wnq26rKW/Qmc4rKxXoIlEL1UBpzhMwaMqBg70MMmY3vpcO4dQksZkQTwkPk6m1RG//pSCrSDlq+AegbSh/wt+/t1oyRYA9eNesrdSAh7ruEd9DrjFjFhQKBgHKM6RZMDCVmC/lmOgDKXB2a8eT7VxC12PuG+b1gxpIyl9Bo/fYVwQx3PMXCivqYcVOLKjCVkpApnjL7TYYLoxx3dMt7rzHGbwas8vZkDrSo5XozICjI0DgvzT1m003PlHrrLwNXYoMv0h36UmdFSiT/N++u1NIVSXN+97ltPlFtAoGAYkZD97FJXDUE5k1jPYLfN6HZsWg6C+QsoEC8r5FYnDqoq5km9P6OpkcLHerhmsWozE+oXZZY4ostiAPYcl0UdqullGoE/GjvqT6cUp/E+zydhxhsXqxEVvt0hJt0TL5YNkGAOl6/29h7TamQYY9tY97HPSWlhc8RX7Ep6avstZUCgYBkqXvLZxrOCBRbDPdBgCZV4Tp/X65u5jcsxxn9bayOsBDPswt25KmjA7BST6N3Z8ga8FZINbSFCdRQB/atMTp5Khk7hw5y3KyvET8Uq9ZuasYj3UCTeM6WgTkfhJEr5zq3rLYX5ylPAsXh2FsBHEFef7pMlx/mflFAvaTEFJxwow==" />
+
+        <!-- 高德地图 -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="658113e9bbb37fab156cebc70c9ea45e" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,7 +47,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".lesson_java.ListIterator"></activity>
+        <activity android:name=".lesson_java.ListIterator" />
+        <activity
+            android:name=".lesson_gaodemap.BaseMapView"
+            android:label="@string/title_activity_base_map_view"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".lesson_http.HttpTest"
+            android:label="@string/title_activity_http_test"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
