@@ -20,6 +20,8 @@ public class ListIterator extends AppCompatActivity {
 
         Logger.DEBUG("im hotfix..");
 
+
+
         int i = 1;
         List<Integer> num = new ArrayList<>();
         while (i < 100) {

@@ -15,6 +15,7 @@
     <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+
     <application
         android:name=".HomeApplication"
         android:allowBackup="true"
@@ -55,6 +56,10 @@
         <activity
             android:name=".lesson_http.HttpTest"
             android:label="@string/title_activity_http_test"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".lesson_fresco.FrescoActivity"
+            android:label="@string/title_activity_fresco"
             android:theme="@style/AppTheme"></activity>
     </application>
 

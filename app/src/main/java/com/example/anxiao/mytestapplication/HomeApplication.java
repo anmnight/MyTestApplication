@@ -2,6 +2,7 @@ package com.example.anxiao.mytestapplication;
 
 import android.app.Application;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.taobao.sophix.PatchStatus;
 import com.taobao.sophix.SophixManager;
 import com.taobao.sophix.listener.PatchLoadStatusListener;
@@ -15,6 +16,17 @@ public class HomeApplication extends Application {
 
         Logger.DEBUG("app starting..");
 
+        initFresco();
+        initSopHix();
+
+    }
+
+    private void initFresco() {
+        Fresco.initialize(this);
+    }
+
+
+    private void initSopHix() {
         SophixManager.getInstance()
                 .setContext(this)
                 .setAppVersion("1.1")
