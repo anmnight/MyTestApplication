@@ -9,6 +9,11 @@ import com.taobao.sophix.listener.PatchLoadStatusListener;
 
 public class HomeApplication extends Application {
 
+    private static HomeApplication application;
+
+    public static HomeApplication getInstance() {
+        return application;
+    }
 
     @Override
     public void onCreate() {
@@ -16,6 +21,7 @@ public class HomeApplication extends Application {
 
         Logger.DEBUG("app starting..");
 
+        application = this;
         initFresco();
         initSopHix();
 
