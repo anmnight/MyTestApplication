@@ -21,6 +21,10 @@ public class DisPlayUnit {
         return metrics;
     }
 
+    public static int dip2px(int dpValue) {
+        final float scale = HomeApplication.getInstance().getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
 
 
 }

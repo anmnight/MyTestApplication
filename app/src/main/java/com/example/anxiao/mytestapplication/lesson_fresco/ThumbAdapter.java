@@ -2,8 +2,8 @@ package com.example.anxiao.mytestapplication.lesson_fresco;
 
 import android.content.Context;
 import android.net.Uri;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import unit.DisPlayUnit;
+import unit.ImageUnit;
 
 /**
  * Created by anxiao on 2017/8/9.
@@ -29,8 +30,14 @@ public class ThumbAdapter extends RecyclerView.Adapter<ThumbAdapter.ThumbVH> {
 
     private List<String> mListImgs = new ArrayList<>();
 
+    private int mImageLength;
+
+    private Context mCtx;
+
     public ThumbAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
+        this.mCtx = context;
+        mImageLength = DisPlayUnit.devicesDisPlay().widthPixels / 2;
     }
 
     public void setDates(List<String> list) {
@@ -48,7 +55,8 @@ public class ThumbAdapter extends RecyclerView.Adapter<ThumbAdapter.ThumbVH> {
 
     @Override
     public void onBindViewHolder(ThumbVH holder, int position) {
-        holder.imgView.setImageURI(Uri.fromFile(new File(mListImgs.get(position))));
+        ImageUnit.showThumb(Uri.fromFile(new File(mListImgs.get(position))), holder.imgView, mImageLength, mImageLength);
+        holder.path = mListImgs.get(position);
     }
 
     @Override
@@ -58,14 +66,26 @@ public class ThumbAdapter extends RecyclerView.Adapter<ThumbAdapter.ThumbVH> {
 
     class ThumbVH extends RecyclerView.ViewHolder {
         private SimpleDraweeView imgView;
+        private String path;
 
         ThumbVH(View itemView) {
             super(itemView);
             imgView = itemView.findViewById(R.id.thumb_img);
             ViewGroup.LayoutParams params = itemView.getLayoutParams();
-            params.height = DisPlayUnit.devicesDisPlay().widthPixels / 2;
-            params.width = DisPlayUnit.devicesDisPlay().widthPixels / 2;
+            params.height = mImageLength;
+            params.width = mImageLength;
             itemView.setLayoutParams(params);
+            imgView.setOnClickListener(clickListener);
+
         }
+
+        View.OnClickListener clickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ThumbActivity.route(mCtx, path);
+            }
+        };
+
+
     }
 }
