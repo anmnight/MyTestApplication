@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.anxiao.mytestapplication.customer_drawable.XfermodeRoundImageActivity;
 import com.example.anxiao.mytestapplication.lesson_fresco.FrescoActivity;
 import com.example.anxiao.mytestapplication.lesson_gaodemap.BaseMapView;
 import com.example.anxiao.mytestapplication.lesson_http.HttpTest;
@@ -40,11 +41,13 @@ public class MainActivity extends AppCompatActivity {
         MainListItemBean mapDemo = new MainListItemBean(BaseMapView.class, "高德地图");
         MainListItemBean httpDemo = new MainListItemBean(HttpTest.class, "retrofit");
         MainListItemBean frescoDemo = new MainListItemBean(FrescoActivity.class, "fresco");
+        MainListItemBean drawableDemo = new MainListItemBean(XfermodeRoundImageActivity.class, "自定义图片");
 
         testItem.add(listIterator);
         testItem.add(mapDemo);
         testItem.add(httpDemo);
         testItem.add(frescoDemo);
+        testItem.add(drawableDemo);
 
         adapter.setDates(testItem);
 

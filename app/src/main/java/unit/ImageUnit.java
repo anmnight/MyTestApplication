@@ -13,6 +13,7 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
 /**
  * Created by anxiao on 2017/8/10.
+ * fresco 操作相关
  */
 
 public class ImageUnit {
