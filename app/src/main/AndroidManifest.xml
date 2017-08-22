@@ -61,7 +61,8 @@
             android:label="@string/title_activity_fresco"
             android:theme="@style/AppTheme" />
         <activity android:name=".lesson_fresco.ThumbActivity" />
-        <activity android:name=".customer_drawable.XfermodeRoundImageActivity"></activity>
+        <activity android:name=".customer_drawable.XfermodeRoundImageActivity" />
+        <activity android:name=".lesson_java.ThreadHandler"></activity>
     </application>
 
 </manifest>
