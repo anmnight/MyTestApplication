@@ -39,24 +39,24 @@ public class HttpTest extends AppCompatActivity {
         bean.setUsername("2");
 
         final long startTime = System.currentTimeMillis();
-        Logger.DEBUG("start : " + startTime);
+        Logger.debug("start : " + startTime);
         RestClient.SERVICES().userInfo(bean)
                 .enqueue(new EnqueueCallBack<UserResponseBean>() {
                     @Override
                     public void _finish() {
                         long endTime = System.currentTimeMillis();
-                        Logger.DEBUG("end : " + endTime);
-                        Logger.DEBUG("spend : " + (endTime - startTime));
+                        Logger.debug("end : " + endTime);
+                        Logger.debug("spend : " + (endTime - startTime));
                     }
 
                     @Override
                     protected void _success(UserResponseBean response) {
-                        Logger.DEBUG(response.getName());
+                        Logger.debug(response.getName());
                     }
 
                     @Override
                     protected void _err(String err) {
-                        Logger.DEBUG(err);
+                        Logger.debug(err);
                     }
                 });
 

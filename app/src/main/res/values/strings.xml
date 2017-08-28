@@ -3,4 +3,5 @@
     <string name="title_activity_base_map_view">BaseMapView</string>
     <string name="title_activity_http_test">HttpTest</string>
     <string name="title_activity_fresco">FrescoActivity</string>
+    <string name="title_activity_service">ServiceActivity</string>
 </resources>

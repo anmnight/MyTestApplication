@@ -18,7 +18,7 @@ public class ListIterator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_iterator);
 
-        Logger.DEBUG("im hotfix..");
+        Logger.debug("im hotfix..");
 
 
 

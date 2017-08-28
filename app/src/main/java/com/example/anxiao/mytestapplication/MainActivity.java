@@ -1,9 +1,6 @@
 package com.example.anxiao.mytestapplication;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +11,7 @@ import com.example.anxiao.mytestapplication.lesson_fresco.FrescoActivity;
 import com.example.anxiao.mytestapplication.lesson_gaodemap.BaseMapView;
 import com.example.anxiao.mytestapplication.lesson_http.HttpTest;
 import com.example.anxiao.mytestapplication.lesson_java.ListIterator;
+import com.example.anxiao.mytestapplication.lesson_java.ServiceActivity;
 import com.example.anxiao.mytestapplication.lesson_java.ThreadHandler;
 
 import java.util.ArrayList;
@@ -47,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         MainListItemBean frescoDemo = new MainListItemBean(FrescoActivity.class, "fresco");
         MainListItemBean drawableDemo = new MainListItemBean(XfermodeRoundImageActivity.class, "自定义图片");
         MainListItemBean threadDemo = new MainListItemBean(ThreadHandler.class, "HandlerThread");
+        MainListItemBean serviceDemo = new MainListItemBean(ServiceActivity.class, "service activity");
 
         testItem.add(listIterator);
         testItem.add(mapDemo);
@@ -54,12 +53,13 @@ public class MainActivity extends AppCompatActivity {
         testItem.add(frescoDemo);
         testItem.add(drawableDemo);
         testItem.add(threadDemo);
+        testItem.add(serviceDemo);
 
         adapter.setDates(testItem);
 
 
         double d = getDistance(118.767, 32.0415, 118.772, 32.0432);
-        Logger.DEBUG("distance : " + d + "km");
+        Logger.debug("distance : " + d + "km");
 
 
     }

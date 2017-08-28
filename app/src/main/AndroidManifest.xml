@@ -62,7 +62,19 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".lesson_fresco.ThumbActivity" />
         <activity android:name=".customer_drawable.XfermodeRoundImageActivity" />
-        <activity android:name=".lesson_java.ThreadHandler"></activity>
+        <activity android:name=".lesson_java.ThreadHandler" />
+        <activity
+            android:name=".lesson_java.ServiceActivity"
+            android:label="@string/title_activity_service"
+            android:theme="@style/AppTheme" />
+
+        <service
+            android:name=".lesson_android.MyApplicationService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".lesson_android.MyBindService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.IdRes;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.RadioButton;
@@ -35,7 +34,7 @@ public class ThumbActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thumb);
         String path = getIntent().getStringExtra(RPATH);
-        Logger.DEBUG(path);
+        Logger.debug(path);
         final SimpleDraweeView view = (SimpleDraweeView) findViewById(R.id.thumb_img);
 
 
