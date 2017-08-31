@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.anxiao.mytestapplication.customer_drawable.XfermodeRoundImageActivity;
+import com.example.anxiao.mytestapplication.app.HomeApplication;import com.example.anxiao.mytestapplication.customer_drawable.XfermodeRoundImageActivity;
 import com.example.anxiao.mytestapplication.lesson_fresco.FrescoActivity;
 import com.example.anxiao.mytestapplication.lesson_gaodemap.BaseMapView;
 import com.example.anxiao.mytestapplication.lesson_http.HttpTest;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.test_list)
     RecyclerView mainList;
 
-    private List<MainListItemBean> testItem = new ArrayList<>();
+    private List<HomeApplication.MainListItemBean> testItem = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +35,17 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mainList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        MainListAdapter adapter = new MainListAdapter(this, action);
+        HomeApplication.MainListAdapter adapter = new HomeApplication.MainListAdapter(this, action);
         mainList.setAdapter(adapter);
 
 
-        MainListItemBean listIterator = new MainListItemBean(ListIterator.class, "队列遍历时不可操作，可用Iterator操作");
-        MainListItemBean mapDemo = new MainListItemBean(BaseMapView.class, "高德地图");
-        MainListItemBean httpDemo = new MainListItemBean(HttpTest.class, "retrofit");
-        MainListItemBean frescoDemo = new MainListItemBean(FrescoActivity.class, "fresco");
-        MainListItemBean drawableDemo = new MainListItemBean(XfermodeRoundImageActivity.class, "自定义图片");
-        MainListItemBean threadDemo = new MainListItemBean(ThreadHandler.class, "HandlerThread");
-        MainListItemBean serviceDemo = new MainListItemBean(ServiceActivity.class, "service activity");
+        HomeApplication.MainListItemBean listIterator = new HomeApplication.MainListItemBean(ListIterator.class, "队列遍历时不可操作，可用Iterator操作");
+        HomeApplication.MainListItemBean mapDemo = new HomeApplication.MainListItemBean(BaseMapView.class, "高德地图");
+        HomeApplication.MainListItemBean httpDemo = new HomeApplication.MainListItemBean(HttpTest.class, "retrofit");
+        HomeApplication.MainListItemBean frescoDemo = new HomeApplication.MainListItemBean(FrescoActivity.class, "fresco");
+        HomeApplication.MainListItemBean drawableDemo = new HomeApplication.MainListItemBean(XfermodeRoundImageActivity.class, "自定义图片");
+        HomeApplication.MainListItemBean threadDemo = new HomeApplication.MainListItemBean(ThreadHandler.class, "HandlerThread");
+        HomeApplication.MainListItemBean serviceDemo = new HomeApplication.MainListItemBean(ServiceActivity.class, "service activity");
 
         testItem.add(listIterator);
         testItem.add(mapDemo);
@@ -60,10 +60,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    MainListAdapter.MainListAction action = new MainListAdapter.MainListAction() {
+    HomeApplication.MainListAdapter.MainListAction action = new HomeApplication.MainListAdapter.MainListAction() {
         @Override
         public void itemTap(int index) {
-            startActivity(new Intent(MainActivity.this, testItem.get(index).getCls()));
+            startActivity(new Intent(HomeApplication.MainActivity.this, testItem.get(index).getCls()));
         }
     };
 }

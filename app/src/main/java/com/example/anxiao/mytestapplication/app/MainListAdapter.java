@@ -8,17 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.example.anxiao.mytestapplication.app.HomeApplication;import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ListItemVH> {
+public class MainListAdapter extends RecyclerView.Adapter<HomeApplication.MainListAdapter.ListItemVH> {
 
     private LayoutInflater inflater;
-    private List<MainListItemBean> mDates = new ArrayList<>();
+    private List<HomeApplication.MainListItemBean> mDates = new ArrayList<>();
     private MainListAction mAction;
 
     public MainListAdapter(Context context, MainListAction action) {
@@ -26,7 +26,7 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ListIt
         this.mAction = action;
     }
 
-    public void setDates(List<MainListItemBean> list) {
+    public void setDates(List<HomeApplication.MainListItemBean> list) {
         if (list != null) {
             this.mDates = list;
             notifyDataSetChanged();
