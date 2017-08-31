@@ -10,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import com.example.anxiao.mytestapplication.Logger;
+import com.example.anxiao.mytestapplication.app.Logger;
 import com.example.anxiao.mytestapplication.R;
 import com.example.anxiao.mytestapplication.lesson_android.MyApplicationService;
 import com.example.anxiao.mytestapplication.lesson_android.MyBindService;

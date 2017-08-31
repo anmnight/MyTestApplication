@@ -1,4 +1,4 @@
-package com.example.anxiao.mytestapplication;
+package com.example.anxiao.mytestapplication.app;
 
 class MainListItemBean {
     private Class<?> cls;

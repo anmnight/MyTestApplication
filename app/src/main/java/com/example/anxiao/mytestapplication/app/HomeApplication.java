@@ -1,4 +1,4 @@
-package com.example.anxiao.mytestapplication;
+package com.example.anxiao.mytestapplication.app;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -6,7 +6,6 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Process;
-import android.os.health.SystemHealthManager;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;

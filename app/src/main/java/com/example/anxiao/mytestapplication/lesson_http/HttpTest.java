@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.example.anxiao.mytestapplication.Logger;
+import com.example.anxiao.mytestapplication.app.Logger;
 import com.example.anxiao.mytestapplication.R;
 
 import http.EnqueueCallBack;

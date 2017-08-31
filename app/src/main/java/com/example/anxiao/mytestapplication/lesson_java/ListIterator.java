@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.example.anxiao.mytestapplication.Logger;
+import com.example.anxiao.mytestapplication.app.Logger;
 import com.example.anxiao.mytestapplication.R;
 
 import java.util.ArrayList;

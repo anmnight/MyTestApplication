@@ -2,14 +2,11 @@ package com.example.anxiao.mytestapplication.lesson_java;
 
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.anxiao.mytestapplication.Logger;
 import com.example.anxiao.mytestapplication.R;
-import com.example.anxiao.mytestapplication.ToastUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

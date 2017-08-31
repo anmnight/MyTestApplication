@@ -6,23 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.anxiao.mytestapplication.MainActivity">
-
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="61dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="霄神成长路"
-            tools:ignore="HardcodedText" />
-
-    </android.support.v7.widget.Toolbar>
+    tools:context="com.example.anxiao.mytestapplication.app.MainActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/test_list"

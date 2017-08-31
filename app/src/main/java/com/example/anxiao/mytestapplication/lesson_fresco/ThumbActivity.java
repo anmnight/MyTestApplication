@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.anxiao.mytestapplication.Logger;
+import com.example.anxiao.mytestapplication.app.Logger;
 import com.example.anxiao.mytestapplication.R;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;

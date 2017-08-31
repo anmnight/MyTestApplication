@@ -2,13 +2,11 @@ package com.example.anxiao.mytestapplication.lesson_fresco;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.anxiao.mytestapplication.Logger;
 import com.example.anxiao.mytestapplication.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 

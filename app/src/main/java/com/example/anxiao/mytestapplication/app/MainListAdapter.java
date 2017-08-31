@@ -1,24 +1,25 @@
-package com.example.anxiao.mytestapplication;
+package com.example.anxiao.mytestapplication.app;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.anxiao.mytestapplication.app.HomeApplication;import java.util.ArrayList;
+import com.example.anxiao.mytestapplication.R;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainListAdapter extends RecyclerView.Adapter<HomeApplication.MainListAdapter.ListItemVH> {
+public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ListItemVH> {
 
     private LayoutInflater inflater;
-    private List<HomeApplication.MainListItemBean> mDates = new ArrayList<>();
+    private List<MainListItemBean> mDates = new ArrayList<>();
     private MainListAction mAction;
 
     public MainListAdapter(Context context, MainListAction action) {
@@ -26,7 +27,7 @@ public class MainListAdapter extends RecyclerView.Adapter<HomeApplication.MainLi
         this.mAction = action;
     }
 
-    public void setDates(List<HomeApplication.MainListItemBean> list) {
+    public void setDates(List<MainListItemBean> list) {
         if (list != null) {
             this.mDates = list;
             notifyDataSetChanged();

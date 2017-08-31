@@ -1,6 +1,5 @@
 package com.example.anxiao.mytestapplication.lesson_android;
 
-import android.app.IntentService;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
@@ -8,7 +7,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
 
-import com.example.anxiao.mytestapplication.Logger;
+import com.example.anxiao.mytestapplication.app.Logger;
 
 public class MyBindService extends Service {
 

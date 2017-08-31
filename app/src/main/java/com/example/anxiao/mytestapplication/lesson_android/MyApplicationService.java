@@ -6,10 +6,9 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
-import android.os.Looper;
 
-import com.example.anxiao.mytestapplication.HomeApplication;
-import com.example.anxiao.mytestapplication.Logger;
+import com.example.anxiao.mytestapplication.app.HomeApplication;
+import com.example.anxiao.mytestapplication.app.Logger;
 
 public class MyApplicationService extends Service {
     public MyApplicationService() {
