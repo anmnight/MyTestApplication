@@ -51,7 +51,13 @@
         <activity
             android:name=".lesson_gaodemap.BaseMapView"
             android:label="@string/title_activity_base_map_view"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="com.example.anxiao.mytestapplication.TESTMAP" />
+                <data android:scheme="info" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".lesson_http.HttpTest"
             android:label="@string/title_activity_http_test"
@@ -71,10 +77,11 @@
         <service
             android:name=".lesson_android.MyApplicationService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true"
+            android:process=":remote" />
         <service
             android:name=".lesson_android.MyBindService"
-            android:exported="false"></service>
+            android:exported="false" />
     </application>
 
 </manifest>

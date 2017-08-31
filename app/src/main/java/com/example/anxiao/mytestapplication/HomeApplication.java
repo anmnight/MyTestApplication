@@ -1,6 +1,12 @@
 package com.example.anxiao.mytestapplication;
 
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.Application;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.Process;
+import android.os.health.SystemHealthManager;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
@@ -8,7 +14,7 @@ import com.taobao.sophix.PatchStatus;
 import com.taobao.sophix.SophixManager;
 import com.taobao.sophix.listener.PatchLoadStatusListener;
 
-public class HomeApplication extends Application {
+public class HomeApplication extends Application implements Application.ActivityLifecycleCallbacks {
 
     private static HomeApplication application;
 
@@ -23,11 +29,16 @@ public class HomeApplication extends Application {
         Logger.debug("app starting..");
 
         application = this;
-        initFresco();
-        initSopHix();
 
+        if (isOnMainProcess()) {
+            initFresco();
+            initSopHix();
+        }
     }
 
+    /**
+     * 初始化Fresco
+     */
     private void initFresco() {
         ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
                 .setDownsampleEnabled(true)
@@ -36,6 +47,9 @@ public class HomeApplication extends Application {
     }
 
 
+    /**
+     * 初始化 sophix
+     */
     private void initSopHix() {
         SophixManager.getInstance()
                 .setContext(this)
@@ -68,5 +82,66 @@ public class HomeApplication extends Application {
                     }
                 }).initialize();
         SophixManager.getInstance().queryAndLoadNewPatch();
+    }
+
+    /**
+     * 获取当前pid的进程名
+     *
+     * @param context
+     * @param pid
+     * @return
+     */
+    private String getApplicationName(Context context, int pid) {
+        ActivityManager manager = (ActivityManager) context.getSystemService(ACTIVITY_SERVICE);
+        for (ActivityManager.RunningAppProcessInfo info : manager.getRunningAppProcesses()) {
+            if (info.pid == pid) {
+                return info.processName;
+            }
+        }
+        return "";
+    }
+
+    private final static String PROCESS_NAME = "com.example.anxiao.mytestapplication";
+
+    public boolean isOnMainProcess() {
+        int pid = Process.myPid();
+        String process = getApplicationName(application, pid);
+        return process.isEmpty() || process.equalsIgnoreCase(PROCESS_NAME);
+    }
+
+
+    @Override
+    public void onActivityCreated(Activity activity, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onActivityStarted(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityResumed(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityPaused(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityStopped(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onActivityDestroyed(Activity activity) {
+
     }
 }

@@ -27,13 +27,15 @@ public class BaseMapView extends AppCompatActivity implements AMap.OnMyLocationC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_map_view);
 
-
         mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);// 此方法必须重写
         if (aMap == null) {
             aMap = mapView.getMap();
         }
         mUiSettings = aMap.getUiSettings();
+
+        String info = getIntent().getData().getHost();
+        Snackbar.make(this.mapView, info, Snackbar.LENGTH_LONG).show();
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
