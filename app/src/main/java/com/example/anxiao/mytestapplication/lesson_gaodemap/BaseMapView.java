@@ -34,8 +34,13 @@ public class BaseMapView extends AppCompatActivity implements AMap.OnMyLocationC
         }
         mUiSettings = aMap.getUiSettings();
 
-        String info = getIntent().getData().getHost();
-        Snackbar.make(this.mapView, info, Snackbar.LENGTH_LONG).show();
+        try {
+            String info = getIntent().getData().getHost();
+            Snackbar.make(this.mapView, info, Snackbar.LENGTH_LONG).show();
+
+        } catch (Exception e) {
+
+        }
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
