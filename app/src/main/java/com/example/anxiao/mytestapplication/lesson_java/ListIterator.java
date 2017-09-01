@@ -8,8 +8,10 @@ import com.example.anxiao.mytestapplication.app.Logger;
 import com.example.anxiao.mytestapplication.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 public class ListIterator extends AppCompatActivity {
 
@@ -17,10 +19,6 @@ public class ListIterator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_iterator);
-
-        Logger.debug("im hotfix..");
-
-
 
         int i = 1;
         List<Integer> num = new ArrayList<>();
@@ -43,5 +41,34 @@ public class ListIterator extends AppCompatActivity {
         }
 
         Log.e("test", "num : " + num.size());
+
+        Integer[] arr = {new Random().nextInt(100), new Random().nextInt(100), new Random().nextInt(100), new Random().nextInt(100)};
+
+        List<Integer> temp = Arrays.asList(arr);
+
+        List<Integer> newTemp = new ArrayList<>(temp);
+
+        newTemp.addAll(temp);
+
+        Logger.err("org : " + newTemp.size());
+
+        newTemp.remove(newTemp.get(0));
+
+        Logger.err("new : " + newTemp.size());
+
+        Logger.err("org : " + arr.toString());
+
+        //small->big
+        for (int j = 0; j < arr.length - 1; j++) {
+            for (int k = 0; k < arr.length - 1; k++) {
+                if (arr[k] > arr[k + 1]) {
+                    int t = arr[k];
+                    arr[k + 1] = arr[k];
+                    arr[k] = t;
+                }
+            }
+        }
+
+
     }
 }
