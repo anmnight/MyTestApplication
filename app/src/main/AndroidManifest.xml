@@ -47,7 +47,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".lesson_java.ListIterator" />
         <activity
             android:name=".lesson_gaodemap.BaseMapView"
@@ -60,9 +59,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".lesson_http.HttpTest"
-            android:label="@string/title_activity_http_test"/>
         <activity
             android:name=".lesson_fresco.FrescoActivity"
             android:label="@string/title_activity_fresco" />
@@ -85,6 +81,10 @@
         <activity
             android:name=".lesson_android.ScrollFlagActivity"
             android:label="@string/title_activity_scoll_flag" />
+        <activity
+            android:name=".lesson_android.RoomStatusActivity"
+            android:label="@string/title_activity_room_status"
+            android:theme="@style/HomeTheme"></activity>
     </application>
 
 </manifest>

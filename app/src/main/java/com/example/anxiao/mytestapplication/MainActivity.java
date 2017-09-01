@@ -7,10 +7,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.anxiao.mytestapplication.customer_drawable.XfermodeRoundImageActivity;
+import com.example.anxiao.mytestapplication.lesson_android.RoomStatusActivity;
 import com.example.anxiao.mytestapplication.lesson_android.ScrollFlagActivity;
 import com.example.anxiao.mytestapplication.lesson_fresco.FrescoActivity;
 import com.example.anxiao.mytestapplication.lesson_gaodemap.BaseMapView;
-import com.example.anxiao.mytestapplication.lesson_http.HttpTest;
 import com.example.anxiao.mytestapplication.lesson_java.ListIterator;
 import com.example.anxiao.mytestapplication.lesson_java.ServiceActivity;
 import com.example.anxiao.mytestapplication.lesson_java.ThreadHandler;
@@ -42,21 +42,21 @@ public class MainActivity extends AppCompatActivity {
 
         MainListItemBean listIterator = new MainListItemBean(ListIterator.class, "队列遍历时不可操作，可用Iterator操作");
         MainListItemBean mapDemo = new MainListItemBean(BaseMapView.class, "高德地图");
-        MainListItemBean httpDemo = new MainListItemBean(HttpTest.class, "retrofit");
         MainListItemBean frescoDemo = new MainListItemBean(FrescoActivity.class, "fresco");
         MainListItemBean drawableDemo = new MainListItemBean(XfermodeRoundImageActivity.class, "自定义图片");
         MainListItemBean threadDemo = new MainListItemBean(ThreadHandler.class, "HandlerThread");
         MainListItemBean serviceDemo = new MainListItemBean(ServiceActivity.class, "service activity");
         MainListItemBean scrollFlagDemo = new MainListItemBean(ScrollFlagActivity.class, "scrollFlagDemo");
+        MainListItemBean roomStatusDemo = new MainListItemBean(RoomStatusActivity.class, "RoomStatusDemo");
 
         testItem.add(listIterator);
         testItem.add(mapDemo);
-        testItem.add(httpDemo);
         testItem.add(frescoDemo);
         testItem.add(drawableDemo);
         testItem.add(threadDemo);
         testItem.add(serviceDemo);
         testItem.add(scrollFlagDemo);
+        testItem.add(roomStatusDemo);
 
         adapter.setDates(testItem);
 

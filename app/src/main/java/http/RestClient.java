@@ -9,8 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RestClient {
-    //    private static String baseURl = "https://mhms.homeinns.com/";
-    private static String baseURl = "http://app.cainiaoshaocai.com/";
+        private static String baseURl = "https://hms.homeinns.com/";
 
     private static Retrofit retrofit = new Retrofit.Builder().baseUrl(baseURl)
             .addConverterFactory(GsonConverterFactory.create())
