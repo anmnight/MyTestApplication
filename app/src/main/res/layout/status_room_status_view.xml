@@ -5,7 +5,7 @@
     android:layout_marginLeft="5dp">
 
     <TextView
-        android:id="@+id/room_status_name"
+        android:id="@+id/room_status"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"

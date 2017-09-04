@@ -6,9 +6,22 @@
     android:layout_height="match_parent"
     tools:context="com.example.anxiao.mytestapplication.lesson_android.RoomStatusActivity">
 
-    <com.example.anxiao.mytestapplication.app.UnScrollRecycleView
-        android:id="@+id/room_list"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.example.anxiao.mytestapplication.app.TableRecycleView
+                android:id="@+id/room_list"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </HorizontalScrollView>
+
+    </ScrollView>
+
 
 </LinearLayout>

@@ -5,15 +5,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
 
 import com.example.anxiao.mytestapplication.R;
 import com.example.anxiao.mytestapplication.app.Logger;
-import com.example.anxiao.mytestapplication.app.UnScrollRecycleView;
+import com.example.anxiao.mytestapplication.app.TableRecycleView;
 import com.example.anxiao.mytestapplication.app.WaitingDialog;
+import com.example.anxiao.mytestapplication.lesson_android.roomstatus.NextLineLayoutManger;
 import com.example.anxiao.mytestapplication.lesson_android.roomstatus.ResponseRoomTypes;
 import com.example.anxiao.mytestapplication.lesson_android.roomstatus.RoomListAdapter;
 import com.example.anxiao.mytestapplication.lesson_android.roomstatus.RoomStatusListModel;
@@ -35,7 +34,7 @@ import retrofit2.Response;
 public class RoomStatusActivity extends AppCompatActivity {
 
     @BindView(R.id.room_list)
-    UnScrollRecycleView roomList;
+    TableRecycleView roomList;
     final private String HTTPTHREAD = "http_thread";
     private Handler mDoHttpHandler;
     RoomListAdapter mAdapter;
@@ -46,7 +45,8 @@ public class RoomStatusActivity extends AppCompatActivity {
         setContentView(R.layout.activity_room_status);
         ButterKnife.bind(this);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        NextLineLayoutManger layoutManager = new NextLineLayoutManger();
+        layoutManager.setAutoMeasureEnabled(true);
         mAdapter = new RoomListAdapter(this);
         roomList.setLayoutManager(layoutManager);
         roomList.setAdapter(mAdapter);
@@ -99,6 +99,7 @@ public class RoomStatusActivity extends AppCompatActivity {
                     index++;
                 }
 
+
                 final List<RoomStatusListModel> roomList = new ArrayList<>();
                 int tempIndex = 0;
                 for (int i = 0; i < roomTypes.size(); i++) {
@@ -124,30 +125,33 @@ public class RoomStatusActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-
-        Logger.err("dispatchTouchEvent : " + (event.getAction() == MotionEvent.ACTION_MOVE));
-
-        if (event.getAction() == MotionEvent.ACTION_MOVE) {
-            return false;
-        } else {
-            return true;
-        }
-
-    }
-
+    //    @Override
+//    public boolean dispatchTouchEvent(MotionEvent event) {
+//
+////        Logger.err("dispatchTouchEvent : " + (event.getAction() == MotionEvent.ACTION_MOVE));
+////
+////        if (event.getAction() == MotionEvent.ACTION_MOVE) {
+////            return false;
+////        } else {
+////            return true;
+////        }
+//
+//
+//        return true;
+//
+//    }
+//
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
         Logger.info("fire");
-////
-////        if (event.getAction() == MotionEvent.ACTION_MOVE) {
-////            Logger.info("X : " + event.getX() + ",Y : " + event.getY());
-////        }
-//
-//        roomList.setScrollY((int) event.getY());
 
-        return super.onTouchEvent(event);
+        if (event.getAction() == MotionEvent.ACTION_MOVE) {
+            Logger.info("X : " + event.getX() + ",Y : " + event.getY());
+        }
+
+        roomList.scrollBy(0, (int) event.getRawY());
+
+        return true;
     }
 }
