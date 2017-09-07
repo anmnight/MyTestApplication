@@ -1,6 +1,7 @@
 package com.example.anxiao.mytestapplication.jsheighway;
 
 import android.annotation.SuppressLint;
+import android.support.v4.util.ArrayMap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.JavascriptInterface;
@@ -44,53 +45,67 @@ public class HeightWayWebView extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-//                webView.loadUrl(jsMothed("bbbbb"));
+                testMethod();
+
             }
         });
 
 
     }
 
-    private String jsMothed(String str) {
-        return "javascript:alertMessage(\"" + str + "\")";
-    }
 
-
-    private void jsCallBackMothed(int callbackId) {
-        String temp = "javascript:onCallBack(\"" + callbackId + "\")";
+    private void jsCallBackMothed(int callbackId, String params) {
+        String temp = "javascript:onCallBack(\"" + callbackId + "\",\"" + params + "\")";
         webView.loadUrl(temp);
     }
 
+    abstract class CallBack {
+        int callid;
 
-    private class JsInteration {
-        @JavascriptInterface
-        public void toastMessage(String message) {
-            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-        }
+        abstract void onCall(CallBack callBack);
 
-        @JavascriptInterface
-        public void waitingCall(final int callid) {
-
-//            final JsCallback callback = new Gson().fromJson(jsonStr, JsCallback.class);
-
-//            callback.setCallbackArg("im come from java");
-
-            new Thread(new Runnable() {
+        void doComplete(final String params) {
+            runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    try {
-                        Thread.sleep(3000);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                jsCallBackMothed(callid);
-                            }
-                        });
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    jsCallBackMothed(callid, params);
                 }
-            }).start();
+            });
+        }
+    }
+
+    ArrayMap<String, CallBack> requestes = new ArrayMap<>();
+
+    public void setDoAction(String actionName, CallBack callBack) {
+        requestes.put(actionName, callBack);
+    }
+
+
+    private void testMethod() {
+
+        setDoAction("test", new CallBack() {
+            @Override
+            void onCall(CallBack callBack) {
+
+                //do something
+
+                callBack.doComplete("im java");
+
+            }
+        });
+    }
+
+    private class JsInteration {
+
+        @JavascriptInterface
+        public void waitingCall(int callid, String actionName, String params) throws Exception {
+            CallBack callBack = requestes.get(actionName);
+            if (callBack == null) {
+                throw new Exception("you should register listener on java");
+            } else {
+                callBack.callid = callid;
+            }
+            callBack.onCall(callBack);
 
         }
     }
