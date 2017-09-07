@@ -88,7 +88,8 @@
         <activity
             android:name=".lesson_android.realm_test.RealmTestActivity"
             android:label="@string/title_activity_realm_test"
-            android:theme="@style/HomeTheme"></activity>
+            android:theme="@style/HomeTheme" />
+        <activity android:name=".jsheighway.HeightWayWebView"></activity>
     </application>
 
 </manifest>

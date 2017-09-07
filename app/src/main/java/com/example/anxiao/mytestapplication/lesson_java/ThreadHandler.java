@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.anxiao.mytestapplication.R;
+import com.example.anxiao.mytestapplication.app.HomeApplication;
+import com.example.anxiao.mytestapplication.app.Logger;
+import com.example.anxiao.mytestapplication.app.ToastUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,21 +20,29 @@ public class ThreadHandler extends AppCompatActivity {
     @BindView(R.id.thread_text)
     TextView threadTextView;
 
+    private HandlerThread mHandlerThread;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thread_handler);
         ButterKnife.bind(this);
 
-        final HandlerThread handlerThread = new HandlerThread("handlerThread");
-        handlerThread.start();
+        mHandlerThread = new HandlerThread("handlerThread");
+        mHandlerThread.start();
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         new Thread(new Runnable() {
             @Override
             public void run() {
 
-                Handler handler = new Handler(handlerThread.getLooper());
+                Handler handler = new Handler(mHandlerThread.getLooper());
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
@@ -60,9 +71,6 @@ public class ThreadHandler extends AppCompatActivity {
 
             }
         }).start();
-
-
-
 
     }
 }

@@ -6,15 +6,12 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Process;
-
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.taobao.sophix.PatchStatus;
 import com.taobao.sophix.SophixManager;
 import com.taobao.sophix.listener.PatchLoadStatusListener;
 
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
 
 public class HomeApplication extends Application implements Application.ActivityLifecycleCallbacks {
 
@@ -29,7 +26,6 @@ public class HomeApplication extends Application implements Application.Activity
         super.onCreate();
 
         application = this;
-        Realm.init(this);
 
         if (isOnMainProcess()) {
             initFresco();

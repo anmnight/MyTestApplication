@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.anxiao.mytestapplication.customer_drawable.XfermodeRoundImageActivity;
+import com.example.anxiao.mytestapplication.jsheighway.HeightWayWebView;
 import com.example.anxiao.mytestapplication.lesson_android.RoomStatusActivity;
 import com.example.anxiao.mytestapplication.lesson_android.ScrollFlagActivity;
 import com.example.anxiao.mytestapplication.lesson_fresco.FrescoActivity;
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         MainListItemBean serviceDemo = new MainListItemBean(ServiceActivity.class, "service activity");
         MainListItemBean scrollFlagDemo = new MainListItemBean(ScrollFlagActivity.class, "scrollFlagDemo");
         MainListItemBean roomStatusDemo = new MainListItemBean(RoomStatusActivity.class, "RoomStatusDemo");
+        MainListItemBean HeightWayWebView = new MainListItemBean(HeightWayWebView.class, "HeightWayWebView");
+
 
         testItem.add(listIterator);
         testItem.add(mapDemo);
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         testItem.add(serviceDemo);
         testItem.add(scrollFlagDemo);
         testItem.add(roomStatusDemo);
+        testItem.add(HeightWayWebView);
 
         adapter.setDates(testItem);
 
