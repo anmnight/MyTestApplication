@@ -17,4 +17,8 @@ public class Logger {
         Log.e("anmnight", String.valueOf(log));
     }
 
+    public static void err(Class clz, Object log) {
+        Log.e(clz.getName(), String.valueOf(log));
+    }
+
 }

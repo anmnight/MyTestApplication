@@ -13,6 +13,9 @@ import com.taobao.sophix.PatchStatus;
 import com.taobao.sophix.SophixManager;
 import com.taobao.sophix.listener.PatchLoadStatusListener;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 public class HomeApplication extends Application implements Application.ActivityLifecycleCallbacks {
 
     private static HomeApplication application;
@@ -25,15 +28,16 @@ public class HomeApplication extends Application implements Application.Activity
     public void onCreate() {
         super.onCreate();
 
-        Logger.debug("app starting..");
-
         application = this;
+        Realm.init(this);
 
         if (isOnMainProcess()) {
             initFresco();
             initSopHix();
+            CrashHandler.instance().init();
         }
     }
+
 
     /**
      * 初始化Fresco
@@ -100,7 +104,7 @@ public class HomeApplication extends Application implements Application.Activity
         return "";
     }
 
-    private final static String PROCESS_NAME = "com.example.anxiao.mytestapplication";
+    private final static String PROCESS_NAME = "com.example.testapp";
 
     public boolean isOnMainProcess() {
         int pid = Process.myPid();

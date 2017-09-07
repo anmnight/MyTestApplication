@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import com.example.anxiao.mytestapplication.R;
 import com.example.anxiao.mytestapplication.app.Logger;
 import com.example.anxiao.mytestapplication.app.TableRecycleView;
+import com.example.anxiao.mytestapplication.app.ToastUnit;
 import com.example.anxiao.mytestapplication.app.WaitingDialog;
 import com.example.anxiao.mytestapplication.lesson_android.roomstatus.NextLineLayoutManger;
 import com.example.anxiao.mytestapplication.lesson_android.roomstatus.ResponseRoomTypes;
@@ -120,38 +121,17 @@ public class RoomStatusActivity extends AppCompatActivity {
 
                 mAdapter.setDates(roomList);
             }
+
+            @Override
+            public void onErr(Exception e) {
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+                ToastUnit.sortToase(e.getMessage());
+            }
+
+
         });
 
-    }
-
-
-    //    @Override
-//    public boolean dispatchTouchEvent(MotionEvent event) {
-//
-////        Logger.err("dispatchTouchEvent : " + (event.getAction() == MotionEvent.ACTION_MOVE));
-////
-////        if (event.getAction() == MotionEvent.ACTION_MOVE) {
-////            return false;
-////        } else {
-////            return true;
-////        }
-//
-//
-//        return true;
-//
-//    }
-//
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-
-        Logger.info("fire");
-
-        if (event.getAction() == MotionEvent.ACTION_MOVE) {
-            Logger.info("X : " + event.getX() + ",Y : " + event.getY());
-        }
-
-        roomList.scrollBy(0, (int) event.getRawY());
-
-        return true;
     }
 }
