@@ -6,6 +6,9 @@ import android.view.WindowManager;
 
 import com.example.anxiao.mytestapplication.app.HomeApplication;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
+
 /**
  * Created by anxiao on 2017/8/9.
  * 屏幕相关参数
