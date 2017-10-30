@@ -38,7 +38,7 @@ public class ThumbActivity extends AppCompatActivity {
         final SimpleDraweeView view = (SimpleDraweeView) findViewById(R.id.thumb_img);
 
 
-        ImageUnit.showThumb(Uri.fromFile(new File(path)), view, DisPlayUnit.devicesDisPlay().widthPixels, DisPlayUnit.devicesDisPlay().heightPixels - DisPlayUnit.dip2px(60));
+        ImageUnit.INSTANCE.showThumb(Uri.fromFile(new File(path)), view, DisPlayUnit.INSTANCE.devicesDisPlay().widthPixels, DisPlayUnit.INSTANCE.devicesDisPlay().heightPixels - DisPlayUnit.INSTANCE.dip2px(60));
         final RoundingParams roundingParams = RoundingParams.asCircle();
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.img_type);

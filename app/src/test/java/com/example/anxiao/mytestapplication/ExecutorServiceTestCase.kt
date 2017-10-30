@@ -14,7 +14,8 @@ class ExecutorServiceTestCase {
 
     private val mExecutor = Executors.newSingleThreadExecutor()
 
-    @Test fun runableTestCase(){
+    @Test
+    fun runableTestCase(){
 
         val futureTask = FutureTask<Int>(
                 Callable<Int> {

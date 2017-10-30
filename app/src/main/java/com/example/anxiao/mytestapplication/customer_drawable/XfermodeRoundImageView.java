@@ -37,7 +37,7 @@ public class XfermodeRoundImageView extends AppCompatImageView {
         int width = canvas.getWidth() - getPaddingLeft() - getPaddingRight();
         int height = canvas.getHeight() - getPaddingTop() - getPaddingBottom();
         Bitmap bitmap = drawable2Bitmap(getDrawable());
-        canvas.drawBitmap(bitmapToCircleBitmap(bitmap, Math.min(width, height) / 2), getPaddingLeft(), getPaddingTop(), null);
+        canvas.drawBitmap(bitmapToCircleBitmap(bitmap, Math.min(width, height) / 2), 100, getPaddingTop(), null);
     }
 
 

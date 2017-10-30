@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.anxiao.mytestapplication.jsheighway.HeightWayWebView">
+    tools:context="com.example.anxiao.mytestapplication.customer_drawable.CustomerViewTestActivity">
 
-    <WebView
-        android:id="@+id/webview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <com.example.anxiao.mytestapplication.customer_drawable.CustomerView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
+
 </LinearLayout>

@@ -17,7 +17,7 @@ public class XfermodeRoundImageActivity extends AppCompatActivity {
 
         XfermodeRoundImageView imageView = (XfermodeRoundImageView) findViewById(R.id.xfermode_image);
         ViewGroup.LayoutParams params = imageView.getLayoutParams();
-        params.width = DisPlayUnit.devicesDisPlay().widthPixels;
+        params.width = DisPlayUnit.INSTANCE.devicesDisPlay().widthPixels;
         imageView.setLayoutParams(params);
 
         imageView.setImageResource(R.mipmap.gal);

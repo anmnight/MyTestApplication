@@ -73,7 +73,7 @@ public class ExampleUnitTest {
 
 
         //small->big
-        // TODO: 2017/9/1 快速排序 
+        // TODO: 2017/9/1 快速排序
         for (int j = 0; j < arr.length; j++) {
             for (int k = 0; k < arr.length - j - 1; k++) {
                 if (arr[k] > arr[k + 1]) {

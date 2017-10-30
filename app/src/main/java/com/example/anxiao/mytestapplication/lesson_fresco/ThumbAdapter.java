@@ -35,7 +35,7 @@ public class ThumbAdapter extends RecyclerView.Adapter<ThumbAdapter.ThumbVH> {
     public ThumbAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
         this.mCtx = context;
-        mImageLength = DisPlayUnit.devicesDisPlay().widthPixels / 2;
+        mImageLength = DisPlayUnit.INSTANCE.devicesDisPlay().widthPixels / 2;
     }
 
     public void setDates(List<String> list) {
@@ -53,7 +53,7 @@ public class ThumbAdapter extends RecyclerView.Adapter<ThumbAdapter.ThumbVH> {
 
     @Override
     public void onBindViewHolder(ThumbVH holder, int position) {
-        ImageUnit.showThumb(Uri.fromFile(new File(mListImgs.get(position))), holder.imgView, mImageLength, mImageLength);
+        ImageUnit.INSTANCE.showThumb(Uri.fromFile(new File(mListImgs.get(position))), holder.imgView, mImageLength, mImageLength);
         holder.path = mListImgs.get(position);
     }
 

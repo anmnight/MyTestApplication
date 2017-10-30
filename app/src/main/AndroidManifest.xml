@@ -89,11 +89,13 @@
             android:name=".lesson_android.realm_test.RealmTestActivity"
             android:label="@string/title_activity_realm_test"
             android:theme="@style/HomeTheme" />
-        <activity android:name=".jsheighway.HeightWayWebView" />
+        <activity
+            android:name=".lesson_java.ExecutorTest"
+            android:theme="@style/HomeTheme" />
         <activity
             android:name=".lesson_java.ExecutorServiceTest"
-            android:label="@string/title_activity_executor_service_test"
-            android:theme="@style/HomeTheme"></activity>
+            android:theme="@style/HomeTheme" />
+        <activity android:name=".customer_drawable.CustomerViewTestActivity"></activity>
     </application>
 
 </manifest>

@@ -22,9 +22,9 @@ class ExecutorServiceTest : AppCompatActivity() {
         val mFutureTask2 = FutureTask<Int>(Callable<Int> { 456 })
         val mFutureTask3 = FutureTask<Int>(Callable<Int> { 789 })
 
-        mExecutorService.submit { mFutureTask1 }
-        mExecutorService.submit { mFutureTask2 }
-        mExecutorService.submit { mFutureTask3 }
+        mExecutorService.submit (mFutureTask1)
+        mExecutorService.submit (mFutureTask2)
+        mExecutorService.submit (mFutureTask3)
 
         Logger.debug(mFutureTask1.get())
         Logger.debug(mFutureTask2.get())
