@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 26
@@ -40,10 +41,10 @@ android {
 
 
 repositories {
-        maven {
-            url "http://maven.aliyun.com/nexus/content/repositories/releases"
-        }
-        mavenCentral()
+    maven {
+        url "http://maven.aliyun.com/nexus/content/repositories/releases"
+    }
+    mavenCentral()
     google()
 }
 
@@ -54,12 +55,12 @@ dependencies {
     })
 
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
-    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
-    compile 'com.jakewharton:butterknife:8.6.0'
-    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
+    compile "com.android.support:recyclerview-v7:$android_support"
+    compile "com.android.support:appcompat-v7:$android_support"
+    compile "com.android.support:cardview-v7:$android_support"
+    compile "com.android.support:design:$android_support"
     compile 'com.aliyun.ams:alicloud-android-hotfix:3.0.2'
-    compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'com.jakewharton:butterknife:8.6.0'
     compile 'com.amap.api:search:5.2.1'
     compile 'com.amap.api:location:3.4.1'
     compile 'com.amap.api:3dmap:5.2.1'
