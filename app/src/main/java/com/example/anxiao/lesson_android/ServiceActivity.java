@@ -1,4 +1,4 @@
-package com.example.anxiao.lesson_java;
+package com.example.anxiao.lesson_android;
 
 import android.content.ComponentName;
 import android.content.Context;

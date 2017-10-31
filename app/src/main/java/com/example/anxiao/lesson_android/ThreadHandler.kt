@@ -1,4 +1,4 @@
-package com.example.anxiao.mytestapplication.lesson_java
+package com.example.anxiao.lesson_android
 
 import android.os.*
 import android.support.v7.app.AppCompatActivity

@@ -59,14 +59,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.anxiao.lesson_fresco.FrescoActivity"
-            android:label="@string/title_activity_fresco" />
-        <activity android:name="com.example.anxiao.lesson_fresco.ThumbActivity" />
         <activity android:name="com.example.anxiao.customer_drawable.RoundImageActivity" />
-        <activity android:name=".lesson_java.ThreadHandler" />
+        <activity android:name="com.example.anxiao.lesson_android.ThreadHandler" />
         <activity
-            android:name="com.example.anxiao.lesson_java.ServiceActivity"
+            android:name="com.example.anxiao.lesson_android.ServiceActivity"
             android:label="@string/title_activity_service" />
 
         <service
@@ -90,12 +86,26 @@
             android:label="@string/title_activity_realm_test"
             android:theme="@style/HomeTheme" />
         <activity
-            android:name=".lesson_java.ExecutorTest"
+            android:name="com.example.anxiao.lesson_android.ExecutorTest"
             android:theme="@style/HomeTheme" />
         <activity
-            android:name=".lesson_java.ExecutorServiceTest"
+            android:name="com.example.anxiao.lesson_android.ExecutorServiceTest"
             android:theme="@style/HomeTheme" />
-        <activity android:name=".customer_drawable.CustomerViewTestActivity"></activity>
+        <activity android:name=".customer_drawable.CustomerViewTestActivity" />
+
+        <service
+            android:name="com.example.anxiao.lesson_android_aidl.MyIntentService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.anmnight.aidl.service"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.example.anxiao.lesson_android_aidl.TestAIDLActivity"
+            android:label="@string/title_activity_test"
+            android:theme="@style/HomeTheme"/>
     </application>
 
 </manifest>

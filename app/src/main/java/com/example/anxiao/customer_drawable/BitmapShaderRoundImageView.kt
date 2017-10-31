@@ -10,27 +10,24 @@ import android.util.AttributeSet
 class BitmapShaderRoundImageView : AppCompatImageView {
 
     constructor(context: Context) : super(context)
-
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
+    private var mPaint:Paint = Paint()
 
     override fun onDraw(canvas: Canvas?) {
-        val oBitmap = drawable2Bitmap(drawable)
-        val paint = Paint()
-        val shader = BitmapShader(oBitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP)
-        paint.shader = shader
-        canvas!!.drawCircle(200F, 200F, 200F,paint)
+        mPaint.shader = drawable2BitmapShader(drawable)
+        canvas!!.drawCircle(200F, 200F, 200F, mPaint)
     }
 
 
-    private fun drawable2Bitmap(drawable: Drawable): Bitmap {
+    private fun drawable2BitmapShader(drawable: Drawable): BitmapShader {
         if (drawable is BitmapDrawable) {
-            return drawable.bitmap
+            return BitmapShader(drawable.bitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP)
         }
         val bitmap = Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
         drawable.setBounds(0, 0, canvas.width, canvas.height)
         drawable.draw(canvas)
-        return bitmap
+        return BitmapShader(bitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP)
     }
 }
