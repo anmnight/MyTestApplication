@@ -95,7 +95,8 @@
 
         <service
             android:name="com.example.anxiao.lesson_android_aidl.MyIntentService"
-            android:exported="true">
+            android:exported="true"
+            android:process=":remote">
             <intent-filter>
                 <action android:name="com.anmnight.aidl.service"/>
                 <category android:name="android.intent.category.DEFAULT"/>

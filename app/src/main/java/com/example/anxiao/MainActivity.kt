@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import com.example.anxiao.mytestapplication.customer_drawable.CustomerViewTestActivity
 import com.example.anxiao.customer_drawable.RoundImageActivity
 import com.example.anxiao.lesson_android.*
+import com.example.anxiao.lesson_android_aidl.MyIntentService
 import com.example.anxiao.lesson_android_aidl.TestAIDLActivity
 import com.example.anxiao.lesson_gaodemap.BaseMapView
 import com.example.anxiao.lesson_java.ListIterator
@@ -38,8 +39,14 @@ class MainActivity : AppCompatActivity() {
         itemList.add(MainListItemBean(ThreadHandler::class.java, "HandlerThread"))
         itemList.add(MainListItemBean(ExecutorServiceTest::class.java, "ExecutorServiceTest"))
         itemList.add(MainListItemBean(CustomerViewTestActivity::class.java, "CustomerViewTestActivity"))
-        itemList.add(MainListItemBean(TestAIDLActivity::class.java,"AIDLActivity"))
+        itemList.add(MainListItemBean(TestAIDLActivity::class.java, "AIDLActivity"))
 
         adapter.setDates(itemList)
+
+
+        val intent = Intent()
+        intent.action = "com.anmnight.aidl.service"
+        startService(intent)
+
     }
 }

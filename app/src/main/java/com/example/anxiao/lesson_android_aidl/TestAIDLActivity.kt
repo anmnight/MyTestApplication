@@ -1,17 +1,13 @@
 package com.example.anxiao.lesson_android_aidl
 
-import android.app.Service
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 import com.example.anxiao.app.Logger
-import com.example.anxiao.app.ToastUnit
 import com.example.anxiao.mytestapplication.R
 
 import kotlinx.android.synthetic.main.activity_aidl_test.*
@@ -26,13 +22,17 @@ class TestAIDLActivity : AppCompatActivity() {
         fab.setOnClickListener {
             val intent = Intent()
             intent.action = "com.anmnight.aidl.service"
-            bindService(intent,mBind, Context.BIND_AUTO_CREATE)
-//            startService(intent)
-
+            bindService(intent, conn, Context.BIND_AUTO_CREATE)
         }
     }
 
-    private val mBind = object :ServiceConnection{
+    override fun onDestroy() {
+        super.onDestroy()
+        Logger.debug("Activity onDestroy")
+        unbindService(conn)
+    }
+
+    private val conn = object : ServiceConnection {
         override fun onServiceDisconnected(p0: ComponentName?) {
 
         }
@@ -44,9 +44,9 @@ class TestAIDLActivity : AppCompatActivity() {
 
     }
 
-    val action = object : ITestAction.Stub(){
+    val action = object : ITestAction.Stub() {
         override fun nowTime(timeSeed: Long) {
-           Logger.info("Time : " + timeSeed)
+            Logger.info("Time : " + timeSeed)
         }
     }
 
