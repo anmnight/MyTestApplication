@@ -16,7 +16,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-        android:name=".app.HomeApplication"
+        android:name="com.example.anxiao.app.HomeApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -40,16 +40,16 @@
             android:name="com.amap.api.v2.apikey"
             android:value="658113e9bbb37fab156cebc70c9ea45e" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.anxiao.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".lesson_java.ListIterator" />
+        <activity android:name="com.example.anxiao.lesson_java.ListIterator" />
         <activity
-            android:name=".lesson_gaodemap.BaseMapView"
+            android:name="com.example.anxiao.lesson_gaodemap.BaseMapView"
             android:label="@string/title_activity_base_map_view">
             <intent-filter>
                 <action android:name="com.example.anxiao.mytestapplication.TESTMAP" />
@@ -60,33 +60,33 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".lesson_fresco.FrescoActivity"
+            android:name="com.example.anxiao.lesson_fresco.FrescoActivity"
             android:label="@string/title_activity_fresco" />
-        <activity android:name=".lesson_fresco.ThumbActivity" />
-        <activity android:name=".customer_drawable.XfermodeRoundImageActivity" />
+        <activity android:name="com.example.anxiao.lesson_fresco.ThumbActivity" />
+        <activity android:name="com.example.anxiao.customer_drawable.RoundImageActivity" />
         <activity android:name=".lesson_java.ThreadHandler" />
         <activity
-            android:name=".lesson_java.ServiceActivity"
+            android:name="com.example.anxiao.lesson_java.ServiceActivity"
             android:label="@string/title_activity_service" />
 
         <service
-            android:name=".lesson_android.MyApplicationService"
+            android:name="com.example.anxiao.lesson_android.MyApplicationService"
             android:enabled="true"
             android:exported="true"
             android:process=":remote" />
         <service
-            android:name=".lesson_android.MyBindService"
+            android:name="com.example.anxiao.lesson_android.MyBindService"
             android:exported="false" />
 
         <activity
-            android:name=".lesson_android.ScrollFlagActivity"
+            android:name="com.example.anxiao.lesson_android.ScrollFlagActivity"
             android:label="@string/title_activity_scoll_flag" />
         <activity
-            android:name=".lesson_android.RoomStatusActivity"
+            android:name="com.example.anxiao.lesson_android.RoomStatusActivity"
             android:label="@string/title_activity_room_status"
             android:theme="@style/HomeTheme" />
         <activity
-            android:name=".lesson_android.realm_test.RealmTestActivity"
+            android:name="com.example.anxiao.lesson_android.realm_test.RealmTestActivity"
             android:label="@string/title_activity_realm_test"
             android:theme="@style/HomeTheme" />
         <activity

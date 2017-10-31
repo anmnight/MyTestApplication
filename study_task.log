@@ -1,13 +1,13 @@
-view 绘制流程
+>view 绘制流程
 断点下载
 AIDL
 service START_STICKY
 双service唤醒
 性能优化
-闹钟开始定时任务
 设计模式
 JAVA垃圾回收机制
-线程调度
+*线程调度
+*闹钟开始定时任务
 http://blog.csdn.net/xhmj12/article/details/54730883
 
 

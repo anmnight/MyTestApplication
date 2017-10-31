@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:baselineAligned="false"
     android:orientation="vertical"
-    tools:context="com.example.anxiao.mytestapplication.lesson_fresco.ThumbActivity"
+    tools:context="com.example.anxiao.mytestapplication.com.example.anxiao.lesson_fresco.ThumbActivity"
     tools:ignore="HardcodedText">
 
     <com.facebook.drawee.view.SimpleDraweeView

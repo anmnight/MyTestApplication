@@ -1,7 +1,7 @@
 package http;
 
-import com.example.anxiao.mytestapplication.lesson_android.roomstatus.ResponseRoomTypes;
-import com.example.anxiao.mytestapplication.lesson_android.roomstatus.RoomStatusModel;
+import com.example.anxiao.lesson_android.roomstatus.ResponseRoomTypes;
+import com.example.anxiao.lesson_android.roomstatus.RoomStatusModel;
 
 import java.util.List;
 
