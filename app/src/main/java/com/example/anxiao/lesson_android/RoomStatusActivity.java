@@ -5,7 +5,17 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.ScrollView;
 
+import com.example.anxiao.app.Logger;
+import com.example.anxiao.lesson_android.roomstatus.OberverScrollView;
+import com.example.anxiao.lesson_android.roomstatus.RoomNunAdapter;
 import com.example.anxiao.mytestapplication.R;
 import com.example.anxiao.app.TableRecycleView;
 import com.example.anxiao.app.ToastUnit;
@@ -16,12 +26,10 @@ import com.example.anxiao.lesson_android.roomstatus.RoomListAdapter;
 import com.example.anxiao.lesson_android.roomstatus.RoomStatusListModel;
 import com.example.anxiao.lesson_android.roomstatus.RoomStatusModel;
 import com.example.anxiao.lesson_http.ExceptionRunable;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import http.RestClient;
@@ -33,6 +41,12 @@ public class RoomStatusActivity extends AppCompatActivity {
 
     @BindView(R.id.room_list)
     TableRecycleView roomList;
+    @BindView(R.id.room_num)
+    ListView roomNum;
+    @BindView(R.id.v_scroll_view)
+    OberverScrollView vScrollView;
+
+
     final private String HTTPTHREAD = "http_thread";
     private Handler mDoHttpHandler;
     RoomListAdapter mAdapter;
@@ -53,12 +67,28 @@ public class RoomStatusActivity extends AppCompatActivity {
         httpThread.start();
         mDoHttpHandler = new Handler(httpThread.getLooper());
 
-
         loadRoomStatus();
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this,
+                R.layout.room_name_layout,
+                R.id.room_num);
 
+        roomNum.setAdapter(adapter);
+
+        List<String> temp = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            temp.add(String.valueOf(i));
+        }
+        adapter.addAll(temp);
+
+        vScrollView.setListener(new OberverScrollView.ScrollListener() {
+            @Override
+            public void onYChange(int y) {
+                roomNum.scrollBy(0, y);
+            }
+        });
     }
-
 
     private void loadRoomStatus() {
 
@@ -131,4 +161,5 @@ public class RoomStatusActivity extends AppCompatActivity {
         });
 
     }
+
 }
