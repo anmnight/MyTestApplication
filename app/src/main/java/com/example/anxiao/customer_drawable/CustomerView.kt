@@ -1,6 +1,5 @@
-package com.example.anxiao.mytestapplication.customer_drawable
+package com.example.anxiao.customer_drawable
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet

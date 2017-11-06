@@ -7,9 +7,9 @@
     tools:context="com.example.anxiao.customer_drawable.CustomerViewTestActivity"
     android:orientation="vertical">
 
-    <com.example.anxiao.mytestapplication.customer_drawable.CustomerView
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
+    <com.example.anxiao.customer_drawable.CustomerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <ImageView
         android:id="@+id/frame_anim"
