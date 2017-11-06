@@ -2,10 +2,7 @@ package com.example.anxiao.mytestapplication.customer_drawable
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.PorterDuff
+import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import unit.DisPlayUnit
@@ -39,7 +36,7 @@ class CustomerView : View {
 
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
         mPaint.color = Color.BLUE
@@ -47,7 +44,12 @@ class CustomerView : View {
         mPaint.strokeCap = Paint.Cap.ROUND
         mPaint.strokeWidth = 3F
 
-        canvas!!.drawCircle(200F, 200F, 100F, mPaint)
+        val top:Float = ((DisPlayUnit.devicesDisPlay().heightPixels-mHeight)/2).toFloat()
+        val left:Float = ((DisPlayUnit.devicesDisPlay().widthPixels-mWidth)/2).toFloat()
+        val bottom:Float = top+mHeight
+        val right:Float = left+mWidth
+
+        canvas.drawRect(top,left,bottom,right,mPaint)
 
     }
 }

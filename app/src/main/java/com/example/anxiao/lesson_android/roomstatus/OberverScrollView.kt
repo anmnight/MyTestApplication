@@ -15,7 +15,7 @@ class OberverScrollView : ScrollView {
 
     override fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
         super.onScrollChanged(l, t, oldl, oldt)
-        mListener?.onYChange(t - oldt)
+        mListener.onYChange(t - oldt)
     }
 
     lateinit var mListener: ScrollListener
