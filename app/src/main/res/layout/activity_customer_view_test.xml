@@ -7,13 +7,10 @@
     tools:context="com.example.anxiao.customer_drawable.CustomerViewTestActivity"
     android:orientation="vertical">
 
-    <com.example.anxiao.customer_drawable.CustomerView
+    <com.example.anxiao.customer_drawable.CustomerPrepareView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <ImageView
-        android:id="@+id/frame_anim"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/gal"/>
 
 </LinearLayout>
