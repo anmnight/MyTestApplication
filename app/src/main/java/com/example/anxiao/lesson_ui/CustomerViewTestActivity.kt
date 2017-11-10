@@ -1,4 +1,4 @@
-package com.example.anxiao.customer_drawable
+package com.example.anxiao.lesson_ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

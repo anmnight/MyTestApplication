@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.anxiao.customer_drawable.CustomerViewTestActivity"
+    tools:context="com.example.anxiao.lesson_ui.CustomerViewTestActivity"
     android:orientation="vertical">
 
-    <com.example.anxiao.customer_drawable.CustomerPrepareView
+    <com.example.anxiao.lesson_ui.CustomerPrepareView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
