@@ -1,14 +1,14 @@
-package com.example.anxiao
+package com.example.testapp
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import com.example.anxiao.lesson_ui.CustomerViewTestActivity
-import com.example.anxiao.lesson_ui.RoundImageActivity
-import com.example.anxiao.lesson_android.*
-import com.example.anxiao.lesson_android_aidl.TestAIDLActivity
-import com.example.anxiao.mytestapplication.R
+import com.example.testapp.lesson_ui.CustomerViewTestActivity
+import com.example.testapp.lesson_ui.RoundImageActivity
+import com.example.testapp.lesson_android.*
+import com.example.testapp.lesson_android_aidl.TestAIDLActivity
+import com.example.testapp.mytestapplication.R
 import java.util.ArrayList
 import kotlinx.android.synthetic.main.activity_main.*
 

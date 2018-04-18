@@ -1,9 +1,8 @@
-package com.example.anxiao.lesson_android.roomstatus
+package com.example.testapp.lesson_android.roomstatus
 
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.ScrollView
-import java.util.jar.Attributes
 
 
 class OberverScrollView : ScrollView {

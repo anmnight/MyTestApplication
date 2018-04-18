@@ -1,4 +1,4 @@
-package com.example.anxiao.lesson_android;
+package com.example.testapp.lesson_android;
 
 import android.app.Service;
 import android.content.Intent;
@@ -7,8 +7,8 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
 
-import com.example.anxiao.app.HomeApplication;
-import com.example.anxiao.app.Logger;
+import com.example.testapp.app.HomeApplication;
+import com.example.testapp.app.Logger;
 
 public class MyApplicationService extends Service {
     public MyApplicationService() {

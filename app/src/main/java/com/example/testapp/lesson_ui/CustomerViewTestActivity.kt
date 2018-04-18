@@ -1,8 +1,8 @@
-package com.example.anxiao.lesson_ui
+package com.example.testapp.lesson_ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.example.anxiao.mytestapplication.R
+import com.example.testapp.mytestapplication.R
 
 class CustomerViewTestActivity : AppCompatActivity() {
 

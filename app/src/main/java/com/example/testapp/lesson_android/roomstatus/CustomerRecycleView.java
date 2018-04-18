@@ -1,4 +1,4 @@
-package com.example.anxiao.lesson_android.roomstatus;
+package com.example.testapp.lesson_android.roomstatus;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

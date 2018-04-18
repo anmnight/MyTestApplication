@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.anxiao.mytestapplication.com.example.anxiao.lesson_gaodemap.BaseMapView"
+    tools:context="com.example.testapp.mytestapplication.com.example.anxiao.lesson_gaodemap.BaseMapView"
     tools:showIn="@layout/activity_base_map_view">
 
     <com.amap.api.maps.MapView

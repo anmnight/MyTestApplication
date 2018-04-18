@@ -1,9 +1,9 @@
-package com.example.anxiao.lesson_android
+package com.example.testapp.lesson_android
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.example.anxiao.mytestapplication.R
-import com.example.anxiao.app.Logger
+import com.example.testapp.mytestapplication.R
+import com.example.testapp.app.Logger
 import kotlinx.android.synthetic.main.activity_executor_service_test.*
 import java.util.concurrent.Callable
 import java.util.concurrent.ExecutorService

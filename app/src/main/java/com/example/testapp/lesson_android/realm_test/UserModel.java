@@ -1,4 +1,4 @@
-package com.example.anxiao.lesson_android.realm_test;
+package com.example.testapp.lesson_android.realm_test;
 
 public class UserModel {
 

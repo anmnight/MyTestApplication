@@ -1,9 +1,9 @@
-package com.example.anxiao.lesson_android.realm_test;
+package com.example.testapp.lesson_android.realm_test;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import com.example.anxiao.mytestapplication.R;
+import com.example.testapp.mytestapplication.R;
 
 public class RealmTestActivity extends AppCompatActivity {
 

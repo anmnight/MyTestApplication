@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.DisplayMetrics
 import android.view.WindowManager
 
-import com.example.anxiao.app.HomeApplication
+import com.example.testapp.app.HomeApplication
 
 /**
  * Created by anxiao on 2017/8/9.

@@ -1,4 +1,4 @@
-package com.example.anxiao.lesson_android.roomstatus
+package com.example.testapp.lesson_android.roomstatus
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.anxiao.mytestapplication.R
+import com.example.testapp.mytestapplication.R
 import kotlinx.android.synthetic.main.room_name_layout.view.*
 
 class RoomNunAdapter(context: Context) : RecyclerView.Adapter<RoomNunAdapter.ViewHolder>() {

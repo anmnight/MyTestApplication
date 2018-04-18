@@ -1,4 +1,4 @@
-package com.example.anxiao.lesson_ui
+package com.example.testapp.lesson_ui
 
 import android.content.Context
 import android.graphics.*
@@ -6,7 +6,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.widget.ImageView
-import com.example.anxiao.app.Logger
+import com.example.testapp.app.Logger
 import unit.DisPlayUnit
 
 class CustomerPrepareView : ImageView {

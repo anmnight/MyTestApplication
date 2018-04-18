@@ -1,4 +1,4 @@
-package com.example.anxiao.mytestapplication.customer_drawable
+package com.example.testapp.mytestapplication.customer_drawable
 
 import android.content.Context
 

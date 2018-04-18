@@ -5,7 +5,7 @@
  创建时间 : 2015/4/8
  说明     : 等待框的dialog
  ****************/
-package com.example.anxiao.app;
+package com.example.testapp.app;
 
 import android.app.ProgressDialog;
 import android.content.Context;

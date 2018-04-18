@@ -1,6 +1,6 @@
-package com.example.anxiao
+package com.example.testapp
 
-import com.example.anxiao.app.Logger
+import com.example.testapp.app.Logger
 import org.junit.Test
 import java.util.concurrent.Callable
 import java.util.concurrent.Executors

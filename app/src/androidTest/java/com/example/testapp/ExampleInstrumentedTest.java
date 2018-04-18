@@ -1,4 +1,4 @@
-package com.example.anxiao;
+package com.example.testapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

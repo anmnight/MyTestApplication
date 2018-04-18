@@ -1,10 +1,10 @@
-package com.example.anxiao.lesson_android_aidl
+package com.example.testapp.lesson_android_aidl
 
 import android.app.IntentService
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import com.example.anxiao.app.Logger
+import com.example.testapp.app.Logger
 import java.util.*
 
 /**

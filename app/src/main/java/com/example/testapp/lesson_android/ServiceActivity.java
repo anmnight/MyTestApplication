@@ -1,4 +1,4 @@
-package com.example.anxiao.lesson_android;
+package com.example.testapp.lesson_android;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -10,10 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import com.example.anxiao.app.Logger;
-import com.example.anxiao.mytestapplication.R;
-import com.example.anxiao.lesson_android.MyApplicationService;
-import com.example.anxiao.lesson_android.MyBindService;
+import com.example.testapp.app.Logger;
+import com.example.testapp.mytestapplication.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

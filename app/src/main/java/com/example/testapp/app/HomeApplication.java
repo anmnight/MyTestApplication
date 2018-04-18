@@ -1,4 +1,4 @@
-package com.example.anxiao.app;
+package com.example.testapp.app;
 
 import android.app.Activity;
 import android.app.ActivityManager;

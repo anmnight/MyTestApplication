@@ -1,4 +1,4 @@
-package com.example.anxiao.app
+package com.example.testapp.app
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView

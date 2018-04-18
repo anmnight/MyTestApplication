@@ -1,8 +1,8 @@
-package com.example.anxiao.lesson_android;
+package com.example.testapp.lesson_android;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import com.example.anxiao.mytestapplication.R;
+import com.example.testapp.mytestapplication.R;
 
 public class ScrollFlagActivity extends AppCompatActivity {
 

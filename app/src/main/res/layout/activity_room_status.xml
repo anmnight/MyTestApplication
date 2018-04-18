@@ -10,7 +10,7 @@
         android:layout_height="wrap_content" />
 
 
-    <com.example.anxiao.lesson_android.roomstatus.OberverScrollView
+    <com.example.testapp.lesson_android.roomstatus.OberverScrollView
         android:id="@+id/v_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -19,13 +19,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.example.anxiao.app.TableRecycleView
+            <com.example.testapp.app.TableRecycleView
                 android:id="@+id/room_list"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
         </HorizontalScrollView>
 
-    </com.example.anxiao.lesson_android.roomstatus.OberverScrollView>
+    </com.example.testapp.lesson_android.roomstatus.OberverScrollView>
 
 
 </LinearLayout>

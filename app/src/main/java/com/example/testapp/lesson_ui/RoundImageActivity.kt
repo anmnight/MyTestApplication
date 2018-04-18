@@ -1,9 +1,9 @@
-package com.example.anxiao.lesson_ui
+package com.example.testapp.lesson_ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.example.anxiao.mytestapplication.R
-import com.example.anxiao.mytestapplication.customer_drawable.XfermodeRoundImageView
+import com.example.testapp.mytestapplication.R
+import com.example.testapp.mytestapplication.customer_drawable.XfermodeRoundImageView
 import kotlinx.android.synthetic.main.activity_round_image.*
 import unit.DisPlayUnit
 

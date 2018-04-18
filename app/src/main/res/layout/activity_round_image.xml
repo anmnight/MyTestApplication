@@ -6,15 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.anxiao.lesson_ui.RoundImageActivity">
+    tools:context="com.example.testapp.lesson_ui.RoundImageActivity">
 
 
-    <com.example.anxiao.mytestapplication.customer_drawable.XfermodeRoundImageView
+    <com.example.testapp.mytestapplication.customer_drawable.XfermodeRoundImageView
         android:id="@+id/xfermode_image"
         android:layout_width="200dp"
         android:layout_height="200dp"/>
 
-    <com.example.anxiao.lesson_ui.BitmapShaderRoundImageView
+    <com.example.testapp.lesson_ui.BitmapShaderRoundImageView
         android:id="@+id/bitmapshader_img"
         android:layout_width="200dp"
         android:layout_height="200dp"/>

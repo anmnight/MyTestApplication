@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.anxiao.mytestapplication.com.example.anxiao.lesson_java.ListIterator">
+    tools:context="com.example.testapp.mytestapplication.com.example.anxiao.lesson_java.ListIterator">
 
 </LinearLayout>

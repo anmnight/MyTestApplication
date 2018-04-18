@@ -1,4 +1,4 @@
-package com.example.anxiao.lesson_android.roomstatus;
+package com.example.testapp.lesson_android.roomstatus;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.anxiao.mytestapplication.R;
+import com.example.testapp.mytestapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
