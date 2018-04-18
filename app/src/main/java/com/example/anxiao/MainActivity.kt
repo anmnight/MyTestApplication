@@ -39,9 +39,9 @@ class MainActivity : AppCompatActivity() {
         adapter.setDates(itemList)
 
 
-        val intent = Intent()
-        intent.action = "com.anmnight.aidl.service"
-        startService(intent)
+//        val intent = Intent()
+//        intent.action = "com.anmnight.aidl.service"
+//        startService(intent)
 
     }
 }

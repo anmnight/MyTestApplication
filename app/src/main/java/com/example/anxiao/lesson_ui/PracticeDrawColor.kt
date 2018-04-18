@@ -12,16 +12,10 @@ import com.example.anxiao.mytestapplication.R
 class PracticeDrawColor : Fragment() {
 
     private var mListener: FragmentInteractionListener? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_practice_draw_color, container, false)
     }
-
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_practice_draw_color, container, false)
-    }
-
 
 
     override fun onAttach(context: Context?) {
@@ -37,7 +31,6 @@ class PracticeDrawColor : Fragment() {
         super.onDetach()
         mListener = null
     }
-
 
 
     companion object {
