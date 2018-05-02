@@ -1,6 +1,6 @@
 package com.example.testapp;
 
-class MainListItemBean {
+public class MainListItemBean {
     private Class<?> cls;
     private String describe;
 
