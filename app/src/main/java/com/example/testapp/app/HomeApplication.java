@@ -5,11 +5,12 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Looper;
 import android.os.Process;
 
 public class HomeApplication extends Application implements Application.ActivityLifecycleCallbacks {
 
-    private static HomeApplication application;
+    public static HomeApplication application;
 
     public static HomeApplication getInstance() {
         return application;
@@ -21,23 +22,16 @@ public class HomeApplication extends Application implements Application.Activity
 
         application = this;
 
+
         if (isOnMainProcess()) {
             CrashHandler.instance().init();
         }
     }
 
+    public boolean isMainThread(){
+        return Looper.getMainLooper()==Looper.myLooper();
+    }
 
-
-
-
-
-    /**
-     * 获取当前pid的进程名
-     *
-     * @param context
-     * @param pid
-     * @return
-     */
     private String getApplicationName(Context context, int pid) {
         ActivityManager manager = (ActivityManager) context.getSystemService(ACTIVITY_SERVICE);
         for (ActivityManager.RunningAppProcessInfo info : manager.getRunningAppProcesses()) {
@@ -48,11 +42,11 @@ public class HomeApplication extends Application implements Application.Activity
         return "";
     }
 
-    private final static String PROCESS_NAME = "com.example.testapp";
+    private final static String PROCESS_NAME = "com.anmnight.testapp";
 
     public boolean isOnMainProcess() {
         int pid = Process.myPid();
-        String process = getApplicationName(application, pid);
+        String process = getApplicationName(HomeApplication.this, pid);
         return process.isEmpty() || process.equalsIgnoreCase(PROCESS_NAME);
     }
 

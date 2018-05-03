@@ -1,7 +1,7 @@
 package http;
 
-import com.example.testapp.lesson_android.roomstatus.ResponseRoomTypes;
-import com.example.testapp.lesson_android.roomstatus.RoomStatusModel;
+import com.example.testapp.lesson_ui.roomstatus.ResponseRoomTypes;
+import com.example.testapp.lesson_ui.roomstatus.RoomStatusModel;
 
 import java.util.List;
 

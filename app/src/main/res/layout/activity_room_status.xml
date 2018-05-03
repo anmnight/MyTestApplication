@@ -10,7 +10,7 @@
         android:layout_height="wrap_content" />
 
 
-    <com.example.testapp.lesson_android.roomstatus.OberverScrollView
+    <com.example.testapp.lesson_ui.roomstatus.OberverScrollView
         android:id="@+id/v_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -25,7 +25,7 @@
                 android:layout_height="match_parent" />
         </HorizontalScrollView>
 
-    </com.example.testapp.lesson_android.roomstatus.OberverScrollView>
+    </com.example.testapp.lesson_ui.roomstatus.OberverScrollView>
 
 
 </LinearLayout>

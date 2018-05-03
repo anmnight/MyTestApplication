@@ -1,4 +1,4 @@
-package com.example.testapp.lesson_android.roomstatus;
+package com.example.testapp.lesson_ui.roomstatus;
 
 /**
  * Created by anxiao on 2017/9/1.

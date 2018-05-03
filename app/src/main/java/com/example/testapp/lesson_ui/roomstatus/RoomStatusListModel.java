@@ -1,4 +1,4 @@
-package com.example.testapp.lesson_android.roomstatus;
+package com.example.testapp.lesson_ui.roomstatus;
 
 import java.util.List;
 

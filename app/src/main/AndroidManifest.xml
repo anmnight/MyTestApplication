@@ -14,6 +14,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
 
     <application
         android:name="com.example.testapp.app.HomeApplication"
@@ -23,8 +25,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/HomeTheme">
-
-
         <activity android:name="com.example.testapp.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,49 +35,23 @@
         <activity android:name="com.example.testapp.lesson_ui.RoundImageActivity" />
         <activity android:name="com.example.testapp.lesson_android.ThreadHandler" />
         <activity
-            android:name="com.example.testapp.lesson_android.ServiceActivity"
-            android:label="@string/title_activity_service" />
-
-        <service
-            android:name="com.example.testapp.lesson_android.MyApplicationService"
-            android:enabled="true"
-            android:exported="true"
-            android:process=":remote" />
-        <service
-            android:name="com.example.testapp.lesson_android.MyBindService"
-            android:exported="false" />
-
-        <activity
-            android:name="com.example.testapp.lesson_android.ScrollFlagActivity"
+            android:name="com.example.testapp.lesson_ui.ScrollFlagActivity"
             android:label="@string/title_activity_scoll_flag" />
         <activity
-            android:name="com.example.testapp.lesson_android.RoomStatusActivity"
+            android:name="com.example.testapp.lesson_ui.RoomStatusActivity"
             android:label="@string/title_activity_room_status"
-            android:theme="@style/HomeTheme" />
-        <activity
-            android:name="com.example.testapp.lesson_android.realm_test.RealmTestActivity"
-            android:label="@string/title_activity_realm_test"
-            android:theme="@style/HomeTheme" />
-        <activity
-            android:name="com.example.testapp.lesson_android.ExecutorTest"
             android:theme="@style/HomeTheme" />
 
         <service
-            android:name="com.example.testapp.lesson_android_aidl.MyIntentService"
-            android:exported="true"
-            android:process=":remote">
-            <intent-filter>
-                <action android:name="com.anmnight.aidl.service" />
+            android:name="com.example.testapp.lesson_android.UiService"
+            android:exported="false" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
-
+        <activity android:name="com.example.testapp.lesson_ui.MomentRefreshLayout" />
         <activity
-            android:name="com.example.testapp.lesson_android_aidl.TestAIDLActivity"
-            android:label="@string/title_activity_test"
+            android:name="com.example.testapp.view.ServiceUiActivity"
+            android:label="@string/title_activity_service_ui"
             android:theme="@style/HomeTheme" />
-        <activity android:name="com.example.testapp.lesson_ui.MomentRefreshLayout"></activity>
+
     </application>
 
 </manifest>

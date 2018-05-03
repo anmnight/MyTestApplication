@@ -1,4 +1,4 @@
-package com.example.testapp.lesson_android.roomstatus
+package com.example.testapp.lesson_ui.roomstatus
 
 import android.content.Context
 import android.util.AttributeSet
