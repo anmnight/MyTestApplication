@@ -56,7 +56,11 @@ class MainActivity : AppCompatActivity() {
 
         adapter.setDates(itemList)
 
-        UiService.showDialog(this)
+
+
+        val thread = ThreadTest()
+        thread.testFutureTask()
+
     }
 
 
