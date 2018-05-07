@@ -7,7 +7,9 @@ import android.content.Intent
 import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
+import android.view.MotionEvent
 import android.view.View
+import com.example.testapp.app.Logger
 import com.example.testapp.lesson_android.UiService
 import com.example.testapp.mytestapplication.R
 
@@ -17,16 +19,6 @@ class ServiceUiActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_service_ui)
 
-
-    }
-
-
-    val listener = object :View.OnClickListener{
-        override fun onClick(p0: View?) {
-            when(p0?.id){
-
-            }
-        }
 
     }
 
@@ -46,5 +38,22 @@ class ServiceUiActivity : Activity() {
         }
 
     }
+
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+
+        Logger.err("Activity dispatchTouchEvent : ${super.dispatchTouchEvent(ev)}")
+
+        return false
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+
+        Logger.err("Activity onTouchEvent : ${super.onTouchEvent(event)}")
+
+        return true
+    }
+
+
 
 }

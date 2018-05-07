@@ -20,6 +20,7 @@ import com.example.testapp.lesson_ui.MomentRefreshLayout
 import com.example.testapp.lesson_ui.RoomStatusActivity
 import com.example.testapp.lesson_ui.ScrollFlagActivity
 import com.example.testapp.mytestapplication.R
+import com.example.testapp.view.ServiceUiActivity
 import java.util.ArrayList
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Thread.sleep
@@ -58,8 +59,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        val thread = ThreadTest()
-        thread.testFutureTask()
+        startActivity(Intent(this@MainActivity,ServiceUiActivity::class.java))
 
     }
 

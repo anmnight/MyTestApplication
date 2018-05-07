@@ -60,6 +60,7 @@ class UiService : IntentService("test") {
     override fun onCreate() {
         super.onCreate()
         Logger.info("onCreate")
+
     }
 
 
