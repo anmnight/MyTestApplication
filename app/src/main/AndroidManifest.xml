@@ -14,8 +14,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name="com.example.testapp.app.HomeApplication"
@@ -26,11 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/HomeTheme">
         <activity android:name="com.example.testapp.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="com.example.testapp.lesson_ui.RoundImageActivity" />
         <activity android:name="com.example.testapp.lesson_android.ThreadHandler" />
@@ -52,6 +47,20 @@
             android:label="@string/title_activity_service_ui"
             android:theme="@style/HomeTheme" />
 
+        <service
+            android:name="com.example.testapp.lesson_android.RemoteService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name="com.example.testapp.homeinns.rooms.RoomsActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

@@ -21,6 +21,8 @@ import com.example.testapp.lesson_ui.RoomStatusActivity
 import com.example.testapp.lesson_ui.ScrollFlagActivity
 import com.example.testapp.mytestapplication.R
 import com.example.testapp.view.ServiceUiActivity
+import http.RestClient
+import http.bean.LoginRequestBean
 import java.util.ArrayList
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Thread.sleep
@@ -45,25 +47,24 @@ class MainActivity : AppCompatActivity() {
         //require permission
 
 
-        test_list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        val adapter = MainListAdapter(this, action)
-        test_list.adapter = adapter
+//        test_list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+//        val adapter = MainListAdapter(this, action)
+//        test_list.adapter = adapter
+//
+//        itemList.add(MainListItemBean(RoundImageActivity::class.java, "CustomerImage"))
+//        itemList.add(MainListItemBean(ScrollFlagActivity::class.java, "ScrollFlagDemo"))
+//        itemList.add(MainListItemBean(RoomStatusActivity::class.java, "RoomStatusDemo"))
+//        itemList.add(MainListItemBean(ThreadHandler::class.java, "HandlerThread"))
+//        itemList.add(MainListItemBean(MomentRefreshLayout::class.java, "MomentRefreshLayout"))
+//
+//        adapter.setDates(itemList)
 
-        itemList.add(MainListItemBean(RoundImageActivity::class.java, "CustomerImage"))
-        itemList.add(MainListItemBean(ScrollFlagActivity::class.java, "ScrollFlagDemo"))
-        itemList.add(MainListItemBean(RoomStatusActivity::class.java, "RoomStatusDemo"))
-        itemList.add(MainListItemBean(ThreadHandler::class.java, "HandlerThread"))
-        itemList.add(MainListItemBean(MomentRefreshLayout::class.java, "MomentRefreshLayout"))
-
-        adapter.setDates(itemList)
 
 
 
-        startActivity(Intent(this@MainActivity,ServiceUiActivity::class.java))
+
 
     }
-
-
 
 
     /**

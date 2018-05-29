@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 27
@@ -61,7 +62,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.android.support:support-v4:$android_support"
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation "com.android.support:recyclerview-v7:$android_support"
@@ -73,6 +74,11 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit-adapters:2.3.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    //dagger2
+    implementation 'com.google.dagger:dagger:2.4'
+    kapt 'com.google.dagger:dagger-compiler:2.4'
+
 
 }
 

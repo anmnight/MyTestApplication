@@ -1,5 +1,6 @@
 package com.example.testapp.lesson_android
 
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
@@ -23,19 +24,18 @@ class ViewGroupTest : ViewGroup {
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+
     }
 
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         val count = childCount
 
-
     }
 
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-
 
     }
 
@@ -57,8 +57,6 @@ class ViewGroupTest : ViewGroup {
     override fun onTouchEvent(event: MotionEvent?): Boolean {
 
         Logger.info("onTouchEvent : ${super.onTouchEvent(event)}")
-
-        Toast.makeText(context,"onTouchEvent",Toast.LENGTH_SHORT).show()
 
         return true
     }
