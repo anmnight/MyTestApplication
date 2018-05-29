@@ -17,7 +17,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         return CrashHandlerHolder.crashHandler;
     }
 
-    public CrashHandler() {
+    CrashHandler() {
         HandlerThread thread = new HandlerThread("toast_thread");
         thread.start();
         mHandler = new Handler(thread.getLooper());
