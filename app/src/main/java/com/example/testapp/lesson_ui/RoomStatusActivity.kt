@@ -17,8 +17,6 @@ import com.example.testapp.lesson_ui.roomstatus.RoomStatusModel
 import java.text.SimpleDateFormat
 import java.util.ArrayList
 import java.util.Date
-import http.RestClient
-import http.bean.LoginRequestBean
 import kotlinx.android.synthetic.main.activity_room_status.*
 
 class RoomStatusActivity : AppCompatActivity() {

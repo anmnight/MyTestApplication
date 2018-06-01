@@ -1,4 +1,4 @@
-package com.example.testapp.homeinns.rooms
+package com.example.testapp.homeinns.rooms.data
 
 import com.example.testapp.homeinns.rooms.pojo.LoginBean
 
@@ -8,6 +8,6 @@ import com.example.testapp.homeinns.rooms.pojo.LoginBean
  * anmnight@qq.com
  */
 interface RoomModel {
-    fun login(login: LoginBean?)
+    fun login(login: LoginBean)
     fun loadRooms()
 }

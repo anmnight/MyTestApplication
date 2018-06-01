@@ -26,6 +26,8 @@
         android:theme="@style/HomeTheme">
         <activity android:name="com.example.testapp.MainActivity">
 
+
+
         </activity>
         <activity android:name="com.example.testapp.lesson_ui.RoundImageActivity" />
         <activity android:name="com.example.testapp.lesson_android.ThreadHandler" />

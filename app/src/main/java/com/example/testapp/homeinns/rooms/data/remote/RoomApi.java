@@ -6,9 +6,7 @@ import com.example.testapp.lesson_ui.roomstatus.RoomStatusModel;
 
 import java.util.List;
 
-import dagger.Module;
-import http.bean.LoginRequestBean;
-import http.bean.UserResponseBean;
+import com.example.testapp.homeinns.rooms.pojo.UserBean;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -24,7 +22,7 @@ import retrofit2.http.Query;
 public interface RoomApi {
 
     @POST("api/pmsaccount/login")
-    Call<UserResponseBean> login(
+    Call<UserBean> login(
             @Body LoginBean account);
 
     @GET("api/pms/data?url=api/v1/HotelRoom/GetQueryHotelRoomListJSON/X00105")
