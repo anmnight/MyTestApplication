@@ -1,6 +1,5 @@
 package com.example.testapp.lesson_ui
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
@@ -8,15 +7,9 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import com.example.testapp.lesson_ui.roomstatus.OberverScrollView
 import com.example.testapp.mytestapplication.R
-import com.example.testapp.app.ToastUnit
-import com.example.testapp.app.WaitingDialog
 import com.example.testapp.lesson_ui.roomstatus.NextLineLayoutManger
 import com.example.testapp.lesson_ui.roomstatus.RoomListAdapter
-import com.example.testapp.lesson_ui.roomstatus.RoomStatusListModel
-import com.example.testapp.lesson_ui.roomstatus.RoomStatusModel
-import java.text.SimpleDateFormat
 import java.util.ArrayList
-import java.util.Date
 import kotlinx.android.synthetic.main.activity_room_status.*
 
 class RoomStatusActivity : AppCompatActivity() {
@@ -78,7 +71,7 @@ class RoomStatusActivity : AppCompatActivity() {
 //                val respUser = RestClient.SERVICES().userInfo(bean).execute()
 //                val user = respUser.body()!!
 //                val respRoomType = RestClient.SERVICES().roomType(user.authenticationType + " " + user.authToken).execute()
-//                val roomTypes: List<RoomStatusListModel.RoomInfoBean>
+//                val roomTypes: List<RoomStatusListBean.RoomInfoBean>
 //
 //                if (respRoomType.body()!!.errorCode == 0) {
 //                    roomTypes = respRoomType.body()!!.listhotelRoomInfo
@@ -92,7 +85,7 @@ class RoomStatusActivity : AppCompatActivity() {
 //
 //                val today = format.format(Date())
 //
-//                val roomStatus = ArrayList<RoomStatusModel>()
+//                val roomStatus = ArrayList<RoomStatusBean>()
 //                while ((index - 1) * 8 < roomTypes.size) {
 //                    val respStatus = RestClient.SERVICES().roomStatus(user.authenticationType + " " + user.authToken, today, index).execute()
 //                    val temp = respStatus.body()
@@ -101,13 +94,13 @@ class RoomStatusActivity : AppCompatActivity() {
 //                }
 //
 //
-//                val roomList = ArrayList<RoomStatusListModel>()
+//                val roomList = ArrayList<RoomStatusListBean>()
 //                var tempIndex = 0
 //                for (i in roomTypes.indices) {
-//                    val model = RoomStatusListModel()
+//                    val model = RoomStatusListBean()
 //                    model.roomInfo = roomTypes[i]
 //
-//                    val statusModels = ArrayList<RoomStatusModel>()
+//                    val statusModels = ArrayList<RoomStatusBean>()
 //                    for (j in 0..35) {
 //                        statusModels.add(roomStatus[tempIndex])
 //                        tempIndex++

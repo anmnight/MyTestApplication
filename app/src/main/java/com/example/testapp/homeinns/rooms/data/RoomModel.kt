@@ -1,6 +1,8 @@
 package com.example.testapp.homeinns.rooms.data
 
 import com.example.testapp.homeinns.rooms.pojo.LoginBean
+import com.example.testapp.homeinns.rooms.pojo.RoomTypesBean
+import com.example.testapp.homeinns.rooms.pojo.UserBean
 
 /**
  * https://github.com/anmnight
@@ -8,6 +10,8 @@ import com.example.testapp.homeinns.rooms.pojo.LoginBean
  * anmnight@qq.com
  */
 interface RoomModel {
-    fun login(login: LoginBean)
-    fun loadRooms()
+    fun login(login: LoginBean): UserBean
+    fun saveToken(token: String)
+    fun getToken(): String
+    fun loadRooms(): RoomTypesBean
 }

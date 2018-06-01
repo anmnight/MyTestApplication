@@ -6,20 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.testapp.homeinns.rooms.pojo.RoomStatusListBean
 import com.example.testapp.mytestapplication.R
 import java.util.ArrayList
 
 
 class RoomListAdapter(private val mCtx: Activity) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var mDates: List<RoomStatusListModel> = ArrayList()
+    private var mDates: List<RoomStatusListBean> = ArrayList()
 
     private val mInflater: LayoutInflater = LayoutInflater.from(mCtx)
 
     private val ROOM = 0
     private val STATUS = 1
 
-    fun setDates(list: List<RoomStatusListModel>?) {
+    fun setDates(list: List<RoomStatusListBean>?) {
         if (list != null) {
             this.mDates = list
             mCtx.runOnUiThread { notifyDataSetChanged() }

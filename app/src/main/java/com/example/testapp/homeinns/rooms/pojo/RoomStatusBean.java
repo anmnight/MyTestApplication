@@ -1,10 +1,10 @@
-package com.example.testapp.lesson_ui.roomstatus;
+package com.example.testapp.homeinns.rooms.pojo;
 
 /**
  * Created by anxiao on 2017/9/1.
  */
 
-public class RoomStatusModel {
+public class RoomStatusBean {
     /**
      * id : 102-2017-08-26
      * date : 2017-08-26

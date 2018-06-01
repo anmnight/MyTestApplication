@@ -1,7 +1,5 @@
 package com.example.testapp.homeinns.rooms.impl
 
-import android.os.Handler
-import android.os.HandlerThread
 import com.example.testapp.app.Logger
 import com.example.testapp.homeinns.rooms.RoomContract
 import com.example.testapp.homeinns.rooms.data.RoomModel
@@ -16,28 +14,22 @@ class RoomPresentImpl(model: RoomModel, view: RoomContract.RoomView) : RoomContr
 
     private var mView: RoomContract.RoomView = view
     private var mModel: RoomModel = model
-    private val workThread = HandlerThread("worker")
-    private val mHandler: Handler
 
-    init {
-        workThread.start()
-        mHandler = Handler(workThread.looper)
-    }
 
     override fun login() {
 
         mView.showLoading()
-        mHandler.post {
-            val lb = LoginBean("18502938991", "96e79218965eb72c92a549dd5a330112")
-            mModel.login(lb)
-            mView.hideLoading()
-        }
-
+        val lb = LoginBean("18502938991", "96e79218965eb72c92a549dd5a330112")
+        val user = mModel.login(lb)
+        mModel.saveToken(user.authToken)
+        mView.hideLoading()
 
     }
 
     override fun loadRoom() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val rooms = mModel.loadRooms()
+
+        Logger.err(rooms)
     }
 
     init {

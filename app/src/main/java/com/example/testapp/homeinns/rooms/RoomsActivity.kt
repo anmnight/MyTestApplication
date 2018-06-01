@@ -1,5 +1,6 @@
 package com.example.testapp.homeinns.rooms
 
+import android.app.ProgressDialog
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.testapp.app.Logger
@@ -7,33 +8,35 @@ import com.example.testapp.app.ToastUnit
 import com.example.testapp.homeinns.rooms.data.RoomModelImpl
 import com.example.testapp.homeinns.rooms.impl.RoomPresentImpl
 import com.example.testapp.mytestapplication.R
-import unit.StoreUtil
-import javax.inject.Inject
+import unit.AppStorage
 
-
-class RoomsActivity : AppCompatActivity(), RoomContract.RoomView, RoomModelImpl.RequestCallback {
+class RoomsActivity : AppCompatActivity(), RoomContract.RoomView {
 
     lateinit var mPresent: RoomContract.RoomPresenter
+
+    private lateinit var dialog: ProgressDialog
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rooms)
 
-        mPresent = RoomPresentImpl(RoomModelImpl(StoreUtil(), this), this)
+        dialog = ProgressDialog(this@RoomsActivity)
 
+        mPresent = RoomPresentImpl(RoomModelImpl(), this)
 
-        mPresent.login()
+        mPresent.loadRoom()
 
 
     }
 
 
     override fun showLoading() {
-        Logger.info("loading..")
+        dialog.show()
     }
 
     override fun hideLoading() {
-        Logger.info("hide loading")
+//        dialog.hide()
     }
 
     override fun showToast() {
@@ -47,10 +50,5 @@ class RoomsActivity : AppCompatActivity(), RoomContract.RoomView, RoomModelImpl.
     override fun setRooms() {
 
     }
-
-    override fun onNetEr(message: String) {
-        ToastUnit.sortToase(message)
-    }
-
 
 }

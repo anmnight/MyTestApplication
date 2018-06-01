@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.widget.ImageView
 import com.example.testapp.app.Logger
-import unit.DisPlayUnit
 
 class CustomerPrepareView : ImageView {
 
@@ -50,8 +49,6 @@ class CustomerPrepareView : ImageView {
         mPaint.color = Color.RED
         mPaint.strokeWidth = 1F
 
-        val top = ((DisPlayUnit.devicesDisPlay().heightPixels-drawable.intrinsicHeight)/2).toFloat()
-        val bottom = drawable.intrinsicHeight+top
 
         canvas.drawRect(0F, 0F, mWidth.toFloat(), dHeight.toFloat(), mPaint)
 

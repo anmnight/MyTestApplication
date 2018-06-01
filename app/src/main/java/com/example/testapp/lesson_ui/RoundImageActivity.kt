@@ -5,7 +5,6 @@ import android.os.Bundle
 import com.example.testapp.mytestapplication.R
 import com.example.testapp.mytestapplication.customer_drawable.XfermodeRoundImageView
 import kotlinx.android.synthetic.main.activity_round_image.*
-import unit.DisPlayUnit
 
 class RoundImageActivity : AppCompatActivity() {
 
@@ -15,7 +14,6 @@ class RoundImageActivity : AppCompatActivity() {
 
         val xferImageView = findViewById(R.id.xfermode_image) as XfermodeRoundImageView
         val params = xferImageView.layoutParams
-        params.width = DisPlayUnit.devicesDisPlay().widthPixels
         xferImageView.layoutParams = params
 
         xferImageView.setImageResource(R.mipmap.gal)
