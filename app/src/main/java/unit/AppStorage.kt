@@ -17,11 +17,8 @@ import javax.inject.Singleton
  * author：anxiao on 2018/5/31 18:05
  * anmnight@qq.com
  */
-@Singleton
-class AppStorage {
 
-    @Inject
-    constructor()
+class AppStorage {
 
     private val baseURl = "https://hms.homeinns.com/"
     private val retrofit = Retrofit.Builder().baseUrl(baseURl)

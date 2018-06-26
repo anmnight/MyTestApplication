@@ -1,7 +1,7 @@
 package com.example.testapp.homeinns.rooms.di
 
-import com.example.testapp.homeinns.rooms.data.RoomModelImpl
 import dagger.Component
+import unit.AppStorage
 
 /**
  * https://github.com/anmnight
@@ -10,6 +10,7 @@ import dagger.Component
  */
 @Component(modules = [(DataRepoModule::class)])
 interface DataRepoComponent {
-    fun inject(model: RoomModelImpl)
+
+    fun subDataRepoComponent():SubDataRepoComponent
 
 }

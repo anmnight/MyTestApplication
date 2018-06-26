@@ -10,8 +10,18 @@ import com.example.testapp.homeinns.rooms.pojo.UserBean
  * anmnight@qq.com
  */
 interface RoomModel {
-    fun login(login: LoginBean): UserBean
-    fun saveToken(token: String)
-    fun getToken(): String
-    fun loadRooms(): RoomTypesBean
+    fun login(login: LoginBean,result:RoomLoginResult)
+    fun loadRooms(result: LoadRoomResult)
+
+    interface RoomLoginResult {
+        fun onLoginSuccess()
+        fun error(err: String?)
+    }
+
+    interface LoadRoomResult {
+        fun onLoadSuccess(types: RoomTypesBean)
+        fun error(err: String?)
+    }
+
+
 }

@@ -26,7 +26,11 @@
         android:theme="@style/HomeTheme">
         <activity android:name="com.example.testapp.MainActivity">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity android:name="com.example.testapp.lesson_ui.RoundImageActivity" />
@@ -56,11 +60,7 @@
 
         <activity android:name="com.example.testapp.homeinns.rooms.RoomsActivity">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
     </application>

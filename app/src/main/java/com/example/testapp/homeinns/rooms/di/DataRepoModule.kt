@@ -4,7 +4,6 @@ import dagger.Module
 import dagger.Provides
 import unit.AppExecutor
 import unit.AppStorage
-import javax.inject.Singleton
 
 /**
  * https://github.com/anmnight

@@ -14,21 +14,7 @@ import javax.inject.Singleton
  * author：anxiao on 2018/6/1 10:05
  * anmnight@qq.com
  */
-@Singleton
-class AppExecutor {
-
-    private var diskIO: Executor
-    private var networkIO: Executor
-    private var mainThread: Executor
-
-    @Inject
-    constructor(diskIO: Executor,
-                networkIO: Executor,
-                mainThread: Executor) {
-        this.diskIO = diskIO
-        this.networkIO = networkIO
-        this.mainThread = mainThread
-    }
+class AppExecutor constructor(private var diskIO: Executor, private var networkIO: Executor, private var mainThread: Executor) {
 
 
     fun diskIO(): Executor = diskIO
@@ -37,43 +23,24 @@ class AppExecutor {
 
     fun mainThread(): Executor = mainThread
 
-
-    fun <T> run(executor: Executor, callable: Callable<T>): T {
-        val task = FutureTask<T>(callable)
-        executor.execute(task)
-        return task.get()
-    }
-
-
     companion object {
         const val THREAD_COUNT = 4
 
-        class MainThreadExecutor : Executor {
-            @Inject
-            constructor()
-
+        class MainThreadExecutor @Inject constructor() : Executor {
             private val handler = Handler(Looper.getMainLooper())
             override fun execute(command: Runnable?) {
                 handler.post(command)
             }
         }
 
-        class DiskIOExecutor : Executor {
-
-            @Inject
-            constructor()
-
-
+        class DiskIOExecutor @Inject constructor() : Executor {
             private val executor = Executors.newSingleThreadExecutor()
             override fun execute(command: Runnable?) {
                 executor.execute(command)
             }
         }
 
-        class NetworkIOExecutor : Executor {
-
-            @Inject
-            constructor()
+        class NetworkIOExecutor @Inject constructor() : Executor {
 
             private val executor = Executors.newFixedThreadPool(THREAD_COUNT)
             override fun execute(command: Runnable?) {
