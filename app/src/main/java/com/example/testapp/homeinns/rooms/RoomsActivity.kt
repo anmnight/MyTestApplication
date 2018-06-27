@@ -1,21 +1,21 @@
 package com.example.testapp.homeinns.rooms
 
 import android.app.ProgressDialog
-import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.example.testapp.app.Logger
 import com.example.testapp.app.ToastUnit
 import com.example.testapp.homeinns.rooms.data.RoomModelImpl
-import com.example.testapp.homeinns.rooms.di.DaggerDataRepoComponent
+import com.example.testapp.homeinns.rooms.di.DaggerRoomComponent
+import com.example.testapp.homeinns.rooms.di.RoomModule
 import com.example.testapp.homeinns.rooms.impl.RoomPresentImpl
 import com.example.testapp.mytestapplication.R
-import unit.AppStorage
 import javax.inject.Inject
 
 class RoomsActivity : AppCompatActivity(), RoomContract.RoomView {
 
-    lateinit var mPresent: RoomContract.RoomPresenter
+
+    @Inject
+    lateinit var mPresent:RoomPresentImpl
 
     private lateinit var dialog: ProgressDialog
 
@@ -24,15 +24,10 @@ class RoomsActivity : AppCompatActivity(), RoomContract.RoomView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rooms)
 
+        DaggerRoomComponent.builder().roomModule(RoomModule(this,RoomModelImpl())).build().inject(this)
 
-
-
-        dialog = ProgressDialog(this@RoomsActivity)
-
-        mPresent = RoomPresentImpl(RoomModelImpl(), this)
 
         mPresent.login()
-
 
     }
 
@@ -45,8 +40,8 @@ class RoomsActivity : AppCompatActivity(), RoomContract.RoomView {
         dialog.hide()
     }
 
-    override fun showToast() {
-        ToastUnit.sortToase("Toast")
+    override fun showToast(message: String) {
+        ToastUnit.sortToase(message)
     }
 
     override fun updateRoom() {

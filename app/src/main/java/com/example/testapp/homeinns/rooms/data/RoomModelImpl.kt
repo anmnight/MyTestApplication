@@ -19,11 +19,11 @@ import javax.inject.Inject
  */
 class RoomModelImpl : RoomModel {
 
-    @Inject
-    lateinit var executor: AppExecutor
-
-    @Inject
-    lateinit var store: AppStorage
+//    @Inject
+//    lateinit var executor: AppExecutor
+//
+//    @Inject
+//    lateinit var store: AppStorage
 
 
     init {
@@ -34,20 +34,20 @@ class RoomModelImpl : RoomModel {
     override fun login(login: LoginBean, result: RoomModel.RoomLoginResult) {
 
 
-        executor.networkIO().execute {
-            try {
-                val user = store.request(RoomApi::class.java).login(login).execute().body()
-                store.saveToken(user!!.authToken)
-                executor.mainThread().execute {
-                    result.onLoginSuccess()
-                }
-
-            } catch (e: Exception) {
-                executor.mainThread().execute {
-                    result.error(e.message)
-                }
-            }
-        }
+//        executor.networkIO().execute {
+//            try {
+//                val user = store.request(RoomApi::class.java).login(login).execute().body()
+//                store.saveToken(user!!.authToken)
+//                executor.mainThread().execute {
+//                    result.onLoginSuccess()
+//                }
+//
+//            } catch (e: Exception) {
+//                executor.mainThread().execute {
+//                    result.error(e.message)
+//                }
+//            }
+//        }
         
     }
 

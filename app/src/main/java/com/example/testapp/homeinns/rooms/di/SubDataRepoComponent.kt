@@ -12,4 +12,5 @@ import dagger.Subcomponent
 @Subcomponent
 interface SubDataRepoComponent {
     fun inject(activity: MainActivity)
+
 }

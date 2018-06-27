@@ -14,22 +14,12 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
 
-    @Inject
-    lateinit var storage: AppStorage
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
-
-        DaggerDataRepoComponent.create().subDataRepoComponent().inject(this)
-
-//        DaggerSubDataRepoComponent.builder().dataRepoComponent(dataRepoComponent).build().inject(this)
-
-        storage.saveToken("asdasda")
-
-        Logger.info("MainActivity Token : ${storage.getToken()}")
 
 
     }

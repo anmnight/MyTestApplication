@@ -1,5 +1,6 @@
 package com.example.testapp.homeinns.rooms.di
 
+import com.example.testapp.homeinns.rooms.RoomsActivity
 import dagger.Component
 
 /**
@@ -8,6 +9,8 @@ import dagger.Component
  * anmnight@qq.com
  */
 
-class RoomComponent {
 
+@Component(modules = [(RoomModule::class)])
+interface RoomComponent {
+    fun inject(activity: RoomsActivity)
 }

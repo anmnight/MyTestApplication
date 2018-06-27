@@ -1,5 +1,6 @@
 package com.example.testapp.homeinns.rooms.di
 
+import com.example.testapp.app.Logger
 import dagger.Module
 import dagger.Provides
 import unit.AppExecutor
@@ -12,7 +13,12 @@ import unit.AppStorage
  */
 
 @Module
-class DataRepoModule {
+class DataRepoModule(crashSize: Int) {
+
+    init {
+        Logger.info("crash size : $crashSize")
+    }
+
 
     @Provides
     fun provideAppExecutor(

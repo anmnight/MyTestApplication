@@ -10,7 +10,7 @@ interface RoomContract {
     interface RoomView {
         fun showLoading()
         fun hideLoading()
-        fun showToast()
+        fun showToast(message:String)
         fun updateRoom()
         fun setRooms()
     }
