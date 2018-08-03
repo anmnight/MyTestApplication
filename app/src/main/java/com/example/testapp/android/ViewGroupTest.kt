@@ -5,7 +5,7 @@ import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.ViewGroup
-import com.example.testapp.app.Logger
+import unit.Logger
 
 /**
  * https://github.com/anmnight

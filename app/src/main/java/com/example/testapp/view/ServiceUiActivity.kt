@@ -8,9 +8,9 @@ import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
 import android.view.MotionEvent
-import com.example.testapp.app.Logger
 import com.example.testapp.android.UiService
 import com.example.testapp.mytestapplication.R
+import unit.Logger
 
 class ServiceUiActivity : Activity() {
 
@@ -29,7 +29,7 @@ class ServiceUiActivity : Activity() {
 
     private val conn = object : ServiceConnection {
         override fun onServiceDisconnected(p0: ComponentName?) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
         }
 
         override fun onServiceConnected(p0: ComponentName?, p1: IBinder?) {
@@ -41,18 +41,17 @@ class ServiceUiActivity : Activity() {
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
 
-        Logger.err("Activity dispatchTouchEvent : ${super.dispatchTouchEvent(ev)}")
+        Logger.error("Activity dispatchTouchEvent : ${super.dispatchTouchEvent(ev)}")
 
         return false
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
 
-        Logger.err("Activity onTouchEvent : ${super.onTouchEvent(event)}")
+        Logger.error("Activity onTouchEvent : ${super.onTouchEvent(event)}")
 
         return true
     }
-
 
 
 }

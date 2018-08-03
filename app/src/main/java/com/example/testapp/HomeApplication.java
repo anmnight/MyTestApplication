@@ -1,4 +1,4 @@
-package com.example.testapp.app;
+package com.example.testapp;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -7,6 +7,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.Process;
+
+import com.example.testapp.app.CrashHandler;
 
 public class HomeApplication extends Application implements Application.ActivityLifecycleCallbacks {
 

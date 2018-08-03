@@ -7,9 +7,10 @@
     android:orientation="vertical"
     tools:context="com.example.testapp.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/test_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
 
 </LinearLayout>

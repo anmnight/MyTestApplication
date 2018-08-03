@@ -3,7 +3,7 @@ package com.example.testapp.android
 import android.os.*
 import android.support.v7.app.AppCompatActivity
 import com.example.testapp.mytestapplication.R
-import com.example.testapp.app.Logger
+import unit.Logger
 
 class ThreadHandler : AppCompatActivity() {
 

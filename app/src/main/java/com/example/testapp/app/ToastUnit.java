@@ -2,6 +2,8 @@ package com.example.testapp.app;
 
 import android.widget.Toast;
 
+import com.example.testapp.HomeApplication;
+
 /**
  * Created by anxiao on 2017/8/25.
  */

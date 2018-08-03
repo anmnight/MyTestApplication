@@ -1,7 +1,7 @@
 package com.example.testapp.android
 
 import android.os.AsyncTask
-import com.example.testapp.app.Logger
+import unit.Logger
 import java.util.concurrent.*
 
 /**
@@ -21,7 +21,7 @@ class ThreadTest {
 
         Logger.info("start : ${System.currentTimeMillis()}")
         threadPool.submit(task)
-        Logger.err("result : ${task.get()}")
+        Logger.error("result : ${task.get()}")
 
 
     }

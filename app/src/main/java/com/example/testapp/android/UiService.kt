@@ -5,14 +5,14 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.WindowManager
-import com.example.testapp.app.HomeApplication
+import com.example.testapp.HomeApplication
 import com.example.testapp.mytestapplication.R
 import android.view.Gravity
 import android.graphics.PixelFormat
 import android.os.*
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.testapp.app.Logger
+import unit.Logger
 import java.lang.Thread.sleep
 
 

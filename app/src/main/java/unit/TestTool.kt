@@ -3,7 +3,7 @@ package unit
 /**
  * Created by anmnight on 2017/10/27 0027.
  */
-object TestCase {
+object TestTool {
 
     /**
      * 效率底下的斐波那契数列, 耗时的操作
