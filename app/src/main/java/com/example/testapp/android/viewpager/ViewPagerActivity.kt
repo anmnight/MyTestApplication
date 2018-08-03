@@ -1,20 +1,13 @@
-package com.example.testapp
+package com.example.testapp.android.viewpager
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.testapp.mytestapplication.R
 
-
-class MainActivity : AppCompatActivity() {
+class ViewPagerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-
-
-
+        setContentView(R.layout.activity_view_pager)
     }
-
-
 }

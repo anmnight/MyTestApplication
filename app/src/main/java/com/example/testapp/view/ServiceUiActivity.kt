@@ -8,9 +8,8 @@ import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
 import android.view.MotionEvent
-import android.view.View
 import com.example.testapp.app.Logger
-import com.example.testapp.lesson_android.UiService
+import com.example.testapp.android.UiService
 import com.example.testapp.mytestapplication.R
 
 class ServiceUiActivity : Activity() {

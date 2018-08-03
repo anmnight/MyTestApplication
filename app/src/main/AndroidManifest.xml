@@ -24,43 +24,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/HomeTheme">
-        <activity android:name="com.example.testapp.MainActivity">
-
-        </activity>
-        <activity android:name="com.example.testapp.lesson_ui.RoundImageActivity" />
-        <activity android:name="com.example.testapp.lesson_android.ThreadHandler" />
+        <activity android:name="com.example.testapp.MainActivity"></activity>
+        <activity android:name="com.example.testapp.ui.RoundImageActivity" />
+        <activity android:name="com.example.testapp.android.ThreadHandler" />
         <activity
-            android:name="com.example.testapp.lesson_ui.ScrollFlagActivity"
+            android:name="com.example.testapp.ui.ScrollFlagActivity"
             android:label="@string/title_activity_scoll_flag" />
         <activity
-            android:name="com.example.testapp.lesson_ui.RoomStatusActivity"
+            android:name="com.example.testapp.ui.RoomStatusActivity"
             android:label="@string/title_activity_room_status"
             android:theme="@style/HomeTheme" />
 
         <service
-            android:name="com.example.testapp.lesson_android.UiService"
+            android:name="com.example.testapp.android.UiService"
             android:exported="false" />
 
-        <activity android:name="com.example.testapp.lesson_ui.MomentRefreshLayout" />
+        <activity android:name="com.example.testapp.ui.MomentRefreshLayout" />
         <activity
             android:name="com.example.testapp.view.ServiceUiActivity"
             android:label="@string/title_activity_service_ui"
             android:theme="@style/HomeTheme" />
 
         <service
-            android:name="com.example.testapp.lesson_android.RemoteService"
+            android:name="com.example.testapp.android.RemoteService"
             android:enabled="true"
             android:exported="true" />
 
         <activity android:name="com.example.testapp.homeinns.rooms.RoomsActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity android:name="com.example.testapp.android.viewpager.ViewPagerActivity"></activity>
     </application>
 
 </manifest>
