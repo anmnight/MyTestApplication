@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.testapp.mytestapplication.R
-import kotlinx.android.synthetic.main.fragment_view_pager_content.*
+import kotlinx.android.synthetic.main.viewpager_fragment_content.*
 
 
 class ContentListFragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_view_pager_content, container, false)
+        return inflater.inflate(R.layout.viewpager_fragment_content, container, false)
     }
 
 
