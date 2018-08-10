@@ -2,7 +2,7 @@ package com.example.testapp.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import com.example.testapp.mytestapplication.R;
+import com.example.testapp.R;
 
 public class ScrollFlagActivity extends AppCompatActivity {
 

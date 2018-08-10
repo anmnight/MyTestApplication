@@ -2,7 +2,7 @@ package com.example.testapp.android.viewpager
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.example.testapp.mytestapplication.R
+import com.example.testapp.R
 import kotlinx.android.synthetic.main.activity_view_pager.*
 
 class ViewPagerMainActivity : AppCompatActivity() {

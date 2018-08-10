@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.testapp.mytestapplication">
+    package="com.example.testapp">
 
     <!-- 允许程序打开网络套接字 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
-        android:name="com.example.testapp.HomeApplication"
+        android:name="com.example.testapp.TestHomeApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,40 +25,19 @@
         android:supportsRtl="true"
         android:theme="@style/HomeTheme">
 
+        <activity android:name="com.example.testapp.ui.RoundImageActivity" />
 
-        <activity android:name="com.example.testapp.MainActivity">
+        <activity
+            android:name="com.example.testapp.ui.ScrollFlagActivity"
+            android:label="@string/title_activity_scoll_flag" />
+
+        <activity android:name="com.example.testapp.android.viewpager.ViewPagerMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.example.testapp.ui.RoundImageActivity" />
-
-        <activity android:name="com.example.testapp.android.ThreadHandler" />
-
-        <activity
-            android:name="com.example.testapp.ui.ScrollFlagActivity"
-            android:label="@string/title_activity_scoll_flag" />
-
-
-        <service
-            android:name="com.example.testapp.android.UiService"
-            android:exported="false" />
-
-        <activity android:name="com.example.testapp.ui.MomentRefreshLayout" />
-        <activity
-            android:name="com.example.testapp.view.ServiceUiActivity"
-            android:label="@string/title_activity_service_ui"
-            android:theme="@style/HomeTheme" />
-
-        <service
-            android:name="com.example.testapp.android.RemoteService"
-            android:enabled="true"
-            android:exported="true" />
-
-        <activity android:name="com.example.testapp.android.viewpager.ViewPagerMainActivity" />
 
 
     </application>

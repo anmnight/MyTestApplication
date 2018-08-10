@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.WindowManager
-import com.example.testapp.mytestapplication.R
+import com.example.testapp.R
 
 class WindowsUtils(context: Context) {
 

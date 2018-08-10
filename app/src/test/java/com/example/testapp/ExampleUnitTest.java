@@ -30,7 +30,6 @@ public class ExampleUnitTest {
             old += (i + ",");
         }
         old = old.substring(0, old.length() - 1);
-        TestUnit.INSTANCE.log("old : " + old);
         //small->big
         for (int j = 0; j < arr.length; j++) {
             for (int k = 0; k < arr.length - j - 1; k++) {
@@ -48,7 +47,7 @@ public class ExampleUnitTest {
         }
         now = now.substring(0, now.length() - 1);
 
-        TestUnit.INSTANCE.log("now : " + now);
+
 
     }
 
@@ -69,7 +68,7 @@ public class ExampleUnitTest {
             old += (i + ",");
         }
         old = old.substring(0, old.length() - 1);
-        TestUnit.INSTANCE.log("old : " + old);
+
 
 
         //small->big
@@ -91,6 +90,6 @@ public class ExampleUnitTest {
         }
         now = now.substring(0, now.length() - 1);
 
-        TestUnit.INSTANCE.log("now : " + now);
+
     }
 }

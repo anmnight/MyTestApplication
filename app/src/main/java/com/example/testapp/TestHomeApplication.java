@@ -10,11 +10,11 @@ import android.os.Process;
 
 import com.example.testapp.app.CrashHandler;
 
-public class HomeApplication extends Application implements Application.ActivityLifecycleCallbacks {
+public class TestHomeApplication extends Application implements Application.ActivityLifecycleCallbacks {
 
-    public static HomeApplication application;
+    public static TestHomeApplication application;
 
-    public static HomeApplication getInstance() {
+    public static TestHomeApplication getInstance() {
         return application;
     }
 
@@ -48,7 +48,7 @@ public class HomeApplication extends Application implements Application.Activity
 
     public boolean isOnMainProcess() {
         int pid = Process.myPid();
-        String process = getApplicationName(HomeApplication.this, pid);
+        String process = getApplicationName(TestHomeApplication.this, pid);
         return process.isEmpty() || process.equalsIgnoreCase(PROCESS_NAME);
     }
 
