@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "com.anmnight.testapp"
         minSdkVersion 19
-        targetSdkVersion 27
+        targetSdkVersion 22
         versionCode 1
         versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -25,7 +25,6 @@ android {
         }
     }
 
-
     buildTypes {
         release {
             minifyEnabled false
@@ -35,24 +34,16 @@ android {
         }
     }
 
-
-
-    android {
-        lintOptions {
-            abortOnError false
-        }
+    lintOptions {
+        abortOnError false
     }
 
 }
 
-
 repositories {
     mavenCentral()
     google()
-}
-
-kapt {
-    generateStubs = true
+    jcenter()
 }
 
 dependencies {
@@ -60,6 +51,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
 
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -72,12 +64,14 @@ dependencies {
     implementation "com.android.support:design:$android_support"
 
 
+    compile project(path: ':commlibrary')
 }
 
 
 
 virtualApk {
     packageId = 0x7b
-    targetHost='../..K/VirtualAPK/Host/app'
+    targetHost = '../../Home/app'
     applyHostMapping = true
+    forceUseHostDependences = true
 }

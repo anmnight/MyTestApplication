@@ -17,29 +17,26 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
-        android:name="com.example.testapp.TestHomeApplication"
+        android:name=".TestHomeApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/HomeTheme">
-
-        <activity android:name="com.example.testapp.ui.RoundImageActivity" />
-
+        <activity android:name=".ui.RoundImageActivity" />
         <activity
-            android:name="com.example.testapp.ui.ScrollFlagActivity"
+            android:name=".ui.ScrollFlagActivity"
             android:label="@string/title_activity_scoll_flag" />
+        <activity android:name=".android.viewpager.ViewPagerMainActivity" />
 
-        <activity android:name="com.example.testapp.android.viewpager.ViewPagerMainActivity">
+        <activity android:name=".TestMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>
