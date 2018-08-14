@@ -1,8 +1,5 @@
 package com.bankcomm.commlibrary;
 
-import com.bankcomm.commlibrary.http.RequestParams;
-import com.bankcomm.commlibrary.http.Result;
-
 /**
  * https://github.com/anmnight
  * author：anxiao on 2018/8/13 10:31

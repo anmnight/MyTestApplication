@@ -51,7 +51,7 @@ public class RestClient {
     }
 
 
-    private enum RequestType {
+    enum RequestType {
         GET, POST
     }
 
@@ -71,7 +71,7 @@ public class RestClient {
                     @Override
                     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                         performParser(proxy, method, args);
-                        return realMethod();
+                        return loadServiceMethod().invoke(mPath, mHeaders, mBody, mRequestType);
                     }
                 });
     }
@@ -135,18 +135,9 @@ public class RestClient {
     /**
      * 代理真实业务
      */
-    private Call realMethod() {
-
-
-        //todo cover okhttp.call to call
-        switch (mRequestType) {
-            case GET:
-                return (Call) HttpRequest.get(mPath, mHeaders, mBody);
-            case POST:
-                return (Call) HttpRequest.post(mPath, mHeaders, mBody);
-            default:
-                return null;
-        }
+    private ServiceMethod<?> loadServiceMethod() {
+        return ServiceMethod.INSTANCE;
     }
+
 
 }

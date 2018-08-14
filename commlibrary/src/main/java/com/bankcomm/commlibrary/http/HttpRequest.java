@@ -22,31 +22,34 @@ public class HttpRequest {
      */
     private static OkHttpClient mHttpClient = new OkHttpClient();
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-    private static String mBaseUrl;
+    private static String mBaseUrl = "";
 
     public static Call get(String url, Map<String, String> headers, Map<String, String> params) {
 
-        Headers headerBuild = Headers.of(headers);
 
-        String path = absolutePath(url);
-
-        StringBuilder str = new StringBuilder(path);
+        StringBuilder str = new StringBuilder(absolutePath(url));
         str.append("?");
-        for (Map.Entry<String, String> entry : params.entrySet()) {
-            str.append(entry.getKey());
-            str.append("=");
-            str.append(entry.getValue());
-            str.append("&");
+        if (params != null) {
+            for (Map.Entry<String, String> entry : params.entrySet()) {
+                str.append(entry.getKey());
+                str.append("=");
+                str.append(entry.getValue());
+                str.append("&");
+            }
         }
-        str.substring(str.length() - 1, str.length());
 
-        System.out.print(str);
+        String path = str.substring(0, str.length() - 1);
 
-        Request request = new Request.Builder()
-                .headers(headerBuild)
-                .url(str.toString())
-                .get()
-                .build();
+        Request.Builder builder = new Request.Builder();
+        builder.url(path);
+        if (headers != null) {
+            Headers headerBuild = Headers.of(headers);
+            builder.headers(headerBuild);
+        }
+
+        builder.addHeader("Content-Type", "application/json; charset=utf-8");
+        builder.get();
+        Request request = builder.build();
 
         return mHttpClient.newCall(request);
     }
