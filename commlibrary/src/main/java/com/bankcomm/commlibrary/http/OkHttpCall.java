@@ -81,13 +81,7 @@ final class OkHttpCall<T> implements Call<T> {
             rawCall.cancel();
         }
 
-        okhttp3.Response response = rawCall.execute();
-
-
-        System.out.println(response.body().string());
-
-        return null;
-//        return parseResponse(rawCall.execute());
+        return parseResponse(rawCall.execute());
     }
 
     @Override

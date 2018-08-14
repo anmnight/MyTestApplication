@@ -42,10 +42,14 @@ public class HttpRequest {
 
         Request.Builder builder = new Request.Builder();
         builder.url(path);
-        if (headers != null) {
-            Headers headerBuild = Headers.of(headers);
-            builder.headers(headerBuild);
-        }
+
+
+
+        Headers headerBuild = Headers.of(headers);
+        builder.headers(headerBuild);
+
+
+
 
         builder.addHeader("Content-Type", "application/json; charset=utf-8");
         builder.get();
