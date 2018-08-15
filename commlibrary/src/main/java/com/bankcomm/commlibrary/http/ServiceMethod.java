@@ -12,9 +12,6 @@ import java.util.Map;
  */
 public class ServiceMethod<ReturnT> {
 
-    //todo 自动执行execute
-
-
     public static ServiceMethod INSTANCE = ServiceMethodHolder.instance;
 
     static class ServiceMethodHolder {
@@ -33,11 +30,7 @@ public class ServiceMethod<ReturnT> {
      */
     public OkHttpCall<ReturnT> invoke(String url, Map<String, String> headers, Map<String, String> params, RestClient.RequestType type, final Method method) {
 
-
         Type returnType = method.getGenericReturnType();
-
-        Class<?> tClass = method.getDeclaringClass();
-
 
         OkHttpCall<ReturnT> call;
         switch (type) {
@@ -51,8 +44,6 @@ public class ServiceMethod<ReturnT> {
                 call = null;
                 break;
         }
-
-
 
         return call;
     }
