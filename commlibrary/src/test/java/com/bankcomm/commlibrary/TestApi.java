@@ -3,7 +3,6 @@ package com.bankcomm.commlibrary;
 import com.bankcomm.commlibrary.http.Call;
 import com.bankcomm.commlibrary.http.core.Get;
 import com.bankcomm.commlibrary.http.core.Headers;
-import com.bankcomm.commlibrary.http.core.Params;
 
 
 /**
@@ -13,7 +12,8 @@ import com.bankcomm.commlibrary.http.core.Params;
  */
 public interface TestApi {
 
-    @Get("service/getIpInfo.php")
+    @Get("/version/all")
     @Headers({"testHeaderKey:testHeaderValue"})
-    Call<IpResult> getData(@Params("ip") String ip);
+    Call<VersionResult> getVersion();
+
 }

@@ -17,6 +17,9 @@ import okhttp3.RequestBody;
  */
 public class HttpRequest {
 
+    //todo header 添加问题
+    //todo 网络请求配置
+
     /**
      * timeOut connectionTimeOut is default set
      */
@@ -25,7 +28,6 @@ public class HttpRequest {
     private static String mBaseUrl = "";
 
     public static Call get(String url, Map<String, String> headers, Map<String, String> params) {
-
 
         StringBuilder str = new StringBuilder(absolutePath(url));
         str.append("?");
@@ -44,14 +46,12 @@ public class HttpRequest {
         builder.url(path);
 
 
+        if (headers != null) {
+            Headers headerBuild = Headers.of(headers);
+            builder.headers(headerBuild);
+        }
 
-        Headers headerBuild = Headers.of(headers);
-        builder.headers(headerBuild);
-
-
-
-
-        builder.addHeader("Content-Type", "application/json; charset=utf-8");
+        builder.addHeader("Content-Type", "application/json;charset=utf-8");
         builder.get();
         Request request = builder.build();
 

@@ -1,6 +1,8 @@
 package com.bankcomm.commlibrary.http;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
 import java.util.Map;
 
 /**
@@ -9,6 +11,9 @@ import java.util.Map;
  * anmnight@qq.com
  */
 public class ServiceMethod<ReturnT> {
+
+    //todo 自动执行execute
+
 
     public static ServiceMethod INSTANCE = ServiceMethodHolder.instance;
 
@@ -26,21 +31,28 @@ public class ServiceMethod<ReturnT> {
      * @return RestClient.Call<T>
      * @throws IOException exception
      */
-    public OkHttpCall<ReturnT> invoke(String url, Map<String, String> headers, Map<String, String> params, RestClient.RequestType type) throws IOException {
+    public OkHttpCall<ReturnT> invoke(String url, Map<String, String> headers, Map<String, String> params, RestClient.RequestType type, final Method method) {
+
+
+        Type returnType = method.getGenericReturnType();
+
+        Class<?> tClass = method.getDeclaringClass();
 
 
         OkHttpCall<ReturnT> call;
         switch (type) {
             case GET:
-                call = new OkHttpCall<>(HttpRequest.get(url, headers, params));
+                call = new OkHttpCall<>(HttpRequest.get(url, headers, params), returnType);
                 break;
             case POST:
-                call = new OkHttpCall<>(HttpRequest.post(url, headers, params));
+                call = new OkHttpCall<>(HttpRequest.post(url, headers, params), returnType);
                 break;
             default:
                 call = null;
                 break;
         }
+
+
 
         return call;
     }

@@ -9,6 +9,7 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,6 +24,7 @@ public class RestClient {
     private RequestType mRequestType;
     private static String mBaseUrl;
     private String mPath;
+    private Type mReturnType;
     private Map<String, String> mHeaders = new HashMap<>();
     private Map<String, String> mBody = new HashMap<>();
 
@@ -71,7 +73,7 @@ public class RestClient {
                     @Override
                     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                         performParser(proxy, method, args);
-                        return loadServiceMethod().invoke(mPath, mHeaders, mBody, mRequestType);
+                        return loadServiceMethod().invoke(mPath, mHeaders, mBody, mRequestType, method);
                     }
                 });
     }
@@ -129,6 +131,7 @@ public class RestClient {
                 }
             }
         }
+
     }
 
 

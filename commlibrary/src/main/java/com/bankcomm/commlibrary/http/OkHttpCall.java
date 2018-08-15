@@ -19,7 +19,6 @@ package com.bankcomm.commlibrary.http;
 import android.support.annotation.Nullable;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -34,6 +33,7 @@ import okio.Okio;
 
 import static com.bankcomm.commlibrary.http.Utils.throwIfFatal;
 
+
 /**
  * An invocation of a Retrofit method that sends a request to a webserver and returns a response.
  * Each call yields its own HTTP request and response pair. Use {@link #clone} to make multiple
@@ -46,15 +46,18 @@ final class OkHttpCall<T> implements Call<T> {
 
     private final okhttp3.Call rawCall;
 
+    private final Type returnType;
     private volatile boolean canceled;
     private boolean executed;
     private @Nullable
     Throwable creationFailure;
 
     OkHttpCall(
-            okhttp3.Call rawCall) {
+            okhttp3.Call rawCall,
+            Type type) {
 
         this.rawCall = rawCall;
+        this.returnType = type;
 
     }
 
@@ -110,7 +113,7 @@ final class OkHttpCall<T> implements Call<T> {
     @Override
     @SuppressWarnings("CloneDoesntCallSuperClone")
     public Call<T> clone() {
-        return new OkHttpCall<>(rawCall);
+        return new OkHttpCall<>(rawCall, returnType);
     }
 
     @Override
@@ -132,24 +135,16 @@ final class OkHttpCall<T> implements Call<T> {
         try {
             return rawCall.request();
         } catch (RuntimeException | Error e) {
-            throwIfFatal(e); // Do not assign a fatal error to creationFailure.
+            throwIfFatal(e);
             creationFailure = e;
             throw e;
         }
     }
 
 
-    /**
-     * pares okhttp3.Response to Rest.Response
-     *
-     * @param rawResponse
-     * @return
-     * @throws IOException
-     */
-    Response<T> parseResponse(okhttp3.Response rawResponse) throws IOException {
+    private Response<T> parseResponse(okhttp3.Response rawResponse) throws IOException {
         ResponseBody rawBody = rawResponse.body();
 
-        // Remove the body's source (the only stateful object) so we can pass the response along.
         rawResponse = rawResponse.newBuilder()
                 .body(new NoContentResponseBody(rawBody.contentType(), rawBody.contentLength()))
                 .build();
@@ -171,14 +166,17 @@ final class OkHttpCall<T> implements Call<T> {
         }
 
 
-        Type jsonType = new TypeToken<T>() {
-        }.getType();
+        //todo do response checked
+        String str = rawBody.string();
 
-        T body = new Gson().fromJson(rawBody.string(), jsonType);
+        System.out.println(str);
 
+        T result = new Gson().fromJson(str, Utils.getCallResponseType(returnType));
 
-        return Response.success(body, rawResponse);
+        return Response.success(result, rawResponse);
+
     }
+
 
     static final class NoContentResponseBody extends ResponseBody {
         private final MediaType contentType;
