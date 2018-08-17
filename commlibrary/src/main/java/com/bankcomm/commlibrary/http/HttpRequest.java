@@ -19,7 +19,6 @@ public class HttpRequest {
 
     //todo header 添加问题
     //todo 网络请求配置
-    //todo 添加 @Body 参数
 
     /**
      * timeOut connectionTimeOut is default set

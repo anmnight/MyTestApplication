@@ -1,5 +1,6 @@
 package com.bankcomm.commlibrary.http;
 
+import com.bankcomm.commlibrary.http.core.Body;
 import com.bankcomm.commlibrary.http.core.Get;
 import com.bankcomm.commlibrary.http.core.Headers;
 import com.bankcomm.commlibrary.http.core.Params;
@@ -126,6 +127,10 @@ public class RestClient {
                 if (annotation instanceof Params) {
                     Params params = (Params) annotation;
                     mBody.put(params.value(), args[i]);
+                }
+
+                if (annotation instanceof Body) {
+                    //todo 添加解析
                 }
             }
         }
