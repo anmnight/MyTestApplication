@@ -171,10 +171,12 @@ final class OkHttpCall<T> implements Call<T> {
 
         System.out.println(str);
 
-        // Utils.getCallResponseType(returnType)  Call<T> converter T
-        T result = new Gson().fromJson(str, Utils.getCallResponseType(returnType));
-
-        return Response.success(result, rawResponse);
+        try {
+            T type = new Gson().fromJson(str, Utils.getCallResponseType(returnType));
+            return Response.success(type, rawResponse);
+        } finally {
+            rawBody.close();
+        }
 
     }
 

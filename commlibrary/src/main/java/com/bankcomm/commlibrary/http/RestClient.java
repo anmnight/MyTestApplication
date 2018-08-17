@@ -24,10 +24,8 @@ public class RestClient {
     private RequestType mRequestType;
     private static String mBaseUrl;
     private String mPath;
-    private Type mReturnType;
     private Map<String, String> mHeaders = new HashMap<>();
-    private Map<String, String> mBody = new HashMap<>();
-
+    private Map<String, Object> mBody = new HashMap<>();
 
     public static final class Builder {
 
@@ -127,7 +125,7 @@ public class RestClient {
                 Annotation annotation = parameterAnnotation[i];
                 if (annotation instanceof Params) {
                     Params params = (Params) annotation;
-                    mBody.put(params.value(), (String) args[i]);
+                    mBody.put(params.value(), args[i]);
                 }
             }
         }

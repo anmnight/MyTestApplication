@@ -4,12 +4,10 @@ import java.util.List;
 
 /**
  * https://github.com/anmnight
- * author：anxiao on 2018/8/15 09:02
+ * author：anxiao on 2018/8/17 16:20
  * anmnight@qq.com
  */
-public class VersionResult {
-
-
+public class Version {
     /**
      * status : true
      * message : 查询成功

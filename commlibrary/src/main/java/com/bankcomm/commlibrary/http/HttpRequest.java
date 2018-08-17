@@ -19,6 +19,7 @@ public class HttpRequest {
 
     //todo header 添加问题
     //todo 网络请求配置
+    //todo 添加 @Body 参数
 
     /**
      * timeOut connectionTimeOut is default set
@@ -27,12 +28,12 @@ public class HttpRequest {
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static String mBaseUrl = "";
 
-    public static Call get(String url, Map<String, String> headers, Map<String, String> params) {
+    public static Call get(String url, Map<String, String> headers, Map<String, Object> params) {
 
         StringBuilder str = new StringBuilder(absolutePath(url));
         str.append("?");
         if (params != null) {
-            for (Map.Entry<String, String> entry : params.entrySet()) {
+            for (Map.Entry<String, Object> entry : params.entrySet()) {
                 str.append(entry.getKey());
                 str.append("=");
                 str.append(entry.getValue());
@@ -59,7 +60,7 @@ public class HttpRequest {
     }
 
 
-    public static Call post(String url, Map<String, String> header, Map<String, String> params) {
+    public static Call post(String url, Map<String, String> header, Map<String, Object> params) {
         Headers headerBuild = Headers.of(header);
         RequestBody bodyBuild = RequestBody.create(JSON, params.toString());
         Request request = new Request.Builder()
