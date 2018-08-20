@@ -47,8 +47,11 @@ class ExampleUnitTest {
 
     @Test
     fun apiTest() {
+        val version = Version()
+        version.message = "test entity"
+        version.isStatus = true
 
-        val entity = service.user(1).execute().body()
+        val entity = service.user(1, version).execute().body()
         for (book in entity?.books!!) {
             System.out.println(book)
         }

@@ -13,7 +13,7 @@ import com.bankcomm.commlibrary.http.core.Params
 interface TestApi {
 
     @Get("/user")
-    fun user(@Params("id") id: Int): Call<TestEntity>
+    fun user(@Params("id") id: Int, @Body version: Version): Call<TestEntity>
 
     @Get("/version/all")
     fun version(): Call<Version>

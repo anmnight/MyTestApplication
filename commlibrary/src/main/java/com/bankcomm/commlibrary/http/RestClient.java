@@ -5,12 +5,11 @@ import com.bankcomm.commlibrary.http.core.Get;
 import com.bankcomm.commlibrary.http.core.Headers;
 import com.bankcomm.commlibrary.http.core.Params;
 import com.bankcomm.commlibrary.http.core.Post;
-
+import com.google.gson.Gson;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -87,6 +86,7 @@ public class RestClient {
      * @param args   args
      * @throws ClassNotFoundException exception
      */
+    @SuppressWarnings("unchecked")
     private void performParser(Object proxy, Method method, Object[] args) throws NoSuchMethodException {
 
         if (mBaseUrl == null) {
@@ -120,17 +120,26 @@ public class RestClient {
         }
 
         Annotation[][] paramsAnnotations = method.getParameterAnnotations();
-        for (Annotation[] parameterAnnotation : paramsAnnotations) {
-            int len = parameterAnnotation.length;
-            for (int i = 0; i < len; i++) {
-                Annotation annotation = parameterAnnotation[i];
+        for (int j = 0; j < paramsAnnotations.length; j++) {
+
+            Annotation[] parameterAnnotation = paramsAnnotations[j];
+
+            for (Annotation annotation : parameterAnnotation) {
                 if (annotation instanceof Params) {
                     Params params = (Params) annotation;
-                    mBody.put(params.value(), args[i]);
+                    mBody.put(params.value(), args[j]);
                 }
 
                 if (annotation instanceof Body) {
-                    //todo 添加解析
+                    Object obj = args[j];
+
+                    Gson gson = new Gson();
+                    Map map = new HashMap<String, Object>();
+                    String str = gson.toJson(obj);
+
+                    map = gson.fromJson(str, map.getClass());
+
+                    mBody.putAll(map);
                 }
             }
         }
