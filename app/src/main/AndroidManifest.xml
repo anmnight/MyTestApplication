@@ -24,11 +24,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/HomeTheme">
-        <activity android:name=".ui.RoundImageActivity" />
-        <activity
-            android:name=".ui.ScrollFlagActivity"
-            android:label="@string/title_activity_scoll_flag" />
-        <activity android:name=".android.viewpager.ViewPagerMainActivity" />
 
         <activity android:name=".TestMainActivity">
             <intent-filter>
@@ -37,6 +32,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.RoundImageActivity" />
+
+        <activity
+            android:name=".ui.ScrollFlagActivity"
+            android:label="@string/title_activity_scoll_flag" />
+
+        <activity android:name=".android.viewpager.ViewPagerMainActivity" />
+
     </application>
 
 </manifest>
