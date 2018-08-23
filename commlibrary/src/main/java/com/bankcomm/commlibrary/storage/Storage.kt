@@ -8,10 +8,10 @@ import java.io.FileInputStream
  * author：anxiao on 2018/8/20 20:42
  * anmnight@qq.com
  */
-interface FileHelper {
+interface Storage {
 
-    fun saveToSd(stream: FileInputStream, sdPath: SdPath, fileName: String): Boolean
+    fun saveToSd(sdPath: SdPath, fileName: String): Boolean
 
-    fun readFromSd(sdPath: SdPath, fileName: String): File
+    fun readFromSd(sdPath: String, fileName: String): File
 
 }

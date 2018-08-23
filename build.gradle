@@ -1,9 +1,9 @@
 buildscript {
-    ext.kotlin_version = '1.2.60'
+    ext.kotlin_version = '1.2.61'
 
     ext {
         android_support = '27.1.1'
-        kotlin_version = '1.2.60'
+        kotlin_version = '1.2.61'
     }
 
     repositories {
