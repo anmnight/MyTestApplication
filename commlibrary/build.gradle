@@ -23,6 +23,9 @@ android {
 
 }
 
+
+//todo lib name with version code
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
