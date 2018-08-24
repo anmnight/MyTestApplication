@@ -1,7 +1,7 @@
 package com.bankcomm.commlibrary.storage
 
 import java.io.File
-import java.io.FileInputStream
+import java.io.InputStream
 
 /**
  * https://github.com/anmnight
@@ -10,8 +10,8 @@ import java.io.FileInputStream
  */
 interface Storage {
 
-    fun saveToSd(sdPath: SdPath, fileName: String): Boolean
+    fun saveToSd(savedPath: String, savedName: String, inputStream: InputStream): Boolean
 
-    fun readFromSd(sdPath: String, fileName: String): File
+    fun readFromSd(savedPath: String, savedName: String): File
 
 }

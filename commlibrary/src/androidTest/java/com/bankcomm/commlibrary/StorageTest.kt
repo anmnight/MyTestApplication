@@ -15,12 +15,14 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class StorageTest {
 
-    private val Log = LogFactory.Instance
+
 
     @Test
     fun pathTest() {
 
         val context = InstrumentationRegistry.getTargetContext()
+
+
 
 
     }

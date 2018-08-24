@@ -1,6 +1,8 @@
 package com.bankcomm.commlibrary.storage
 
 import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
 
 /**
  * https://github.com/anmnight
@@ -10,13 +12,29 @@ import java.io.File
 class StorageFactory : Storage {
 
     @Synchronized
-    override fun saveToSd(sdPath: SdPath, fileName: String): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun saveToSd(savedPath: String, savedName: String, inputStream: InputStream): Boolean {
+
+        val outputStream = FileOutputStream(File(savedPath, savedName))
+        try {
+            val buffer = ByteArray(1024)
+            var len = 0
+            while (len != -1) {
+                len = inputStream.read(buffer)
+                outputStream.write(buffer, 0, len)
+            }
+
+            return true
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return false
+        } finally {
+            outputStream.close()
+            inputStream.close()
+        }
     }
 
     @Synchronized
-    override fun readFromSd(sdPath: String, fileName: String): File {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun readFromSd(savedPath: String, savedName: String): File = File(savedPath, savedName)
+
 
 }
