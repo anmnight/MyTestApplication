@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.os.Process;
 
+import com.bankcomm.commlibrary.view.ActivityAdapter;
+import com.bankcomm.commlibrary.view.ActivityAdapterFactory;
 import com.example.testapp.app.CrashHandler;
 
 public class TestHomeApplication extends Application implements Application.ActivityLifecycleCallbacks {
 
     public static TestHomeApplication application;
+
+    public ActivityAdapter mViewAdapter;
 
     public static TestHomeApplication getInstance() {
         return application;
@@ -27,11 +31,17 @@ public class TestHomeApplication extends Application implements Application.Acti
 
         if (isOnMainProcess()) {
             CrashHandler.instance().init();
+
+            //注册自适配View
+            mViewAdapter = ActivityAdapterFactory.Builder.
+                    INSTANCE.
+                    setType(ActivityAdapterFactory.Type.WIDTH)
+                    .build(2560, 1800, 320, application);
         }
     }
 
-    public boolean isMainThread(){
-        return Looper.getMainLooper()==Looper.myLooper();
+    public boolean isMainThread() {
+        return Looper.getMainLooper() == Looper.myLooper();
     }
 
     private String getApplicationName(Context context, int pid) {

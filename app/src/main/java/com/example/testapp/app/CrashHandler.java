@@ -3,6 +3,9 @@ package com.example.testapp.app;
 import android.os.Handler;
 import android.os.HandlerThread;
 
+import com.bankcomm.commlibrary.view.ActivityAdapter;
+import com.bankcomm.commlibrary.view.ActivityAdapterFactory;
+
 public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     private Thread.UncaughtExceptionHandler mUncaughtExceptionHandler;
