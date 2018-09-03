@@ -8,7 +8,7 @@ import com.bankcomm.commlibrary.logger.Logger
 class TestMainActivity : AppCompatActivity() {
 
 
-    private lateinit var log: Logger
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +17,6 @@ class TestMainActivity : AppCompatActivity() {
         TestHomeApplication.application.mViewAdapter.setAutoViewSize(this)
 
         setContentView(R.layout.activity_test_main)
-        log = LogFactory(application)
 
     }
 }

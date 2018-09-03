@@ -7,8 +7,6 @@ package com.bankcomm.commlibrary.task
  */
 data class Work(val runnable: Runnable, val runType: RunType) {
 
-
-
     enum class RunType {
         MAIN, WORK
     }
