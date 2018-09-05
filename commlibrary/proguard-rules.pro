@@ -33,3 +33,13 @@
 
 # OkHttp platform used only on JVM and when Conscrypt dependency is available.
 -dontwarn okhttp3.internal.platform.ConscryptPlatform
+
+# Gson specific classes
+
+-keepclass sun.misc.Unsafe {*;}
+
+-keepclass com.google.gson.stream.** {*;}
+
+# Application classes that will be serialized/deserialized over Gson
+
+-keepclass com.google.gson.** {*;}

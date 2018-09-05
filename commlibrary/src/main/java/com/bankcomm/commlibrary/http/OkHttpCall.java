@@ -15,11 +15,9 @@
  */
 package com.bankcomm.commlibrary.http;
 
-
-import android.support.annotation.Nullable;
-
 import com.google.gson.Gson;
 
+import org.jetbrains.annotations.Nullable;
 import java.io.IOException;
 import java.lang.reflect.Type;
 

@@ -15,11 +15,13 @@ class ActivityAdapterFactory(
         private var mApp: Application) : ActivityAdapter {
 
     object Builder {
-        var mType = Type.WIDTH
+        private var mType = Type.WIDTH
         fun setType(type: Type): Builder {
             this.mType = type
             return this
         }
+
+        fun getType(): Type = mType
 
         fun build(designWidth: Int, designHeight: Int, designDpi: Int, application: Application): ActivityAdapterFactory {
             return ActivityAdapterFactory(designWidth, designHeight, designDpi, application)
@@ -61,7 +63,7 @@ class ActivityAdapterFactory(
 
         val targetDensity: Float
 
-        targetDensity = if (Builder.mType == Type.WIDTH) {
+        targetDensity = if (Builder.getType() == Type.WIDTH) {
             displayWidth / targetWidthDP
         } else {
             displayHeight / targetHeightDp

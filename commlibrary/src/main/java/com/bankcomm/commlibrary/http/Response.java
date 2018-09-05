@@ -16,14 +16,15 @@
 package com.bankcomm.commlibrary.http;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.Nullable;
+
+import org.jetbrains.annotations.Nullable;
 
 import okhttp3.Headers;
 import okhttp3.Protocol;
 import okhttp3.Request;
 import okhttp3.ResponseBody;
 
-import static android.support.v4.util.Preconditions.checkNotNull;
+import static com.bankcomm.commlibrary.http.Utils.checkNotNull;
 
 /**
  * An HTTP response.
