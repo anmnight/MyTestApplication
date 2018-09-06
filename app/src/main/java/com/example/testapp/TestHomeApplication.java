@@ -8,10 +8,8 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.os.Process;
 
-import com.bankcomm.commlibrary.logger.Logger;
 import com.bankcomm.commlibrary.view.ActivityAdapter;
 import com.bankcomm.commlibrary.view.ActivityAdapterFactory;
-import com.example.testapp.app.CrashHandler;
 
 public class TestHomeApplication extends Application implements Application.ActivityLifecycleCallbacks {
 

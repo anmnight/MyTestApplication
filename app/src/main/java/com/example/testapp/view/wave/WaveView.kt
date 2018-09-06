@@ -1,14 +1,12 @@
-package com.example.testapp.android.wave
+package com.example.testapp.view.wave
 
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Path
-import android.graphics.PointF
 import android.util.AttributeSet
 import android.view.View
 import com.example.testapp.R
-import unit.Logger
 
 class WaveView @JvmOverloads constructor(context: Context,
                                          attrs: AttributeSet? = null,

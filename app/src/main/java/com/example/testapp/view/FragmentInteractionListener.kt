@@ -1,4 +1,4 @@
-package com.example.testapp.ui
+package com.example.testapp.view
 
 import android.net.Uri
 

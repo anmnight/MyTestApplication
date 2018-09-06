@@ -1,10 +1,7 @@
-package com.example.testapp.app;
+package com.example.testapp;
 
 import android.os.Handler;
 import android.os.HandlerThread;
-
-import com.bankcomm.commlibrary.view.ActivityAdapter;
-import com.bankcomm.commlibrary.view.ActivityAdapterFactory;
 
 public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
@@ -37,9 +34,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         if (!handlerException(throwable) && mUncaughtExceptionHandler != null) {
             mUncaughtExceptionHandler.uncaughtException(thread, throwable);
         } else {
-            //不可处理的问题，关闭应用
 
-            // TODO: 2017/9/7 upload exception
+            // TODO: 启动发送log service
+
         }
 
     }
@@ -49,12 +46,6 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             return false;
         } else {
             throwable.printStackTrace();
-            mHandler.post(new Runnable() {
-                @Override
-                public void run() {
-                    ToastUnit.sortToase("app will be close...");
-                }
-            });
             return true;
         }
     }
