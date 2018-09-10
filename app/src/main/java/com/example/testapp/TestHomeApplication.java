@@ -8,14 +8,21 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.os.Process;
 
+import com.bankcomm.commlibrary.logger.LogFactory;
+import com.bankcomm.commlibrary.logger.Logger;
 import com.bankcomm.commlibrary.view.ActivityAdapter;
 import com.bankcomm.commlibrary.view.ActivityAdapterFactory;
+import com.example.testapp.view.bound.WechatHeader;
 
 public class TestHomeApplication extends Application implements Application.ActivityLifecycleCallbacks {
 
     public static TestHomeApplication application;
 
     public ActivityAdapter mViewAdapter;
+
+    public WechatHeader mHeader;
+
+    public Logger mLogger;
 
     public static TestHomeApplication getInstance() {
         return application;
@@ -36,6 +43,12 @@ public class TestHomeApplication extends Application implements Application.Acti
                     INSTANCE.
                     setType(ActivityAdapterFactory.Type.WIDTH)
                     .build(1080, 1920, 420, application);
+
+            //bound header
+            mHeader = new WechatHeader(this);
+
+            //register log
+            mLogger = LogFactory.Builder.INSTANCE.initLogService(this);
 
 
         }

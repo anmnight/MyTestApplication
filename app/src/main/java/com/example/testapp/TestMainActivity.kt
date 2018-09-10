@@ -1,17 +1,11 @@
 package com.example.testapp
 
 import android.content.ComponentName
-import android.content.Context
-import android.content.Intent
 import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 import com.anmnight.home.ITestInterface
-import com.example.testapp.android.background.TestService
-import kotlinx.android.synthetic.main.activity_test_main.*
-import unit.Logger
 
 class TestMainActivity : AppCompatActivity() {
 
@@ -20,6 +14,8 @@ class TestMainActivity : AppCompatActivity() {
 
         TestHomeApplication.application.mViewAdapter.setAutoViewSize(this)
 
+        TestHomeApplication.application.mHeader.setActivityBound(this)
+
         setContentView(R.layout.activity_test_main)
 
 
@@ -27,9 +23,6 @@ class TestMainActivity : AppCompatActivity() {
 //        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
 //        intent.setPackage("com.anmnight.home")
 //        intent.action = "com.anmnight.home.worker.TestService"
-
-
-        startService(Intent(this, TestService::class.java))
 
 
     }
@@ -71,7 +64,6 @@ class TestMainActivity : AppCompatActivity() {
 
             mRemoteService = ITestInterface.Stub.asInterface(service)
 
-            Logger.info("onServiceConnected")
         }
 
     }

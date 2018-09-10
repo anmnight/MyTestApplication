@@ -1,4 +1,4 @@
-package com.example.testapp.android.background
+package com.example.testapp.android.service
 
 import android.app.Notification
 import android.app.PendingIntent
@@ -29,6 +29,10 @@ class TestService : Service() {
 
         return super.onStartCommand(intent, flags, startId)
     }
+
+
+
+
 
     private fun buildNotification() {
 

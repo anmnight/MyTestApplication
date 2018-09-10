@@ -6,7 +6,6 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.widget.ImageView
-import unit.Logger
 
 class CustomerPrepareView : ImageView {
 
@@ -34,9 +33,6 @@ class CustomerPrepareView : ImageView {
          dWidth = drawable.intrinsicWidth
          dHeight = drawable.intrinsicHeight
 
-
-        Logger.info("Spec : $mWidth , $mHeight")
-        Logger.info("Drawable : $dWidth,$dHeight")
     }
 
 
