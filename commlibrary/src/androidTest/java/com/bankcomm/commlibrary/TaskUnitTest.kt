@@ -3,7 +3,7 @@ package com.bankcomm.commlibrary
 import com.bankcomm.commlibrary.task.WorkFactory
 import org.junit.Test
 import java.lang.Thread.sleep
-import java.util.concurrent.Executors
+import java.util.concurrent.Callable
 
 /**
  * https://github.com/anmnight
@@ -17,24 +17,28 @@ class TaskUnitTest {
 
 
         WorkFactory.doSynWork()
-                .doThisOnWork(Runnable {
+                .doThisOnWork(Callable {
                     System.out.println("Im task1")
                 })
-                .doThisOnWork(Runnable {
+                .doThisOnWork(Callable {
                     System.out.println("Im task2")
                 })
-                .doThisOnWork(Runnable {
-                    sleep(1000)
-                    System.out.println("Im task3")
+                .doThisOnWork(Callable {
 
+                    System.out.println("start")
+                    val st = System.currentTimeMillis()
+                    sleep(10000)
+                    System.out.println("spend : ${System.currentTimeMillis() - st}")
+
+                    System.out.println("Im task3")
                 })
-                .doThisOnWork(Runnable {
+                .doThisOnWork(Callable {
                     System.out.println("Im task4")
                 })
-                .doThisOnWork(Runnable {
+                .doThisOnWork(Callable {
                     System.out.println("Im task5")
                 })
-                .run()
+                .go()
 
 
     }
@@ -42,26 +46,23 @@ class TaskUnitTest {
     @Test
     fun testAsynTask() {
 
-        WorkFactory.doAsynWork(2)
-                .doThisOnWork(Runnable {
+        WorkFactory.doAsynWork(4)
+                .doThisOnWork(Callable {
                     System.out.println("Im task1")
                 })
-                .doThisOnWork(Runnable {
-                    sleep(1000)
+                .doThisOnWork(Callable {
                     System.out.println("Im task2")
                 })
-                .doThisOnWork(Runnable {
-                    sleep(1000)
+                .doThisOnWork(Callable {
                     System.out.println("Im task3")
                 })
-                .doThisOnWork(Runnable {
-                    sleep(1000)
+                .doThisOnWork(Callable {
                     System.out.println("Im task4")
                 })
-                .doThisOnWork(Runnable {
+                .doThisOnWork(Callable {
                     System.out.println("Im task5")
                 })
-                .run()
+                .go()
 
     }
 

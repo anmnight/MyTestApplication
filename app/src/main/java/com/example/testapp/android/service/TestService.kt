@@ -26,7 +26,6 @@ class TestService : Service() {
 
         buildNotification()
 
-
         return super.onStartCommand(intent, flags, startId)
     }
 

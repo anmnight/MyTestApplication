@@ -62,6 +62,7 @@ class TestMainActivity : AppCompatActivity() {
          */
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
 
+
             mRemoteService = ITestInterface.Stub.asInterface(service)
 
         }

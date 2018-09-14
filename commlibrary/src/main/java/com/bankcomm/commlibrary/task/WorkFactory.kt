@@ -1,9 +1,10 @@
 package com.bankcomm.commlibrary.task
 
 import android.os.Handler
+import android.os.Looper
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import com.bankcomm.commlibrary.task.Work.*
+import java.util.concurrent.Callable
 
 /**
  * https://github.com/anmnight
@@ -14,75 +15,59 @@ class WorkFactory : Run {
 
     private var mType: TaskType
     private var mPool: ExecutorService
-    private val mTasks = ArrayList<Work>()
+    private var mWorker: Worker
 
-    //todo 重构工程模式
-    //todo 获取android mainThread
-    //todo 检查pool 终止后延时任务执行状态（task3）
-    private val mainHandler = Handler()
+    private val mainHandler = Handler(Looper.getMainLooper())
+
 
     constructor() {
         mType = TaskType.SYN
         mPool = Executors.newSingleThreadExecutor()
-
+        mWorker = Worker(mPool)
     }
 
     constructor(maxTask: Int) {
         mType = TaskType.ASYN
         mPool = Executors.newFixedThreadPool(maxTask)
+        mWorker = Worker(mPool)
     }
 
+    var mResult: Any? = null
 
-    override fun doThisOnWork(task: Runnable): Run {
+    override fun <T> doThisOnWork(task: Callable<T>): Run {
 
-        mTasks.add(Work(task, RunType.WORK))
+        if (mType == TaskType.SYN) {
+            mResult = mWorker.doOnWork(task)
+        } else {
+            mPool.submit(task)
+        }
+
         return mInstance
+
     }
 
     override fun doThisOnMain(task: Runnable): Run {
 
-        mTasks.add(Work(task, RunType.MAIN))
+        mainHandler.post(task)
+
         return mInstance
     }
 
-    override fun run() {
 
-        if (mType == TaskType.SYN) {
-            for (work in mTasks) {
-                doSynWork(work)
-            }
-        }
-
-        if (mType == TaskType.ASYN) {
-            for (work in mTasks) {
-                mPool.execute(work.runnable)
-            }
-        }
-
-
+    override fun go() {
         try {
             mPool.shutdown()
         } catch (e: Exception) {
             mPool.shutdownNow()
         }
-
     }
 
-
-    //执行同步线程
-    @Synchronized
-    private fun doSynWork(work: Work) {
-        if (work.runType == RunType.WORK) {
-            val future = mPool.submit(work.runnable)
-            while (!future.isDone) {
-                //等待任务完成
-            }
+    override fun destroyNow() {
+        if (!mPool.isTerminated){
+            mPool.shutdownNow()
+            throw Exception("all work does not do finish")
         }
 
-        //主线程不可做耗时任务，线程无需等待回调
-        if (work.runType == RunType.MAIN) {
-            mainHandler.post { work.runnable }
-        }
     }
 
 

@@ -2,19 +2,25 @@ package com.example.testapp.view.bound
 
 import android.app.Activity
 import android.app.Application
+import android.content.Context
+import android.os.Build
+import android.support.annotation.RequiresApi
+import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
 import android.view.ViewGroup
 import com.bankcomm.commlibrary.logger.Logger
 import com.example.testapp.TestHomeApplication
+import com.example.testapp.TestHomeApplication.application
 
 /**
  * https://github.com/anmnight
  * author：anxiao on 2018/8/29 17:14
  * anmnight@qq.com
  */
-class WechatHeader(app: Application) : View.OnTouchListener {
+class WechatHeader : ViewGroup {
+
 
     private var mTouchSlop = 0
 
@@ -29,8 +35,15 @@ class WechatHeader(app: Application) : View.OnTouchListener {
 
     private lateinit var logger: Logger
 
+    constructor(context: Context?) : super(context)
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
+
+
     init {
-        mTouchSlop = ViewConfiguration.get(app.applicationContext).scaledTouchSlop
+        mTouchSlop = ViewConfiguration.get(application.applicationContext).scaledTouchSlop
 
     }
 
@@ -51,27 +64,14 @@ class WechatHeader(app: Application) : View.OnTouchListener {
 
         logger.debug("mBoundViewTopMargin : $mBoundViewTopMargin")
 
-
-        mBoundView!!.setOnTouchListener(this)
-
-
     }
 
 
-    /**
-     * Called when a touch event is dispatched to a view. This allows listeners to
-     * get a chance to respond before the target view.
-     *
-     * @param v The view the touch event has been dispatched to.
-     * @param event The MotionEvent object containing full information about
-     * the event.
-     * @return True if the listener has consumed the event, false otherwise.
-     */
-    override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-        logger.debug("onTouch")
-
-        return v?.onTouchEvent(event)!!
+    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+
 
 
 }
