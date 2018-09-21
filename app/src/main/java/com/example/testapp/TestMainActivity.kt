@@ -5,7 +5,10 @@ import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import com.anmnight.home.ITestInterface
+import com.bankcomm.commlibrary.task.WorkFactory
+import java.lang.Thread.sleep
 
 class TestMainActivity : AppCompatActivity() {
 
@@ -19,10 +22,21 @@ class TestMainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_test_main)
 
 
-//        val intent = Intent()
-//        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-//        intent.setPackage("com.anmnight.home")
-//        intent.action = "com.anmnight.home.worker.TestService"
+
+
+        WorkFactory.doSynWork()
+
+                .doThisOnMain(Runnable {
+                    Log.i("TestMainActivity","im main")
+                })
+                .doThisOnWork(Runnable {
+                    sleep(10000)
+                    Log.i("TestMainActivity","im work")
+                })
+                .doThisOnMain(Runnable {
+                    Log.i("TestMainActivity","im main")
+                })
+                .go()
 
 
     }

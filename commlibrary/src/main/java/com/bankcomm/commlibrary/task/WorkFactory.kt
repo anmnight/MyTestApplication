@@ -2,9 +2,9 @@ package com.bankcomm.commlibrary.task
 
 import android.os.Handler
 import android.os.Looper
+import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import java.util.concurrent.Callable
 
 /**
  * https://github.com/anmnight
@@ -15,61 +15,79 @@ class WorkFactory : Run {
 
     private var mType: TaskType
     private var mPool: ExecutorService
-    private var mWorker: Worker
 
     private val mainHandler = Handler(Looper.getMainLooper())
 
+    //任务队列
+    private val mTasks = ArrayList<Work>()
 
     constructor() {
         mType = TaskType.SYN
         mPool = Executors.newSingleThreadExecutor()
-        mWorker = Worker(mPool)
     }
 
     constructor(maxTask: Int) {
         mType = TaskType.ASYN
         mPool = Executors.newFixedThreadPool(maxTask)
-        mWorker = Worker(mPool)
     }
 
-    var mResult: Any? = null
-
-    override fun <T> doThisOnWork(task: Callable<T>): Run {
-
-        if (mType == TaskType.SYN) {
-            mResult = mWorker.doOnWork(task)
-        } else {
-            mPool.submit(task)
-        }
-
+    override fun doThisOnWork(work: Runnable): Run {
+        mTasks.add(Work(work, Work.WorkType.WORK))
         return mInstance
 
     }
 
-    override fun doThisOnMain(task: Runnable): Run {
-
-        mainHandler.post(task)
-
+    override fun doThisOnMain(work: Runnable): Run {
+        mTasks.add(Work(work, Work.WorkType.MAIN))
         return mInstance
     }
 
 
     override fun go() {
-        try {
-            mPool.shutdown()
-        } catch (e: Exception) {
-            mPool.shutdownNow()
+
+        if (mType == TaskType.ASYN) {
+            goAsyn()
         }
+
+        if (mType == TaskType.SYN) {
+            goSyn()
+        }
+
+    }
+
+    private fun goAsyn() {
+        mTasks.forEach { it ->
+            if (it.type == Work.WorkType.MAIN) {
+                mainHandler.post(it.work)
+            }
+            if (it.type == Work.WorkType.WORK) {
+                mPool.submit(it.work)
+            }
+        }
+    }
+
+    //todo 任务超时，注销任务
+    private fun goSyn() {
+        Thread {
+            mTasks.forEach { it ->
+                if (it.type == Work.WorkType.MAIN) {
+                    mainHandler.post(it.work)
+                } else {
+                    val future = mPool.submit(it.work)
+                    while (!future.isDone) {
+                    }
+                }
+            }
+        }.start()
+
     }
 
     override fun destroyNow() {
-        if (!mPool.isTerminated){
+        if (!mPool.isTerminated) {
             mPool.shutdownNow()
             throw Exception("all work does not do finish")
         }
-
     }
-
 
     companion object {
         private lateinit var mInstance: WorkFactory

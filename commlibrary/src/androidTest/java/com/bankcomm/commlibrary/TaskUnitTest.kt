@@ -16,27 +16,24 @@ class TaskUnitTest {
     fun testSynTaskFactory() {
 
 
-        WorkFactory.doSynWork()
-                .doThisOnWork(Callable {
-                    System.out.println("Im task1")
-                })
-                .doThisOnWork(Callable {
-                    System.out.println("Im task2")
-                })
-                .doThisOnWork(Callable {
+        val factory = WorkFactory.doSynWork()
 
-                    System.out.println("start")
-                    val st = System.currentTimeMillis()
-                    sleep(10000)
-                    System.out.println("spend : ${System.currentTimeMillis() - st}")
-
-                    System.out.println("Im task3")
+        factory
+                .doThisOnWork(Runnable {
+                    System.out.println("1")
                 })
-                .doThisOnWork(Callable {
-                    System.out.println("Im task4")
+                .doThisOnMain(Runnable {
+                    System.out.println("2")
                 })
-                .doThisOnWork(Callable {
-                    System.out.println("Im task5")
+                .doThisOnWork(Runnable {
+                    sleep(5000)
+                    System.out.println("3")
+                })
+                .doThisOnWork(Runnable {
+                    System.out.println("4")
+                })
+                .doThisOnMain(Runnable {
+                    System.out.println("5")
                 })
                 .go()
 
@@ -47,19 +44,19 @@ class TaskUnitTest {
     fun testAsynTask() {
 
         WorkFactory.doAsynWork(4)
-                .doThisOnWork(Callable {
+                .doThisOnWork(Runnable {
                     System.out.println("Im task1")
                 })
-                .doThisOnWork(Callable {
+                .doThisOnWork(Runnable {
                     System.out.println("Im task2")
                 })
-                .doThisOnWork(Callable {
+                .doThisOnWork(Runnable {
                     System.out.println("Im task3")
                 })
-                .doThisOnWork(Callable {
+                .doThisOnWork(Runnable {
                     System.out.println("Im task4")
                 })
-                .doThisOnWork(Callable {
+                .doThisOnWork(Runnable {
                     System.out.println("Im task5")
                 })
                 .go()

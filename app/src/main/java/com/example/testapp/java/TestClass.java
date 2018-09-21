@@ -7,20 +7,15 @@ package com.example.testapp.java;
  */
 public class TestClass {
 
-
-    static {
-        System.out.print("asda");
-    }
-
-    static {
-        System.out.print("asdas");
-    }
+    public void main() {
 
 
-    protected void main() {
+       Work work = new Work();
+       Worker worker = new Worker();
 
-        ClassLoader loader = ClassLoader.getSystemClassLoader();
+       work.addObserver(worker);
 
+       work.doWork();
 
     }
 }

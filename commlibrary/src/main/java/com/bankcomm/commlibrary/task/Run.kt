@@ -10,10 +10,10 @@ import java.util.concurrent.Callable
 interface Run {
 
     //工作在子线程
-    fun <T> doThisOnWork(task: Callable<T>): Run
+    fun doThisOnWork(work: Runnable): Run
 
     //工作在主线程
-    fun doThisOnMain(task: Runnable): Run
+    fun doThisOnMain(work: Runnable): Run
 
     //执行
     fun go()
