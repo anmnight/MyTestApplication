@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="com.example.testapp.TestMainActivity">
 
-    <com.example.testapp.view.wave.WaveView
+    <com.example.testapp.widget.wave.WaveView
         android:visibility="gone"
         android:layout_width="200dp"
         android:layout_height="200dp"

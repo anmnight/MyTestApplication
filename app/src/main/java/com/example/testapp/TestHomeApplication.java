@@ -12,7 +12,6 @@ import com.bankcomm.commlibrary.logger.LogFactory;
 import com.bankcomm.commlibrary.logger.Logger;
 import com.bankcomm.commlibrary.view.ActivityAdapter;
 import com.bankcomm.commlibrary.view.ActivityAdapterFactory;
-import com.example.testapp.view.bound.WechatHeader;
 
 public class TestHomeApplication extends Application implements Application.ActivityLifecycleCallbacks {
 
@@ -20,7 +19,7 @@ public class TestHomeApplication extends Application implements Application.Acti
 
     public ActivityAdapter mViewAdapter;
 
-    public WechatHeader mHeader;
+
 
     public Logger mLogger;
 
@@ -39,13 +38,11 @@ public class TestHomeApplication extends Application implements Application.Acti
             CrashHandler.instance().init();
 
             //注册自适配View
-            mViewAdapter = ActivityAdapterFactory.Builder.
-                    INSTANCE.
-                    setType(ActivityAdapterFactory.Type.WIDTH)
+            mViewAdapter = new ActivityAdapterFactory.Builder()
+                    .setType(ActivityAdapterFactory.Type.WIDTH)
                     .build(1080, 1920, 420, application);
 
-            //bound header
-            mHeader = new WechatHeader(this);
+
 
             //register log
             mLogger = LogFactory.Builder.INSTANCE.initLogService(this);

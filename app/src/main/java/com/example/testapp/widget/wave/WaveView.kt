@@ -1,4 +1,4 @@
-package com.example.testapp.view.wave
+package com.example.testapp.widget.wave
 
 import android.content.Context
 import android.graphics.Canvas

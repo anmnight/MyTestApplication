@@ -1,4 +1,4 @@
-package com.example.testapp.view;
+package com.example.testapp.widget;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

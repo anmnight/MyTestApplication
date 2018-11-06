@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.testapp.view.RoundImageActivity">
+    tools:context="com.example.testapp.widget.RoundImageActivity">
 
 
     <com.example.testapp.mytestapplication.customer_drawable.XfermodeRoundImageView
@@ -14,7 +14,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"/>
 
-    <com.example.testapp.view.BitmapShaderRoundImageView
+    <com.example.testapp.widget.BitmapShaderRoundImageView
         android:id="@+id/bitmapshader_img"
         android:layout_width="200dp"
         android:layout_height="200dp"/>
