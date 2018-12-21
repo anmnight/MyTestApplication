@@ -5,6 +5,8 @@ import com.example.testapp.dagger2.Heater;
 
 import org.junit.Test;
 
+import java.util.concurrent.LinkedBlockingQueue;
+
 import javax.inject.Inject;
 
 /**
@@ -21,5 +23,6 @@ public class Dagger2Test {
     public void TestCofferMaker(){
 
         heater.heating();
+
     }
 }

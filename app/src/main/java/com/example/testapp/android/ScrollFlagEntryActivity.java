@@ -1,10 +1,10 @@
-package com.example.testapp.widget;
+package com.example.testapp.android;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import com.example.testapp.R;
 
-public class ScrollFlagActivity extends AppCompatActivity {
+public class ScrollFlagEntryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
