@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyTestApplication</string>
+    <string name="app_name">TestApp</string>
     <string name="title_activity_base_map_view">BaseMapView</string>
     <string name="title_activity_http_test">HttpTest</string>
     <string name="title_activity_fresco">FrescoActivity</string>

@@ -16,9 +16,9 @@ class RoundImageEntryActivity : AppCompatActivity() {
         val params = xferImageView.layoutParams
         xferImageView.layoutParams = params
 
-        xferImageView.setImageResource(R.mipmap.gal)
+        xferImageView.setImageResource(R.drawable.gal)
 
-        bitmapshader_img.setImageResource(R.mipmap.gal)
+        bitmapshader_img.setImageResource(R.drawable.gal)
 
 
 
