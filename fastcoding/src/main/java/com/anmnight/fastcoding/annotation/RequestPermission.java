@@ -1,4 +1,4 @@
-package com.zeusqwer.fastcoding.annotation;
+package com.anmnight.fastcoding.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -6,14 +6,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * © 1908 anxiao Co.,Ltd All Rights Reserved.
- * 作者：anxiao on 2018/2/9 10:53
- * 邮箱：anxiao@bankcomm.com
+ * https://github.com/anmnight
+ * author：anxiao on 2018/12/24 17:25
+ * anmnight@qq.com
  */
-
 @Retention(RetentionPolicy.CLASS)
 @Target({ElementType.METHOD})
-public @interface FastUiThread {
+public @interface RequestPermission {
 }
-
-
