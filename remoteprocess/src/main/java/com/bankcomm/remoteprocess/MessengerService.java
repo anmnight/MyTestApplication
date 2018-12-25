@@ -9,6 +9,10 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+
+import com.bankcomm.commlibrary.widget.FloatFrame;
 
 public class MessengerService extends Service {
     public MessengerService() {
@@ -16,11 +20,41 @@ public class MessengerService extends Service {
 
     private String TAG = "MessengerService";
 
+    private FloatFrame mFrame;
+
+    private View mView;
+
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+
+        mView = inflater.inflate(R.layout.ui_float_view, null);
+
+        mFrame = new FloatFrame(this);
+
+    }
+
     @Override
     public IBinder onBind(Intent intent) {
+
+        mFrame.show(mView);
+
+        Log.i(TAG, "onBind");
+
         return messenger.getBinder();
     }
 
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+
+        Log.d(TAG, "onUnbind");
+
+        return super.onUnbind(intent);
+    }
 
     private static class MessengerHandler extends Handler {
 

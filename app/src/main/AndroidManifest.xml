@@ -21,6 +21,7 @@
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:name=".TestHomeApplication"
@@ -32,25 +33,26 @@
         android:theme="@style/HomeTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity"/>
 
         <activity android:name=".android.RoundImageEntryActivity" />
 
-        <activity
-            android:name=".android.ScrollFlagEntryActivity" />
+        <activity android:name=".android.ScrollFlagEntryActivity" />
 
         <service
             android:name=".android.service.BinderService"
             android:exported="true"
             android:process=":remote" />
 
-        <activity android:name=".android.service.BinderServiceEntryActivity"/>
+        <activity android:name=".android.service.BinderServiceEntryActivity" />
+
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
