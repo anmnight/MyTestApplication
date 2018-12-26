@@ -6,22 +6,4 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-    <Button
-        android:id="@+id/bind"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="BIND"
-        app:layout_constraintBottom_toTopOf="@+id/unbind" />
-
-
-    <Button
-        android:id="@+id/unbind"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="UNBIND"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
 </android.support.constraint.ConstraintLayout>

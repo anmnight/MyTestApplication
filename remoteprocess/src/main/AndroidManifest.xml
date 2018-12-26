@@ -3,10 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.bankcomm.remoteprocess">
 
-
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
-
 
     <application tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
@@ -20,7 +17,11 @@
         <service
             android:name=".MessengerService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.anmnight.remote.server" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

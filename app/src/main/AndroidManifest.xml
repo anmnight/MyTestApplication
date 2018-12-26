@@ -39,12 +39,7 @@
 
         <activity android:name=".android.ScrollFlagEntryActivity" />
 
-        <service
-            android:name=".android.service.BinderService"
-            android:exported="true"
-            android:process=":remote" />
-
-        <activity android:name=".android.service.BinderServiceEntryActivity" />
+        <activity android:name=".android.service.MessengerServiceEntryActivity" />
 
         <activity android:name=".SplashActivity">
             <intent-filter>

@@ -11,10 +11,13 @@ import android.os.RemoteException;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 
 import com.bankcomm.commlibrary.widget.FloatFrame;
 
-public class MessengerService extends Service {
+import org.jetbrains.annotations.NotNull;
+
+public class MessengerService extends Service implements FrameViewEvent.Callback {
     public MessengerService() {
     }
 
@@ -22,27 +25,28 @@ public class MessengerService extends Service {
 
     private FloatFrame mFrame;
 
-    private View mView;
+    private View frameView;
 
+    private FrameViewEvent frameViewEvent;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
+        mFrame = new FloatFrame(this);
+
         LayoutInflater inflater = LayoutInflater.from(this);
 
-        mView = inflater.inflate(R.layout.ui_float_view, null);
+        frameView = inflater.inflate(R.layout.service_chat_frame, null);
 
-        mFrame = new FloatFrame(this);
+        frameViewEvent = new FrameViewEvent(frameView, this);
 
     }
 
     @Override
     public IBinder onBind(Intent intent) {
 
-        mFrame.show(mView);
-
-        Log.i(TAG, "onBind");
+        mFrame.show(frameView);
 
         return messenger.getBinder();
     }
@@ -51,38 +55,39 @@ public class MessengerService extends Service {
     @Override
     public boolean onUnbind(Intent intent) {
 
-        Log.d(TAG, "onUnbind");
+        mFrame.destroy();
 
         return super.onUnbind(intent);
     }
 
+    @Override
+    public void send(@NotNull String message) {
+
+        try {
+            Message msg = Message.obtain();
+            Bundle bundle = new Bundle();
+            bundle.putString("msg", message);
+            msg.setData(bundle);
+            repMessenger.send(msg);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static Messenger repMessenger;
     private static class MessengerHandler extends Handler {
 
         private String TAG = "MessengerHandler";
-        private Messenger messenger;
+
 
         @Override
         public void handleMessage(Message msg) {
             String arg = msg.getData().getString("msg");
             Log.i(TAG, "Client : " + arg);
-            messenger = msg.replyTo;
-            try {
-                send();
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-
+            repMessenger = msg.replyTo;
 
         }
 
-
-        private void send() throws RemoteException {
-            Message msg = Message.obtain();
-            Bundle bundle = new Bundle();
-            bundle.putString("msg", "message from server");
-            msg.setData(bundle);
-            messenger.send(msg);
-        }
     }
 
 

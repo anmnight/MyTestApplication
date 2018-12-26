@@ -4,19 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.testapp.android.service.BinderServiceEntryActivity">
+    tools:context="com.example.testapp.android.service.MessengerServiceEntryActivity">
+
 
     <Button
-        android:id="@+id/send"
+        android:id="@+id/bind"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="8dp"
-        android:text="SEND"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="BIND"
+        app:layout_constraintBottom_toTopOf="@+id/unbind" />
+
+    <Button
+        android:id="@+id/unbind"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="8dp"
+        android:text="UNBIND"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 
 
 </android.support.constraint.ConstraintLayout>

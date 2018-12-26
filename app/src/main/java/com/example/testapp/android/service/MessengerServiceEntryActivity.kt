@@ -7,30 +7,34 @@ import android.content.ServiceConnection
 import android.os.*
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import com.example.testapp.R
 import kotlinx.android.synthetic.main.activity_binder_service.*
 
-class BinderServiceEntryActivity : AppCompatActivity() {
+class MessengerServiceEntryActivity : AppCompatActivity(), View.OnClickListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_binder_service)
 
-        bindService(Intent(this, BinderService::class.java), conn, Context.BIND_AUTO_CREATE)
 
-        send.setOnClickListener {
+        bind.setOnClickListener(this)
+        unbind.setOnClickListener(this)
 
-            val msg = Message.obtain()
 
-            val bundle = Bundle()
-            bundle.putString("msg", "message from client")
-
-            msg.data = bundle
-            msg.replyTo = mReplyMessenger
-
-            mMessenger.send(msg)
-        }
+//        send.setOnClickListener {
+//
+//            val msg = Message.obtain()
+//
+//            val bundle = Bundle()
+//            bundle.putString("msg", "message from client")
+//
+//            msg.data = bundle
+//            msg.replyTo = mReplyMessenger
+//
+//            mMessenger.send(msg)
+//        }
 
     }
 
@@ -43,13 +47,26 @@ class BinderServiceEntryActivity : AppCompatActivity() {
         class ReplyHandler : Handler() {
             override fun handleMessage(msg: Message?) {
                 val message = msg?.data?.getString("msg")
-
-
                 Log.i(TAG, "Server : $message")
-
-
             }
         }
+    }
+
+
+    override fun onClick(v: View?) {
+
+        when (v?.id) {
+
+            R.id.bind -> {
+                val intent = Intent()
+                intent.action = "com.anmnight.remote.server"
+                intent.setPackage("com.bankcomm.remoteprocess")
+                bindService(intent, conn, Context.BIND_AUTO_CREATE)
+            }
+
+            R.id.unbind -> unbindService(conn)
+        }
+
     }
 
 
