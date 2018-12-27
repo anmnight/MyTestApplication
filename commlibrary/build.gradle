@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 14
@@ -10,7 +10,7 @@ android {
         versionCode 2
         versionName "1.0.8"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -40,8 +40,8 @@ dependencies {
 
     //test
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation "androidx.test:runner:$androidx_runner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_espresso"
     testImplementation 'com.squareup.okhttp3:mockwebserver:3.11.0'
 
     //http

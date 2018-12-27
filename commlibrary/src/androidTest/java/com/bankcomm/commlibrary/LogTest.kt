@@ -1,8 +1,8 @@
 package com.bankcomm.commlibrary
 
 import android.app.Application
-import android.support.test.InstrumentationRegistry
-import android.support.test.runner.AndroidJUnit4
+import androidx.test.InstrumentationRegistry
+import androidx.test.runner.AndroidJUnit4
 import com.bankcomm.commlibrary.logger.LogFactory
 import com.bankcomm.commlibrary.logger.Logger
 import org.junit.Test

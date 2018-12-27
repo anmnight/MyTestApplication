@@ -1,7 +1,7 @@
 package com.example.testapp.widget
 
 import android.content.Context
-import android.support.design.widget.CoordinatorLayout
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import android.util.AttributeSet
 import android.view.View
 
@@ -12,11 +12,12 @@ class TestBehavior : CoordinatorLayout.Behavior<View> {
 
     //某个view监听另一个view的状态变化，例如大小、位置、显示状态等
 
-    override fun layoutDependsOn(parent: CoordinatorLayout?, child: View?, dependency: View?): Boolean {
+    override fun layoutDependsOn(parent: CoordinatorLayout, child: View, dependency: View): Boolean {
         return super.layoutDependsOn(parent, child, dependency)
     }
 
-    override fun onDependentViewChanged(parent: CoordinatorLayout?, child: View?, dependency: View?): Boolean {
+
+    override fun onDependentViewChanged(parent: CoordinatorLayout, child: View, dependency: View): Boolean {
         return super.onDependentViewChanged(parent, child, dependency)
     }
 

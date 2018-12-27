@@ -1,6 +1,6 @@
 package com.example.testapp.android
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.testapp.R
 import com.example.testapp.mytestapplication.customer_drawable.XfermodeRoundImageView
