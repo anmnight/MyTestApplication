@@ -2,6 +2,10 @@ package com.anmnight.remoteprocess;
 
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import static org.junit.Assert.*;
 
 /**
@@ -13,5 +17,11 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("H:m:s", Locale.CHINA);
+
+        String time = dateFormat.format(new Date());
+
+        System.out.println(time);
     }
 }

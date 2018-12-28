@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.os.Process;
 
-import com.bankcomm.commlibrary.logger.LogFactory;
-import com.bankcomm.commlibrary.logger.Logger;
-import com.bankcomm.commlibrary.view.ActivityAdapter;
-import com.bankcomm.commlibrary.view.ActivityAdapterFactory;
+import com.anmnight.commlibrary.logger.LogFactory;
+import com.anmnight.commlibrary.logger.Logger;
+import com.anmnight.commlibrary.view.ActivityAdapter;
+import com.anmnight.commlibrary.view.ActivityAdapterFactory;
 
 public class TestHomeApplication extends Application implements Application.ActivityLifecycleCallbacks {
 

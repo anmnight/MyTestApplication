@@ -2,24 +2,18 @@ package com.anmnight.remoteprocess.service;
 
 import android.app.Service;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
-import android.os.RemoteException;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 
-import com.bankcomm.commlibrary.widget.FloatFrame;
-import com.anmnight.remoteprocess.FrameViewEvent;
+import com.anmnight.commlibrary.widget.FloatFrame;
 import com.anmnight.remoteprocess.R;
 
-
-import org.jetbrains.annotations.NotNull;
-
-public class MessengerService extends Service implements FrameViewEvent.Callback {
+public class MessengerService extends Service {
     public MessengerService() {
     }
 
@@ -27,9 +21,7 @@ public class MessengerService extends Service implements FrameViewEvent.Callback
 
     private FloatFrame mFrame;
 
-    private View frameView;
-
-    private FrameViewEvent frameViewEvent;
+    private static View frameView;
 
     @Override
     public void onCreate() {
@@ -40,8 +32,6 @@ public class MessengerService extends Service implements FrameViewEvent.Callback
         LayoutInflater inflater = LayoutInflater.from(this);
 
         frameView = inflater.inflate(R.layout.service_chat_frame, null);
-
-        frameViewEvent = new FrameViewEvent(frameView, this);
 
     }
 
@@ -62,33 +52,20 @@ public class MessengerService extends Service implements FrameViewEvent.Callback
         return super.onUnbind(intent);
     }
 
-    @Override
-    public void send(@NotNull String message) {
-
-        try {
-            Message msg = Message.obtain();
-            Bundle bundle = new Bundle();
-            bundle.putString("msg", message);
-            msg.setData(bundle);
-            repMessenger.send(msg);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static Messenger repMessenger;
 
     private static class MessengerHandler extends Handler {
 
         private String TAG = "MessengerHandler";
 
-
         @Override
         public void handleMessage(Message msg) {
             String arg = msg.getData().getString("msg");
-            Log.i(TAG, "Client : " + arg);
-            repMessenger = msg.replyTo;
+            log(arg);
+        }
 
+        private void log(String str) {
+            TextView textView = frameView.findViewById(R.id.text_view);
+            textView.setText(str);
         }
 
     }

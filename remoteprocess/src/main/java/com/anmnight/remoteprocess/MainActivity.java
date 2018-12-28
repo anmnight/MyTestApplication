@@ -18,14 +18,11 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 
-
-        PeriodicWorkRequest mPeriodicWorkRequest = new PeriodicWorkRequest.Builder(SystemLogWorker.class, 1, TimeUnit.SECONDS)
+        PeriodicWorkRequest mPeriodicWorkRequest = new PeriodicWorkRequest.Builder(SystemLogWorker.class, 15, TimeUnit.MINUTES)
                 .build();
 
 
         WorkManager.getInstance().enqueue(mPeriodicWorkRequest);
-
-
 
     }
 }

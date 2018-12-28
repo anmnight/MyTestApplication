@@ -1,8 +1,6 @@
 package com.anmnight.remoteprocess.works;
 
-
 import android.content.Context;
-import android.util.Log;
 
 import com.anmnight.remoteprocess.RemoteApplication;
 import com.anmnight.remoteprocess.database.dao.SystemLogDao;
@@ -40,13 +38,14 @@ public class SystemLogWorker extends Worker {
         try {
             SystemLog log = new SystemLog();
             long seed = System.currentTimeMillis();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHms", Locale.CHINA);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("H:m:s", Locale.CHINA);
             String time = dateFormat.format(seed);
             log.timeSeed = seed;
             log.timeString = time;
             log.processCpu = SystemStatusUnit.INSTANCE.getCurProcessCpuRate();
             log.totalCpu = SystemStatusUnit.INSTANCE.getTotalCpuRate();
             log.availableMemory = SystemStatusUnit.INSTANCE.getAvailableMemory(context);
+            log.usedBattery = SystemStatusUnit.INSTANCE.currentButtery(context);
             dao.insert(log);
             return Result.success();
         } catch (Exception e) {
