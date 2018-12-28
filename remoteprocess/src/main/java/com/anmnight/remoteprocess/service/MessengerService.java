@@ -1,4 +1,4 @@
-package com.bankcomm.remoteprocess;
+package com.anmnight.remoteprocess.service;
 
 import android.app.Service;
 import android.content.Intent;
@@ -11,9 +11,11 @@ import android.os.RemoteException;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 
 import com.bankcomm.commlibrary.widget.FloatFrame;
+import com.anmnight.remoteprocess.FrameViewEvent;
+import com.anmnight.remoteprocess.R;
+
 
 import org.jetbrains.annotations.NotNull;
 
@@ -75,6 +77,7 @@ public class MessengerService extends Service implements FrameViewEvent.Callback
     }
 
     private static Messenger repMessenger;
+
     private static class MessengerHandler extends Handler {
 
         private String TAG = "MessengerHandler";

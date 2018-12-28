@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.bankcomm.remoteprocess">
+    package="com.anmnight.remoteprocess">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
+        android:name=".RemoteApplication"
         android:icon="@mipmap/ic_launcher"
         android:label=":Remote"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,12 +20,22 @@
         </activity>
 
         <service
-            android:name=".MessengerService"
+            android:name=".service.MessengerService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.anmnight.remote.server" />
+                <action android:name="com.anmnight.remote.server.messenger" />
             </intent-filter>
+        </service>
+        <service
+            android:name=".service.SystemLogService"
+            android:enabled="true"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="com.anmnight.remote.system.log" />
+            </intent-filter>
+
         </service>
     </application>
 

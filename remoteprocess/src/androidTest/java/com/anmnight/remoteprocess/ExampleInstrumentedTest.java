@@ -1,4 +1,4 @@
-package com.bankcomm.remoteprocess;
+package com.anmnight.remoteprocess;
 
 import android.content.Context;
 import androidx.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.bankcomm.remoteprocess.test", appContext.getPackageName());
+        assertEquals("com.bankcomm.com.anmnight.remoteprocess.test", appContext.getPackageName());
     }
 }

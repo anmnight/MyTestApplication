@@ -1,4 +1,4 @@
-package com.bankcomm.remoteprocess;
+package com.anmnight.remoteprocess;
 
 import org.junit.Test;
 

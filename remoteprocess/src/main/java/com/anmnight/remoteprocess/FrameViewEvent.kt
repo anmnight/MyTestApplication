@@ -1,9 +1,10 @@
-package com.bankcomm.remoteprocess
+package com.anmnight.remoteprocess
 
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import com.anmnight.remoteprocess.R
 import java.text.SimpleDateFormat
 import java.util.*
 

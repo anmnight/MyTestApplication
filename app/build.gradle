@@ -65,8 +65,9 @@ repositories {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-
     //test
+    implementation 'androidx.appcompat:appcompat:1.0.0-alpha1'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation "androidx.test:runner:$androidx_runner"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_espresso"

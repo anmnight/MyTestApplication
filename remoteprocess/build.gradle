@@ -6,7 +6,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "com.bankcomm.remoteprocess"
+        applicationId "com.anmnight.remoteprocess"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
@@ -34,6 +34,8 @@ dependencies {
     androidTestImplementation "androidx.test:runner:$androidx_runner"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_espresso"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "android.arch.work:work-runtime:$work_version"
+
 
     //database
     implementation "androidx.room:room-runtime:$room_version"

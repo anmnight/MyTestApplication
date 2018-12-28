@@ -60,7 +60,7 @@ class MessengerServiceEntryActivity : AppCompatActivity(), View.OnClickListener 
             R.id.bind -> {
                 val intent = Intent()
                 intent.action = "com.anmnight.remote.server"
-                intent.setPackage("com.bankcomm.remoteprocess")
+                intent.setPackage("com.bankcomm.com.anmnight.remoteprocess")
                 bindService(intent, conn, Context.BIND_AUTO_CREATE)
             }
 

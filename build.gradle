@@ -11,6 +11,7 @@ buildscript {
         androidx_runner = '1.1.1'
         androidx_espresso = '3.1.1'
         androidx_material = '1.0.0-rc01'
+        work_version = '1.0.0-beta01'
     }
 
 
