@@ -1,4 +1,4 @@
-package com.example.testapp.mytestapplication.customer_drawable
+package com.example.testapp.widget
 
 import android.content.Context
 import android.graphics.*
@@ -23,11 +23,6 @@ class XfermodeRoundImageView : AppCompatImageView {
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
     private val porterDuffXfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
-
-
-    val cBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-
-
 
     override fun onDraw(canvas: Canvas) {
 

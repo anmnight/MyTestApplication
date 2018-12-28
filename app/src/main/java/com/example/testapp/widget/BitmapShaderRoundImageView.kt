@@ -3,7 +3,6 @@ package com.example.testapp.widget
 import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
 import androidx.appcompat.widget.AppCompatImageView
 import android.util.AttributeSet
 
@@ -12,22 +11,43 @@ class BitmapShaderRoundImageView : AppCompatImageView {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
-    private var mPaint:Paint = Paint()
+    private var mPaint: Paint = Paint()
 
-    override fun onDraw(canvas: Canvas?) {
-        mPaint.shader = drawable2BitmapShader(drawable)
-        canvas!!.drawCircle(200F, 200F, 200F, mPaint)
+    override fun onDraw(canvas: Canvas) {
+
+        if (drawable !is BitmapDrawable) {
+            throw Exception("drawable isn't BitmapDrawable")
+        }
+
+        val bitmap = scale((drawable as BitmapDrawable).bitmap)
+
+        val bitmapShader = BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+
+        mPaint.shader = bitmapShader
+
+        val radius = Math.min(width,height)/2
+
+        canvas.drawCircle((width / 2).toFloat(), (height / 2).toFloat(), radius.toFloat(), mPaint)
     }
 
 
-    private fun drawable2BitmapShader(drawable: Drawable): BitmapShader {
-        if (drawable is BitmapDrawable) {
-            return BitmapShader(drawable.bitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP)
+    private fun scale(bitmap: Bitmap): Bitmap {
+
+        val cWidth = width - paddingLeft - paddingRight
+        val cHeight = height - paddingTop - paddingBottom
+
+        val oWidth = bitmap.width
+        val oHeight = bitmap.height
+
+        val matrix = Matrix()
+
+        val temp = if (oWidth > oHeight) {
+            cHeight.toFloat() / oHeight
+        } else {
+            cWidth.toFloat() / oWidth
         }
-        val bitmap = Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(bitmap)
-        drawable.setBounds(0, 0, canvas.width, canvas.height)
-        drawable.draw(canvas)
-        return BitmapShader(bitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP)
+        matrix.postScale(temp, temp)
+
+        return Bitmap.createBitmap(bitmap, 0, 0, oWidth, oHeight, matrix, false)
     }
 }
