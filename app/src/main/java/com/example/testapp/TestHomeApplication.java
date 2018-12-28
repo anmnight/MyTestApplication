@@ -7,9 +7,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.Process;
-
-import com.anmnight.commlibrary.logger.LogFactory;
-import com.anmnight.commlibrary.logger.Logger;
 import com.anmnight.commlibrary.view.ActivityAdapter;
 import com.anmnight.commlibrary.view.ActivityAdapterFactory;
 
@@ -18,10 +15,6 @@ public class TestHomeApplication extends Application implements Application.Acti
     public static TestHomeApplication application;
 
     public ActivityAdapter mViewAdapter;
-
-
-
-    public Logger mLogger;
 
     public static TestHomeApplication getInstance() {
         return application;
@@ -41,11 +34,6 @@ public class TestHomeApplication extends Application implements Application.Acti
             mViewAdapter = new ActivityAdapterFactory.Builder()
                     .setType(ActivityAdapterFactory.Type.WIDTH)
                     .build(1080, 1920, 420, application);
-
-
-
-            //register log
-            mLogger = LogFactory.Builder.INSTANCE.initLogService(this);
 
 
         }

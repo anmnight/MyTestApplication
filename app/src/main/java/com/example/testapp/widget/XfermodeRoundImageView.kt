@@ -1,12 +1,8 @@
 package com.example.testapp.mytestapplication.customer_drawable
 
 import android.content.Context
+import android.graphics.*
 
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffXfermode
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 
@@ -20,49 +16,86 @@ import android.util.AttributeSet
 
 class XfermodeRoundImageView : AppCompatImageView {
 
+    private val mPaint = Paint()
+
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
+    private val porterDuffXfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+
+
+    val cBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+
+
 
     override fun onDraw(canvas: Canvas) {
-        val width = canvas.width - paddingLeft - paddingRight
-        val height = canvas.height - paddingTop - paddingBottom
-        val bitmap = drawable2Bitmap(drawable)
-        canvas.drawBitmap(bitmapToCircleBitmap(bitmap, Math.min(width, height) / 2), 0f, 0f, null)
-    }
 
 
-    private fun drawable2Bitmap(drawable: Drawable): Bitmap {
-        if (drawable is BitmapDrawable) {
-            return drawable.bitmap
-        }
-        val bitmap = Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(bitmap)
-        drawable.setBounds(0, 0, canvas.width, canvas.height)
-        drawable.draw(canvas)
-        return bitmap
-    }
+        val width = width - paddingLeft - paddingRight
+        val height = height - paddingTop - paddingBottom
 
-    private fun bitmapToCircleBitmap(oBitmap: Bitmap, radius: Int): Bitmap {
-        val paint = Paint()
-        paint.isAntiAlias = true
-        val cBitmap = Bitmap.createBitmap(radius * 2, radius * 2, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(cBitmap)
-        canvas.drawCircle(radius.toFloat(), radius.toFloat(), radius.toFloat(), paint)
-        paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
-
-        val oWidth = oBitmap.width
-        val oHeight = oBitmap.height
-        val margin: Float
-        if(oWidth>oHeight){
-            margin = ((oWidth-oHeight)/2).toFloat()
-            canvas.drawBitmap(oBitmap, (0-margin), 0f, paint)
-        }else{
-            margin = ((oHeight-oWidth)/2).toFloat()
-            canvas.drawBitmap(oBitmap, 0f, (0-margin), paint)
+        if (drawable !is BitmapDrawable) {
+            throw Exception("drawable is not bitmap")
         }
 
-        return cBitmap
+        val bitmap = scale((drawable as BitmapDrawable).bitmap)
+
+        var left = 0F
+        var top = 0F
+
+        if (bitmap.width > bitmap.height) {
+
+            left = ((width - bitmap.width) / 2).toFloat()
+
+        } else {
+
+            top = ((height - bitmap.height) / 2).toFloat()
+
+        }
+
+        val radius = if (width > height)
+            height / 2
+        else
+            width / 2
+
+
+        mPaint.isAntiAlias = true
+
+        val cBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val xCanvas = Canvas(cBitmap)
+
+        xCanvas.drawCircle(radius.toFloat(), radius.toFloat(), radius.toFloat(), mPaint)
+
+        xCanvas.drawBitmap(cBitmap, 0F, 0F, mPaint)
+
+        mPaint.xfermode = porterDuffXfermode
+
+        xCanvas.drawBitmap(bitmap, left, top, mPaint)
+
+        mPaint.xfermode = null
+
+        canvas.drawBitmap(cBitmap, 0F, 0F, mPaint)
+
     }
+
+
+    private fun scale(bitmap: Bitmap): Bitmap {
+
+        val cWidth = width - paddingLeft - paddingRight
+        val cHeight = height - paddingTop - paddingBottom
+
+        val oWidth = bitmap.width
+        val oHeight = bitmap.height
+
+        val matrix = Matrix()
+        val temp = if (oWidth > oHeight) {
+            cHeight.toFloat() / oHeight
+        } else {
+            cWidth.toFloat() / oWidth
+        }
+        matrix.postScale(temp, temp)
+        return Bitmap.createBitmap(bitmap, 0, 0, oWidth, oHeight, matrix, false)
+    }
+
 }
