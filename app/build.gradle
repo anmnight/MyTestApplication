@@ -29,7 +29,7 @@ android {
         release {
             keyAlias 'testsign'
             keyPassword 'an910802'
-            storeFile file('MyTestSign.jks')
+            storeFile file('../MyTestSign.jks')
             storePassword 'an910802'
         }
     }
@@ -89,6 +89,10 @@ dependencies {
     //dagger2
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //AndServer
+    implementation 'com.yanzhenjie.andserver:api:2.0.2'
+    kapt 'com.yanzhenjie.andserver:processor:2.0.1'
 
 
 }
