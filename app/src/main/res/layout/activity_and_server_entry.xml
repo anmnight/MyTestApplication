@@ -7,6 +7,20 @@
     tools:context="com.example.testapp.andserver.AndServerEntryActivity">
 
 
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/start_server"
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="false"/>
+
+
+
     <Button
         android:id="@+id/start_server"
         android:layout_width="match_parent"
@@ -22,4 +36,7 @@
         android:layout_marginBottom="8dp"
         android:text="STOP"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

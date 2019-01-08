@@ -44,7 +44,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".android.service.WorkManagerEntryActivity" />
-        <activity android:name=".andserver.AndServerEntryActivity"></activity>
+        <activity android:name=".andserver.AndServerEntryActivity" />
+
+        <service android:name=".andserver.ServerHost" />
+
     </application>
 
 </manifest>

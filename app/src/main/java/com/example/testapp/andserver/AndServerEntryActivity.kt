@@ -1,42 +1,41 @@
 package com.example.testapp.andserver
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.example.testapp.R
-import com.example.testapp.unit.HttpUnit
 import kotlinx.android.synthetic.main.activity_and_server_entry.*
-import java.net.InetAddress
-import java.util.concurrent.Callable
-import java.util.concurrent.Executors
-import java.util.concurrent.FutureTask
 
 class AndServerEntryActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private val TAG = "AndServerEntryActivity"
 
-    private val executor = Executors.newSingleThreadExecutor()
+    private lateinit var mServiceIntent: Intent
 
-    private val mHostFuture = FutureTask(HostInitRunnable())
+    private lateinit var mReceiver: ServerHostReceiver
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_and_server_entry)
 
+        mServiceIntent = Intent(this, ServerHost::class.java)
+
         start_server.setOnClickListener(this)
 
         stop_server.setOnClickListener(this)
 
-        executor.submit(mHostFuture)
 
-    }
+        mReceiver = ServerHostReceiver()
+
+        registerReceiver(mReceiver, ServerHostBroadcast.filter())
 
 
-    class HostInitRunnable : Callable<ServerHost> {
-        override fun call(): ServerHost {
-            return ServerHost(HttpUnit.getLocalIPAddress())
-        }
     }
 
 
@@ -44,11 +43,40 @@ class AndServerEntryActivity : AppCompatActivity(), View.OnClickListener {
 
         when (v?.id) {
 
-            R.id.start_server -> mHostFuture.get().startServer()
+            R.id.start_server -> startService(mServiceIntent)
 
-            R.id.stop_server -> mHostFuture.get().stopServer()
+            R.id.stop_server -> stopService(mServiceIntent)
 
         }
 
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        //destroy server
+        //destroy broadcast receiver
+
+        unregisterReceiver(mReceiver)
+        stopService(mServiceIntent)
+
+    }
+
+    inner class ServerHostReceiver : BroadcastReceiver() {
+
+        override fun onReceive(context: Context, intent: Intent) {
+
+            val action = intent.action
+
+            when (action) {
+
+                ServerHostBroadcast.start -> Toast.makeText(this@AndServerEntryActivity, "Server is started", Toast.LENGTH_SHORT).show()
+
+
+            }
+
+        }
+    }
+
+
 }

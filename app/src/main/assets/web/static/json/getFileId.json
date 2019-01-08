@@ -1,0 +1,64 @@
+{
+  "records": [{
+    "fileName": "Checklist_01-A001-1-1.jpg",
+    "orderId": "96363620180626060517",
+    "crtTime": "2018-06-26 18:07:26.473",
+    "fileId": "6478efa9-45d9-4c90-8779-5fdd1e9df355"
+  }, {
+    "fileName": "Checklist_01-A001-2-1.jpg",
+    "orderId": "96363620180626060517",
+    "crtTime": "2018-06-26 18:07:29.364",
+    "fileId": "32ad4022-1143-489a-8d8e-b67496afd60c"
+  }, {
+    "fileName": "head-1.jpg",
+    "orderId": "96363620180626060517",
+    "crtTime": "2018-06-26 18:07:32.739",
+    "fileId": "b3420ef0-623a-413a-86b7-8f64f61db431"
+  }, {
+    "fileName": "contract-1.jpg",
+    "orderId": "96363620180626060517",
+    "crtTime": "2018-06-26 18:07:36.301",
+    "fileId": "3ae40855-46e0-4db8-ac9e-f1a9cefb7065"
+  }, {
+    "fileName": "Checklist_03-C004-00.jpg",
+    "orderId": "96363620180626060517",
+    "crtTime": "2018-06-26 18:07:38.942",
+    "fileId": "3bd1705e-5681-4a05-9cbb-ed8bfeb8ac61"
+  }, {
+    "fileName": "Checklist_03-C004-01.jpg",
+    "orderId": "96363620180626060517",
+    "crtTime": "2018-06-26 18:07:41.176",
+    "fileId": "f1462ef8-7b6e-40fc-8434-aafa1cba9cc7"
+  }, {
+    "fileName": "Checklist_03-C004-02.jpg",
+    "orderId": "96363620180626060517",
+    "crtTime": "2018-06-26 18:07:43.411",
+    "fileId": "bf92e204-24d9-43b4-9bc7-68eda458cd40"
+  }, {
+    "fileName": "Checklist_13-L001-00.jpg",
+    "orderId": "96363620180626060517",
+    "crtTime": "2018-06-26 18:07:46.739",
+    "fileId": "4dcac507-165b-4276-81bf-eeae6f2dc7e8"
+  }, {
+    "fileName": "Checklist_13-L001-01.jpg",
+    "orderId": "96363620180626060517",
+    "crtTime": "2018-06-26 18:07:48.395",
+    "fileId": "671c5e60-933a-4885-9f57-f2b9376720ec"
+  }, {
+    "fileName": "Checklist_13-L001-02.jpg",
+    "orderId": "96363620180626060517",
+    "crtTime": "2018-06-26 18:07:51.661",
+    "fileId": "d669bc1d-535c-497c-ae00-b2d2d2b7a1f0"
+  }, {
+    "fileName": "Checklist_13-L001-03.jpg",
+    "orderId": "96363620180626060517",
+    "crtTime": "2018-06-26 18:07:59.379",
+    "fileId": "341f1ec2-4d03-4428-b46f-85181200dcb6"
+  }],
+  "rtnMsg": "查询完成",
+  "Body": {
+    "rtnMsg": "返回数据了~HttpResult [result={\"Head\":{\"returnCode\":\"null\",\"transTime\":1530008240988,\"globalSeqNo\":\"7cb51b7d-aedf-4451-8619-01e0835440e3\"},\"Body\":{\"records\":[{\"fileName\":\"Checklist_01-A001-1-1.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:26.473\",\"fileId\":\"6478efa9-45d9-4c90-8779-5fdd1e9df355\"},{\"fileName\":\"Checklist_01-A001-2-1.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:29.364\",\"fileId\":\"32ad4022-1143-489a-8d8e-b67496afd60c\"},{\"fileName\":\"head-1.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:32.739\",\"fileId\":\"b3420ef0-623a-413a-86b7-8f64f61db431\"},{\"fileName\":\"contract-1.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:36.301\",\"fileId\":\"3ae40855-46e0-4db8-ac9e-f1a9cefb7065\"},{\"fileName\":\"Checklist_03-C004-00.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:38.942\",\"fileId\":\"3bd1705e-5681-4a05-9cbb-ed8bfeb8ac61\"},{\"fileName\":\"Checklist_03-C004-01.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:41.176\",\"fileId\":\"f1462ef8-7b6e-40fc-8434-aafa1cba9cc7\"},{\"fileName\":\"Checklist_03-C004-02.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:43.411\",\"fileId\":\"bf92e204-24d9-43b4-9bc7-68eda458cd40\"},{\"fileName\":\"Checklist_13-L001-00.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:46.739\",\"fileId\":\"4dcac507-165b-4276-81bf-eeae6f2dc7e8\"},{\"fileName\":\"Checklist_13-L001-01.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:48.395\",\"fileId\":\"671c5e60-933a-4885-9f57-f2b9376720ec\"},{\"fileName\":\"Checklist_13-L001-02.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:51.661\",\"fileId\":\"d669bc1d-535c-497c-ae00-b2d2d2b7a1f0\"},{\"fileName\":\"Checklist_13-L001-03.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:59.379\",\"fileId\":\"341f1ec2-4d03-4428-b46f-85181200dcb6\"}],\"rtnMsg\":\"查询完成\",\"rtnCode\":\"200\"}}, exception=null]-----------{\"records\":[{\"fileName\":\"Checklist_01-A001-1-1.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:26.473\",\"fileId\":\"6478efa9-45d9-4c90-8779-5fdd1e9df355\"},{\"fileName\":\"Checklist_01-A001-2-1.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:29.364\",\"fileId\":\"32ad4022-1143-489a-8d8e-b67496afd60c\"},{\"fileName\":\"head-1.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:32.739\",\"fileId\":\"b3420ef0-623a-413a-86b7-8f64f61db431\"},{\"fileName\":\"contract-1.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:36.301\",\"fileId\":\"3ae40855-46e0-4db8-ac9e-f1a9cefb7065\"},{\"fileName\":\"Checklist_03-C004-00.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:38.942\",\"fileId\":\"3bd1705e-5681-4a05-9cbb-ed8bfeb8ac61\"},{\"fileName\":\"Checklist_03-C004-01.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:41.176\",\"fileId\":\"f1462ef8-7b6e-40fc-8434-aafa1cba9cc7\"},{\"fileName\":\"Checklist_03-C004-02.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:43.411\",\"fileId\":\"bf92e204-24d9-43b4-9bc7-68eda458cd40\"},{\"fileName\":\"Checklist_13-L001-00.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:46.739\",\"fileId\":\"4dcac507-165b-4276-81bf-eeae6f2dc7e8\"},{\"fileName\":\"Checklist_13-L001-01.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:48.395\",\"fileId\":\"671c5e60-933a-4885-9f57-f2b9376720ec\"},{\"fileName\":\"Checklist_13-L001-02.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:51.661\",\"fileId\":\"d669bc1d-535c-497c-ae00-b2d2d2b7a1f0\"},{\"fileName\":\"Checklist_13-L001-03.jpg\",\"orderId\":\"96363620180626060517\",\"crtTime\":\"2018-06-26 18:07:59.379\",\"fileId\":\"341f1ec2-4d03-4428-b46f-85181200dcb6\"}],\"rtnMsg\":\"查询完成\",\"rtnCode\":\"200\"}",
+    "rtnCode": "200"
+  },
+  "rtnCode": "200"
+}
