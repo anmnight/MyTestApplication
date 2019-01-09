@@ -66,7 +66,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     //test
-    implementation 'androidx.appcompat:appcompat:1.0.0-alpha1'
+    implementation "androidx.appcompat:appcompat:$androidx_appcompat"
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation "androidx.test:runner:$androidx_runner"
@@ -79,6 +79,12 @@ dependencies {
     implementation "androidx.cardview:cardview:$androidx_cardview"
     implementation "com.google.android.material:material:$androidx_material"
     implementation "androidx.constraintlayout:constraintlayout:$androidx_constraintlayout"
+
+
+    //database
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "com.facebook.stetho:stetho:1.5.0"
 
 
     implementation project(path: ':commlibrary')

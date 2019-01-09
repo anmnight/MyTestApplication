@@ -1,4 +1,4 @@
-package com.example.testapp.unit;
+package com.example.testapp.andserver.manager;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;

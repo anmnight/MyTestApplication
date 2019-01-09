@@ -31,4 +31,7 @@
     <string name="title_activity_service_ui">ServiceUiActivity</string>
     <string name="show_dialog">showView</string>
     <string name="title_activity_ta">TAActivity</string>
+    <string name="hint_name">请输入您的姓名</string>
+    <string name="hint_phone">请输入您的手机号</string>
+    <string name="ch_submit">提交</string>
 </resources>

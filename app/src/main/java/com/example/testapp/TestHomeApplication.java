@@ -1,20 +1,25 @@
 package com.example.testapp;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
-import android.os.Bundle;
 import android.os.Looper;
 import android.os.Process;
+
 import com.anmnight.commlibrary.view.ActivityAdapter;
 import com.anmnight.commlibrary.view.ActivityAdapterFactory;
+import com.example.testapp.andserver.database.TestAppDatabase;
 
-public class TestHomeApplication extends Application implements Application.ActivityLifecycleCallbacks {
+import androidx.room.Room;
 
-    public static TestHomeApplication application;
+public class TestHomeApplication extends Application {
+
+    private static TestHomeApplication application;
 
     public ActivityAdapter mViewAdapter;
+
+    public TestAppDatabase database;
+
 
     public static TestHomeApplication getInstance() {
         return application;
@@ -29,6 +34,10 @@ public class TestHomeApplication extends Application implements Application.Acti
 
         if (isOnMainProcess()) {
             CrashHandler.instance().init();
+
+            //database
+            database = Room.databaseBuilder(this, TestAppDatabase.class, "testapp_database").build();
+
 
             //注册自适配View
             mViewAdapter = new ActivityAdapterFactory.Builder()
@@ -61,39 +70,4 @@ public class TestHomeApplication extends Application implements Application.Acti
         return process.isEmpty() || process.equalsIgnoreCase(PROCESS_NAME);
     }
 
-
-    @Override
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-
-    }
-
-    @Override
-    public void onActivityStarted(Activity activity) {
-
-    }
-
-    @Override
-    public void onActivityResumed(Activity activity) {
-
-    }
-
-    @Override
-    public void onActivityPaused(Activity activity) {
-
-    }
-
-    @Override
-    public void onActivityStopped(Activity activity) {
-
-    }
-
-    @Override
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-
-    }
-
-    @Override
-    public void onActivityDestroyed(Activity activity) {
-
-    }
 }

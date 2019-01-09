@@ -3,7 +3,6 @@ package com.example.testapp.android
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.testapp.R
-import com.example.testapp.widget.XfermodeRoundImageView
 import kotlinx.android.synthetic.main.activity_round_image.*
 
 class RoundImageEntryActivity : AppCompatActivity() {

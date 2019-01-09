@@ -1,9 +1,9 @@
-package com.example.testapp.andserver
+package com.example.testapp.andserver.manager
 
 import android.content.Intent
 import android.content.IntentFilter
 
-object ServerHostBroadcast {
+object ServerHostBroadcastManager {
 
     const val start = "http.server.start"
     const val stop = "http.server.stop"

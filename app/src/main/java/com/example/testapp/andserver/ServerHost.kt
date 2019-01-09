@@ -4,8 +4,9 @@ import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import android.util.Log
+import com.example.testapp.andserver.manager.HttpUnit
+import com.example.testapp.andserver.manager.ServerHostBroadcastManager
 
-import com.example.testapp.unit.HttpUnit
 import com.yanzhenjie.andserver.AndServer
 import com.yanzhenjie.andserver.Server
 import java.util.concurrent.TimeUnit
@@ -73,12 +74,12 @@ class ServerHost : Service() {
         override fun onStarted() {
 
             val address = "http://" + HttpUnit.getLocalIPAddress().hostAddress + ":8088"
-            sendBroadcast(ServerHostBroadcast.startIntent(address))
+            sendBroadcast(ServerHostBroadcastManager.startIntent(address))
 
         }
 
         override fun onStopped() {
-            sendBroadcast(ServerHostBroadcast.stopIntent())
+            sendBroadcast(ServerHostBroadcastManager.stopIntent())
         }
 
         override fun onException(e: Exception) {

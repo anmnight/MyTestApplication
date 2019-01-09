@@ -3,12 +3,14 @@ package com.example.testapp.andserver
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.net.wifi.WifiManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
+import com.anmnight.commlibrary.widget.LoadingTextDialog
 import com.example.testapp.R
+import com.example.testapp.andserver.manager.ServerHostBroadcastManager
+import com.example.testapp.andserver.manager.WifiUtils
 import kotlinx.android.synthetic.main.activity_and_server_entry.*
 
 class AndServerEntryActivity : AppCompatActivity(), View.OnClickListener {
@@ -20,6 +22,10 @@ class AndServerEntryActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var mReceiver: ServerHostReceiver
 
+    private lateinit var mWifiManager: WifiManager
+
+    private lateinit var mDialog: LoadingTextDialog
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,14 +33,15 @@ class AndServerEntryActivity : AppCompatActivity(), View.OnClickListener {
 
         mServiceIntent = Intent(this, ServerHost::class.java)
 
-        start_server.setOnClickListener(this)
-
-        stop_server.setOnClickListener(this)
-
+        mWifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
 
         mReceiver = ServerHostReceiver()
 
-        registerReceiver(mReceiver, ServerHostBroadcast.filter())
+
+
+        submit.setOnClickListener(this)
+
+        registerReceiver(mReceiver, ServerHostBroadcastManager.filter())
 
 
     }
@@ -42,13 +49,13 @@ class AndServerEntryActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
 
-        when (v?.id) {
-
-            R.id.start_server -> startService(mServiceIntent)
-
-            R.id.stop_server -> stopService(mServiceIntent)
-
-        }
+//        when (v?.id) {
+//
+//            R.id.start_server -> startService(mServiceIntent)
+//
+//            R.id.stop_server -> stopService(mServiceIntent)
+//
+//        }
 
     }
 
@@ -56,7 +63,6 @@ class AndServerEntryActivity : AppCompatActivity(), View.OnClickListener {
         super.onDestroy()
         unregisterReceiver(mReceiver)
         stopService(mServiceIntent)
-
     }
 
     inner class ServerHostReceiver : BroadcastReceiver() {
@@ -67,13 +73,16 @@ class AndServerEntryActivity : AppCompatActivity(), View.OnClickListener {
 
             when (action) {
 
-                ServerHostBroadcast.start -> {
-                    val address = intent.getStringExtra(ServerHostBroadcast.address)
-                    editText.setText(address)
+                ServerHostBroadcastManager.start -> {
+                    WifiUtils.createHotspot(mWifiManager)
+                    val address = intent.getStringExtra(ServerHostBroadcastManager.address)
+
+
                 }
 
-                ServerHostBroadcast.stop -> {
-                    editText.setText(ServerHostBroadcast.stop)
+                ServerHostBroadcastManager.stop -> {
+
+                    WifiUtils.closeWifiHotspot(mWifiManager)
                 }
 
 

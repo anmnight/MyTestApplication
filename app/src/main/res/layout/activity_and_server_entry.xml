@@ -8,35 +8,31 @@
 
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/userName"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/hint_name"
+        app:layout_constraintBottom_toTopOf="@+id/userPhone" />
+
+    <EditText
+        android:id="@+id/userPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/start_server"
-        app:layout_constraintTop_toTopOf="parent"
-        android:focusable="false"/>
-
+        android:hint="@string/hint_phone"
+        app:layout_constraintBottom_toTopOf="@+id/submit"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <Button
-        android:id="@+id/start_server"
+        android:id="@+id/submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="START"
-        app:layout_constraintBottom_toTopOf="@+id/stop_server" />
-
-    <Button
-        android:id="@+id/stop_server"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="STOP"
+        android:text="@string/ch_submit"
         app:layout_constraintBottom_toBottomOf="parent" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
