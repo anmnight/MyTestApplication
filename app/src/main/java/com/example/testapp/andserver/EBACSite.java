@@ -1,12 +1,17 @@
 package com.example.testapp.andserver;
 
+import android.util.Log;
+
 import com.yanzhenjie.andserver.annotation.Website;
-import com.yanzhenjie.andserver.framework.website.AssetsWebsite;
+import com.yanzhenjie.andserver.framework.website.StorageWebsite;
 
 @Website
-public class EBACSite extends AssetsWebsite {
+public class EBACSite extends StorageWebsite {
 
+    private String TAG = "EBACSite";
     public EBACSite() {
-        super("/web","index.html");
+        super(PathManager.getInstance().getWebDir(), "index.html");
+
+        Log.d(TAG,PathManager.getInstance().getWebDir());
     }
 }

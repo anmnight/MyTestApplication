@@ -17,11 +17,11 @@ object ServerHostBroadcast {
         return intentFilter
     }
 
-    fun startIntent(address: String): Intent {
+    fun startIntent(ip: String): Intent {
 
         val intent = Intent()
         intent.action = start
-        intent.putExtra(address, address)
+        intent.putExtra(address, ip)
 
         return intent
     }
