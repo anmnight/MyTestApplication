@@ -1,6 +1,6 @@
 package com.example.testapp.andserver.database.dao;
 
-import com.example.testapp.andserver.pojo.BaseUserInfomation;
+import com.example.testapp.andserver.pojo.BaseUserInformation;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
@@ -11,11 +11,11 @@ import androidx.room.Query;
 public interface BaseUserInfoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void insert(BaseUserInfomation baseUserInfo);
+    public void insert(BaseUserInformation baseUserInfo);
 
 
-    @Query("SELECT * FROM base_user_info where order_id Like :orderId ")
-    public BaseUserInfomation queryById(String orderId);
+    @Query("SELECT * FROM base_user_info where phone Like :phone ")
+    public BaseUserInformation queryByPhone(Long phone);
 
 
 }

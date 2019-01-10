@@ -22,6 +22,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:hint="@string/hint_phone"
+        android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/submit"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -9,6 +9,7 @@ import android.os.Process;
 import com.anmnight.commlibrary.view.ActivityAdapter;
 import com.anmnight.commlibrary.view.ActivityAdapterFactory;
 import com.example.testapp.andserver.database.TestAppDatabase;
+import com.facebook.stetho.Stetho;
 
 import androidx.room.Room;
 
@@ -38,6 +39,7 @@ public class TestHomeApplication extends Application {
             //database
             database = Room.databaseBuilder(this, TestAppDatabase.class, "testapp_database").build();
 
+            Stetho.initializeWithDefaults(this);
 
             //注册自适配View
             mViewAdapter = new ActivityAdapterFactory.Builder()
