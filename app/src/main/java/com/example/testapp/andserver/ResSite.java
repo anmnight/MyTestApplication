@@ -1,6 +1,7 @@
 package com.example.testapp.andserver;
 
-import com.example.testapp.andserver.manager.PathManager;
+import com.anmnight.commlibrary.unit.PathManager;
+import com.example.testapp.TestHomeApplication;
 import com.yanzhenjie.andserver.annotation.Website;
 import com.yanzhenjie.andserver.framework.website.FileBrowser;
 
@@ -8,6 +9,6 @@ import com.yanzhenjie.andserver.framework.website.FileBrowser;
 public class ResSite extends FileBrowser {
 
     public ResSite() {
-        super(PathManager.getInstance().getImageDir());
+        super(PathManager.getInstance(TestHomeApplication.getInstance()).getImageDir());
     }
 }

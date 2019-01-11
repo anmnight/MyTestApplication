@@ -1,21 +1,20 @@
-package com.example.testapp.andserver.manager;
+package com.anmnight.commlibrary.unit;
 
+import android.app.Application;
 import android.os.Environment;
 
-import com.example.testapp.TestHomeApplication;
-import com.yanzhenjie.andserver.util.IOUtils;
-
 import java.io.File;
+import java.util.List;
 
 public class PathManager {
 
     private static PathManager sInstance;
 
-    public static PathManager getInstance() {
+    public static PathManager getInstance(Application app) {
         if (sInstance == null) {
             synchronized (PathManager.class) {
                 if (sInstance == null) {
-                    sInstance = new PathManager();
+                    sInstance = new PathManager(app);
                 }
             }
         }
@@ -24,14 +23,14 @@ public class PathManager {
 
     private File mRootDir;
 
-    private PathManager() {
+    private PathManager(Application app) {
         if (storageAvailable()) {
-            mRootDir = TestHomeApplication.getInstance().getExternalFilesDir("/");
+            mRootDir = app.getExternalFilesDir("/");
         } else {
-            mRootDir = TestHomeApplication.getInstance().getFilesDir();
+            mRootDir = app.getFilesDir();
         }
         mRootDir = new File(mRootDir, "/");
-        IOUtils.createFolder(mRootDir);
+        createFolder(mRootDir);
     }
 
     public String getRootDir() {
@@ -46,13 +45,25 @@ public class PathManager {
         return new File(mRootDir, "imgs").getAbsolutePath();
     }
 
+    public File[] loadFilesAtDir(String dir) {
+        return new File(dir).listFiles();
+    }
 
-    private static boolean storageAvailable() {
+    private boolean storageAvailable() {
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             File sd = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
             return sd.canWrite();
         } else {
             return false;
         }
+    }
+
+    private boolean createFolder(File targetFolder) {
+        if (targetFolder.exists()) {
+            if (targetFolder.isDirectory()) return true;
+            //noinspection ResultOfMethodCallIgnored
+            targetFolder.delete();
+        }
+        return targetFolder.mkdirs();
     }
 }

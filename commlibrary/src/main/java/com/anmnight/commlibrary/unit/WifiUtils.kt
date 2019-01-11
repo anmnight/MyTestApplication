@@ -1,4 +1,4 @@
-package com.example.testapp.andserver.manager
+package com.anmnight.commlibrary.unit
 
 import android.net.wifi.WifiConfiguration
 import android.net.wifi.WifiManager

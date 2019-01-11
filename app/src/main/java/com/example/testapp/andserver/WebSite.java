@@ -2,7 +2,8 @@ package com.example.testapp.andserver;
 
 import android.util.Log;
 
-import com.example.testapp.andserver.manager.PathManager;
+import com.anmnight.commlibrary.unit.PathManager;
+import com.example.testapp.TestHomeApplication;
 import com.yanzhenjie.andserver.annotation.Website;
 import com.yanzhenjie.andserver.framework.website.StorageWebsite;
 
@@ -10,9 +11,10 @@ import com.yanzhenjie.andserver.framework.website.StorageWebsite;
 public class WebSite extends StorageWebsite {
 
     private String TAG = "WebSite";
-    public WebSite() {
-        super(PathManager.getInstance().getWebDir(), "index.html");
 
-        Log.d(TAG,PathManager.getInstance().getWebDir());
+    public WebSite() {
+        super(PathManager.getInstance(TestHomeApplication.getInstance()).getWebDir(), "index.html");
+
+        Log.d(TAG, PathManager.getInstance(TestHomeApplication.getInstance()).getWebDir());
     }
 }
