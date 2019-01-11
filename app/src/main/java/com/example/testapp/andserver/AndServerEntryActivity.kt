@@ -6,10 +6,11 @@ import android.content.Intent
 import android.net.wifi.WifiManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.anmnight.commlibrary.widget.LoadingTextDialog
 import com.example.testapp.R
+import com.example.testapp.andserver.manager.PathManager
 import com.example.testapp.andserver.manager.ServerHostBroadcastManager
-import com.example.testapp.andserver.manager.WifiUtils
 import com.example.testapp.andserver.pojo.BaseUserInformation
 import com.example.testapp.andserver.presenter.IBaseInfoPresenter
 import com.example.testapp.andserver.presenter.impl.BaseInfoImpl
@@ -30,6 +31,8 @@ class AndServerEntryActivity : AppCompatActivity(), IServerView {
     private lateinit var mPresenter: IBaseInfoPresenter
 
     private var mIp: String? = null
+
+    private val TAG = "AndServerEntryActivity";
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,7 +90,7 @@ class AndServerEntryActivity : AppCompatActivity(), IServerView {
                 ServerHostBroadcastManager.start -> {
 
 //                    WifiUtils.createHotspot(mWifiManager)
-                    mIp= intent.getStringExtra(ServerHostBroadcastManager.address)
+                    mIp = intent.getStringExtra(ServerHostBroadcastManager.address)
 
 
                     val phone = userPhone.text.toString()

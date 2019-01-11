@@ -11,6 +11,15 @@ import java.util.Random
  * @see [Testing documentation](http://d.android.com/tools/testing)
  */
 class ExampleUnitTest {
+
+
+    fun gsonTest(){
+        val str = "chName=%E5%AE%89%E9%9C%84&phoneNum=18502938991&enName=AN%20XIAO&idNun=123123&startDate=20140111&endDate=20250111"
+
+
+    }
+
+
     @Test
     @Throws(Exception::class)
     fun bubble_sort() {

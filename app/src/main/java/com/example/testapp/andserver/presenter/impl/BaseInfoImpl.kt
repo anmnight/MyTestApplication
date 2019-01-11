@@ -26,7 +26,7 @@ class BaseInfoImpl(view: IServerView) : IBaseInfoPresenter {
 
     override fun createOrder(userName: String, phone: Long) {
         val baseUserInfo = BaseUserInformation()
-        baseUserInfo.chName = userName
+        baseUserInfo.chnName = userName
         baseUserInfo.phoneNum = phone
 
         mWorkerHandler.post(SaveInfoRunnable(baseUserInfo, mDao))

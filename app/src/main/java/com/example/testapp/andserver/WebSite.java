@@ -7,10 +7,10 @@ import com.yanzhenjie.andserver.annotation.Website;
 import com.yanzhenjie.andserver.framework.website.StorageWebsite;
 
 @Website
-public class EBACSite extends StorageWebsite {
+public class WebSite extends StorageWebsite {
 
-    private String TAG = "EBACSite";
-    public EBACSite() {
+    private String TAG = "WebSite";
+    public WebSite() {
         super(PathManager.getInstance().getWebDir(), "index.html");
 
         Log.d(TAG,PathManager.getInstance().getWebDir());

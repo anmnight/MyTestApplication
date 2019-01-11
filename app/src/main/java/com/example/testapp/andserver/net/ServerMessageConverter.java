@@ -1,5 +1,7 @@
 package com.example.testapp.andserver.net;
 
+import android.util.Log;
+
 import com.anmnight.commlibrary.unit.JsonUnit;
 import com.yanzhenjie.andserver.annotation.Converter;
 import com.yanzhenjie.andserver.framework.MessageConverter;
@@ -18,6 +20,7 @@ import androidx.annotation.Nullable;
 @Converter
 public class ServerMessageConverter implements MessageConverter {
 
+    private String TAG = "ServerMessageConverter";
 
     @Override
     public ResponseBody convert(@NonNull Object output, @Nullable MediaType mediaType) {
@@ -35,7 +38,11 @@ public class ServerMessageConverter implements MessageConverter {
 
         if (charset == null) {
 
-            return JsonUnit.INSTANCE.stringToObject(IOUtils.toString(stream), type);
+            String params = IOUtils.toString(stream);
+
+            Log.d(TAG,params);
+
+            return JsonUnit.INSTANCE.stringToObject(params, type);
         }
 
         return JsonUnit.INSTANCE.stringToObject(IOUtils.toString(stream, charset), type);

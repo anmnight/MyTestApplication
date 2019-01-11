@@ -1,24 +1,17 @@
-package com.example.testapp.andserver.pojo;
+package com.anmnight.commlibrary;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
-@Entity(tableName = "base_user_info")
 public class BaseUserInformation implements Parcelable {
 
-    @PrimaryKey
-    @ColumnInfo(name = "phone")
+
     public Long phoneNum;
 
-    public String chnName;
-    public String engName;
+    public String chName;
     public String idNum;
-    public String idStartDate;
-    public String idEndDate;
+    public String idNumStart;
+    public String idNumEnd;
 
     public BaseUserInformation() {
     }
@@ -32,20 +25,12 @@ public class BaseUserInformation implements Parcelable {
         this.phoneNum = phoneNum;
     }
 
-    public String getChnName() {
-        return chnName;
+    public String getChName() {
+        return chName;
     }
 
-    public void setChnName(String chnName) {
-        this.chnName = chnName;
-    }
-
-    public String getEngName() {
-        return engName;
-    }
-
-    public void setEngName(String engName) {
-        this.engName = engName;
+    public void setChName(String chName) {
+        this.chName = chName;
     }
 
     public String getIdNum() {
@@ -56,33 +41,32 @@ public class BaseUserInformation implements Parcelable {
         this.idNum = idNum;
     }
 
-    public String getIdStartDate() {
-        return idStartDate;
+    public String getIdNumStart() {
+        return idNumStart;
     }
 
-    public void setIdStartDate(String idStartDate) {
-        this.idStartDate = idStartDate;
+    public void setIdNumStart(String idNumStart) {
+        this.idNumStart = idNumStart;
     }
 
-    public String getIdEndDate() {
-        return idEndDate;
+    public String getIdNumEnd() {
+        return idNumEnd;
     }
 
-    public void setIdEndDate(String idEndDate) {
-        this.idEndDate = idEndDate;
+    public void setIdNumEnd(String idNumEnd) {
+        this.idNumEnd = idNumEnd;
     }
 
-    protected BaseUserInformation(Parcel in) {
+    public BaseUserInformation(Parcel in) {
         if (in.readByte() == 0) {
             phoneNum = null;
         } else {
             phoneNum = in.readLong();
         }
-        chnName = in.readString();
-        engName = in.readString();
+        chName = in.readString();
         idNum = in.readString();
-        idStartDate = in.readString();
-        idEndDate = in.readString();
+        idNumStart = in.readString();
+        idNumEnd = in.readString();
     }
 
     public static final Creator<BaseUserInformation> CREATOR = new Creator<BaseUserInformation>() {
@@ -110,10 +94,9 @@ public class BaseUserInformation implements Parcelable {
             dest.writeByte((byte) 1);
             dest.writeLong(phoneNum);
         }
-        dest.writeString(chnName);
-        dest.writeString(engName);
+        dest.writeString(chName);
         dest.writeString(idNum);
-        dest.writeString(idStartDate);
-        dest.writeString(idEndDate);
+        dest.writeString(idNumStart);
+        dest.writeString(idNumEnd);
     }
 }

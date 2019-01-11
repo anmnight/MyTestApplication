@@ -42,6 +42,10 @@ public class PathManager {
         return new File(mRootDir, "website").getAbsolutePath();
     }
 
+    public String getImageDir() {
+        return new File(mRootDir, "imgs").getAbsolutePath();
+    }
+
 
     private static boolean storageAvailable() {
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
