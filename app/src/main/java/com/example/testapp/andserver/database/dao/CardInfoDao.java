@@ -12,7 +12,7 @@ import androidx.room.Query;
 @Dao
 public interface CardInfoDao {
 
-    @Query("SELECT * FROM card_info")
+    @Query("SELECT * FROM card_info WHERE STATE LIKE 1")
     public List<CardInfo> findAll();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

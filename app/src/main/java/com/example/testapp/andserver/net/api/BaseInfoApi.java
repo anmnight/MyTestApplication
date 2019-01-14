@@ -1,4 +1,4 @@
-package com.example.testapp.andserver;
+package com.example.testapp.andserver.net.api;
 
 import android.util.Log;
 

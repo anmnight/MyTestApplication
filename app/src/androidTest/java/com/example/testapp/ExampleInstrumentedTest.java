@@ -2,10 +2,6 @@ package com.example.testapp;
 
 import android.content.Context;
 
-import com.anmnight.commlibrary.unit.PathManager;
-import com.example.testapp.andserver.manager.ImageManager;
-import com.example.testapp.andserver.test.TestCardManager;
-
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
@@ -26,16 +22,8 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-//        assertEquals("com.example.anxiao.testapp", appContext.getPackageName());
+        assertEquals("com.anmnight.testapp", appContext.getPackageName());
 
-
-        TestCardManager testCardManager =
-                new TestCardManager(appContext);
-
-
-//        testCardManager.readInfo();
-
-        testCardManager.readFace();
 
     }
 }

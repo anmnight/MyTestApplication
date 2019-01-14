@@ -1,4 +1,4 @@
-package com.example.testapp.andserver.test;
+package com.example.testapp.andserver.manager;
 
 import android.content.Context;
 
@@ -12,16 +12,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class TestCardManager {
+public class LocalCardInfoManager {
 
-    private String TAG = "TestCardManager";
+    private String TAG = "LocalCardInfoManager";
 
     private Context mCtx;
 
     private CardInfoDao mCardInfoDao = TestHomeApplication.getInstance().database.cardInfoDao();
     private CardFaceDao mCardFaceDao = TestHomeApplication.getInstance().database.cardFaceDao();
 
-    public TestCardManager(Context context) {
+    public LocalCardInfoManager(Context context) {
         this.mCtx = context;
     }
 

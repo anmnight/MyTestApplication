@@ -1,4 +1,4 @@
-package com.example.testapp.andserver.test;
+package com.example.testapp.andserver.manager;
 
 public class FormatUnit {
 
