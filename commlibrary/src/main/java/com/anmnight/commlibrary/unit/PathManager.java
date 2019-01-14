@@ -1,6 +1,7 @@
 package com.anmnight.commlibrary.unit;
 
 import android.app.Application;
+import android.content.Context;
 import android.os.Environment;
 
 import java.io.File;
@@ -10,7 +11,7 @@ public class PathManager {
 
     private static PathManager sInstance;
 
-    public static PathManager getInstance(Application app) {
+    public static PathManager getInstance(Context app) {
         if (sInstance == null) {
             synchronized (PathManager.class) {
                 if (sInstance == null) {
@@ -23,7 +24,7 @@ public class PathManager {
 
     private File mRootDir;
 
-    private PathManager(Application app) {
+    private PathManager(Context app) {
         if (storageAvailable()) {
             mRootDir = app.getExternalFilesDir("/");
         } else {

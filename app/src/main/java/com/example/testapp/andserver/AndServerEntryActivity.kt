@@ -6,11 +6,8 @@ import android.content.Intent
 import android.net.wifi.WifiManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.anmnight.commlibrary.unit.PathManager
 import com.anmnight.commlibrary.widget.LoadingTextDialog
 import com.example.testapp.R
-import com.example.testapp.TestHomeApplication
 import com.example.testapp.andserver.manager.ServerHostBroadcastManager
 import com.example.testapp.andserver.pojo.BaseUserInformation
 import com.example.testapp.andserver.presenter.IBaseInfoPresenter
@@ -61,6 +58,7 @@ class AndServerEntryActivity : AppCompatActivity(), IServerView {
                 Snackbar.make(it, "姓名手机号不能为空", Snackbar.LENGTH_SHORT).show()
             }
         }
+
     }
 
 
