@@ -8,7 +8,6 @@ import android.os.Process;
 
 import com.anmnight.commlibrary.view.ActivityAdapter;
 import com.anmnight.commlibrary.view.ActivityAdapterFactory;
-import com.example.testapp.andserver.database.TestAppDatabase;
 import com.facebook.stetho.Stetho;
 
 import androidx.room.Room;

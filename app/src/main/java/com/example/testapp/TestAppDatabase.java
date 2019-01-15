@@ -1,4 +1,4 @@
-package com.example.testapp.andserver.database;
+package com.example.testapp;
 
 import com.example.testapp.BuildConfig;
 import com.example.testapp.andserver.database.dao.BaseUserInfoDao;
