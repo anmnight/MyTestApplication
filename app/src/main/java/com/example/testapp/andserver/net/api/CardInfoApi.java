@@ -35,7 +35,7 @@ public class CardInfoApi {
                 respInfo.setCardID(info.getId());
                 respInfo.setCardName(info.getProductName());
                 respInfo.setCardDesp(info.getCardProductInfo());
-                String url = "http://" + HttpUnit.getLocalIPAddress().getHostAddress() + ":8088" + face.getSurfaceName();
+                String url = "http://" + HttpUnit.getLocalIPAddress().getHostAddress() + ":8088/" + face.getSurfaceName();
                 respInfo.setFacePath(url);
                 respInfos.add(respInfo);
             }

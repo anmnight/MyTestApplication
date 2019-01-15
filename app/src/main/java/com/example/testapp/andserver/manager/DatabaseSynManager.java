@@ -18,6 +18,7 @@ public class DatabaseSynManager {
     }
 
     //todo 公共资源 异步初始化 处理器
+    //todo 初始化公共文件夹
 
     public void localSyn() {
 
