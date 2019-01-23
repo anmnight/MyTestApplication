@@ -1,1 +1,1 @@
-include ':app', ':commlibrary', ':fastcoding', ':remoteprocess'
+include ':app', ':fastcoding', ':remoteprocess'
