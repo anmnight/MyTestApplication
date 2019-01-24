@@ -1,4 +1,4 @@
-package com.example.testapp.java_thread;
+package com.example.testapp.java_synchronized;
 
 import org.junit.Test;
 
