@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
 
@@ -45,7 +46,7 @@ dependencies {
     kapt rootProject.ext.dependencies.roomcompiler
     implementation rootProject.ext.dependencies.stetho
 
-    implementation rootProject.ext.dependencies.commlibrary
+    implementation project(path: ':commlibrary')
 
 }
 repositories {

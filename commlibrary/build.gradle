@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.libaryMinSdkVersion
+        targetSdkVersion rootProject.ext.android.libaryTargetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    android.libraryVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = "commlibrary-${output.name}-${defaultConfig.versionName}.aar"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //android
+    implementation rootProject.ext.dependencies.kotlinstdlib
+    implementation rootProject.ext.dependencies.appcompat
+    //test
+    testImplementation rootProject.ext.dependencies.junit
+    androidTestImplementation rootProject.ext.dependencies.runner
+
+    androidTestImplementation rootProject.ext.dependencies.espresso
+    testImplementation rootProject.ext.dependencies.mockwebserver
+    //http
+    implementation files('libs/okhttp-3.11.0.jar')
+    implementation files('libs/gson-2.8.5.jar')
+}
+
+apply from: 'upload.gradle'
