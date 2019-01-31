@@ -8,7 +8,7 @@ android {
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.anmnight.testapp"
+        applicationId "com.example.testapp"
         minSdkVersion rootProject.ext.android.libaryMinSdkVersion
         targetSdkVersion rootProject.ext.android.libaryTargetSdkVersion
         versionCode rootProject.ext.android.versionCode
@@ -55,14 +55,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
-repositories {
-    mavenCentral()
-    google()
-    jcenter()
-}
-
-
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')

@@ -53,15 +53,14 @@ public class RequestPermissionProcessor extends AbstractProcessor {
         for (Element element : roundEnvironment.getElementsAnnotatedWith(NeedPermission.class)) {
 
 
-            // 获取注解所在类的 Element
+
             Element enclosingElement = element.getEnclosingElement();
-            // 获取注解所在类的 Name
             Name enclosingElementName = enclosingElement.getSimpleName();
 
-            // 生成类的名字
+
             String clsName = enclosingElementName.toString() + "_Proxy";
 
-            // 获取注解传入数据
+
             String fieldName = element.getSimpleName().toString();
 
 
@@ -72,10 +71,10 @@ public class RequestPermissionProcessor extends AbstractProcessor {
             PackageElement packageName = mElementUtils.getPackageOf(element);
 
             try {
-                // 创建文件
+
                 JavaFileObject javaFileObject = mFiler.createSourceFile(packageName + "." + clsName);
                 Writer writer = javaFileObject.openWriter();
-                // 把内容写入到文件中
+
                 writer.write(CodeUnit.generateNeed(enclosingElementName, clsName, fieldName, packageName, requestCode, permissions));
                 writer.flush();
                 writer.close();
