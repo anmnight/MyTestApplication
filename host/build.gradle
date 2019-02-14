@@ -77,10 +77,6 @@ dependencies {
     kapt rootProject.ext.dependencies.roomcompiler
     implementation rootProject.ext.dependencies.stetho
 
-    //dagger2
-    implementation rootProject.ext.dependencies.dagger
-    kapt rootProject.ext.dependencies.daggercompiler
-
     kapt project(path: ':fastcoding')
     implementation project(path: ':fastcoding')
 

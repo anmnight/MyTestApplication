@@ -9,7 +9,6 @@ ext {
 
     android = [
 
-            application           : 'com.anmnight.commlibrary',
             compileSdkVersion     : 28,
             buildToolsVersion     : '28.0.3',
 

@@ -34,4 +34,7 @@
     <string name="hint_name">请输入您的姓名</string>
     <string name="hint_phone">请输入您的手机号</string>
     <string name="ch_submit">提交</string>
+    <string name="permission">权限</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>

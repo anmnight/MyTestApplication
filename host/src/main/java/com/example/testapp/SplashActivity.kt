@@ -1,83 +1,98 @@
 package com.example.testapp
 
 import android.Manifest
-import android.content.Intent
+import android.app.Activity
 import android.content.pm.PackageManager
-import androidx.core.app.ActivityCompat
+import android.os.Build
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.example.testapp.widget.PermissionDialog
+import java.util.*
 
-import com.anmnight.fastcoding.annotation.NeedPermission
-import com.anmnight.fastcoding.annotation.PermissionCanceled
-import com.anmnight.fastcoding.annotation.PermissionDenied
+class SplashActivity : Activity(), PermissionDialog.OkListener {
 
-class SplashActivity : AppCompatActivity() {
+    private val tag = "SplashActivity"
+    private val permissionCode = 200
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
 
+//        startActivity(Intent(this, MainActivity::class.java))
+
+//        finish()
 
 
-        startActivity(Intent(this, MainActivity::class.java))
+        val permissions = checkPermissions()
+
+        ActivityCompat.requestPermissions(this, permissions, permissionCode)
 
 
+//        ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_SMS)
 
-        finish()
-
-
-//        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 200)
+//        val mPermissionDialog = PermissionDialog(this, this)
+//
+//        mPermissionDialog.show()
 
 
     }
 
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    private fun checkPermissions(): Array<String> {
 
+        val permissions = arrayOf(
+                Manifest.permission.READ_SMS,
+                Manifest.permission.INSTALL_SHORTCUT,
+                Manifest.permission.MODIFY_AUDIO_SETTINGS)
 
-        if (requestCode == 200) {
+        val deniedPermission = arrayListOf<String>()
 
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        for (value in permissions) {
 
-                Toast.makeText(this, "PERMISSION_GRANTED", Toast.LENGTH_SHORT).show()
+            val isGranted = ContextCompat.checkSelfPermission(this, value)
 
-            }
-
-
-            if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
-
-                Toast.makeText(this, "PERMISSION_DENIED", Toast.LENGTH_SHORT).show()
-
+            if (isGranted == PackageManager.PERMISSION_DENIED) {
+                deniedPermission.add(value)
             }
 
         }
-    }
 
-    @NeedPermission(permissions = arrayOf(Manifest.permission.CAMERA), requestCode = 200)
-    fun need(dialog: AlertDialog) {
+        val array = arrayOfNulls<String>(deniedPermission.size)
 
-        //alert dialog
-
-        // sure request
-
-        // else cancel
-
+        return deniedPermission.toArray(array)
     }
 
 
-    @PermissionCanceled
-    fun cancel() {
-        Toast.makeText(this, "PermissionCanceled", Toast.LENGTH_SHORT).show()
+    override fun onOk() {
+
+
     }
 
 
-    @PermissionDenied
-    fun denied() {
-        Toast.makeText(this, "PermissionDenied", Toast.LENGTH_SHORT).show()
+    @RequiresApi(Build.VERSION_CODES.M)
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == permissionCode) {
+
+            for ((index, value) in grantResults.withIndex()) {
+                val isTip = ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[index])
+                if (value != PackageManager.PERMISSION_GRANTED) {
+                    if (isTip) {
+                        requestPermissions(permissions, permissionCode)
+                    } else {
+                        Log.w(tag, "请去设置开启权限")
+                    }
+                }
+            }
+        }
     }
 
 
