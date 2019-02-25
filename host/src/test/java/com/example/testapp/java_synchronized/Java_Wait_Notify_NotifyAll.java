@@ -11,7 +11,9 @@ public class Java_Wait_Notify_NotifyAll {
 
     @Test
     public void main(){
+
         final Something sth = new Something();
+
         Runnable runProduce = new Runnable() {
             int count = 4;
 
@@ -22,6 +24,7 @@ public class Java_Wait_Notify_NotifyAll {
                 }
             }
         };
+
         Runnable runConsume = new Runnable() {
             int count = 4;
 

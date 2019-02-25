@@ -1,17 +1,17 @@
 package com.example.testapp
 
 import android.Manifest
+import android.annotation.TargetApi
 import android.app.Activity
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.appcompat.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.testapp.widget.PermissionDialog
+import java.text.SimpleDateFormat
 import java.util.*
 
 class SplashActivity : Activity(), PermissionDialog.OkListener {
@@ -41,6 +41,11 @@ class SplashActivity : Activity(), PermissionDialog.OkListener {
 //
 //        mPermissionDialog.show()
 
+        val format = SimpleDateFormat("yyyyMMdd", Locale.CHINA)
+
+        val date = format.format(Date())
+
+        Log.d(tag, date)
 
     }
 

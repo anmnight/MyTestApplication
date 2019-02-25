@@ -2,20 +2,28 @@ package com.anmnight.commlibrary.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
+import android.view.ViewParent;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.NestedScrollingChild2;
+import androidx.core.view.NestedScrollingChildHelper;
+import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
 
-public class HVScrollView extends FrameLayout {
+public class HVScrollView extends FrameLayout implements NestedScrollingChild2 {
 
     private String tag = "HVScrollView";
     private Context context;
     private AttributeSet attrs;
+    private NestedScrollingChildHelper mNestedScrollingChildHelper;
+    private int[] consumed = new int[2];
+    private int[] offset = new int[2];
 
     public HVScrollView(@NonNull Context context) {
         super(context);
@@ -53,6 +61,9 @@ public class HVScrollView extends FrameLayout {
         mTouchSlop = configuration.getScaledTouchSlop();
 
         mOverScrollDistance = configuration.getScaledOverscrollDistance();
+
+        mNestedScrollingChildHelper = new NestedScrollingChildHelper(this);
+        mNestedScrollingChildHelper.setNestedScrollingEnabled(true);
 
     }
 
@@ -124,7 +135,18 @@ public class HVScrollView extends FrameLayout {
 
     @Override
     protected void onOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY) {
-        super.scrollTo(scrollX, scrollY);
+
+
+        if (
+                (mNestedScrollingChildHelper.startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL)
+                        || mNestedScrollingChildHelper.startNestedScroll(ViewCompat.SCROLL_AXIS_HORIZONTAL)
+                )
+                        &&
+                        mNestedScrollingChildHelper.dispatchNestedPreScroll(scrollX, scrollY, consumed, offset)) {
+
+            super.scrollTo(scrollX, scrollY);
+        }
+
     }
 
 
@@ -229,4 +251,49 @@ public class HVScrollView extends FrameLayout {
         return (LayoutParams) new MarginLayoutParams(context, attrs);
     }
 
+
+    @Override
+    public void setNestedScrollingEnabled(boolean enabled) {
+        mNestedScrollingChildHelper.setNestedScrollingEnabled(enabled);
+    }
+
+    @Override
+    public boolean isNestedScrollingEnabled() {
+        return mNestedScrollingChildHelper.isNestedScrollingEnabled();
+    }
+
+    @Override
+    public boolean startNestedScroll(int axes, int type) {
+        return mNestedScrollingChildHelper.startNestedScroll(axes, type);
+    }
+
+    @Override
+    public void stopNestedScroll(int type) {
+        mNestedScrollingChildHelper.stopNestedScroll(type);
+    }
+
+    @Override
+    public boolean hasNestedScrollingParent(int type) {
+        return mNestedScrollingChildHelper.hasNestedScrollingParent(type);
+    }
+
+    @Override
+    public boolean dispatchNestedScroll(int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, @Nullable int[] offsetInWindow, int type) {
+        return mNestedScrollingChildHelper.dispatchNestedScroll(dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, offsetInWindow, type);
+    }
+
+    @Override
+    public boolean dispatchNestedPreScroll(int dx, int dy, @Nullable int[] consumed, @Nullable int[] offsetInWindow, int type) {
+        return mNestedScrollingChildHelper.dispatchNestedPreScroll(dx, dy, consumed, offsetInWindow, type);
+    }
+
+    @Override
+    public boolean dispatchNestedFling(float velocityX, float velocityY, boolean consumed) {
+        return mNestedScrollingChildHelper.dispatchNestedFling(velocityX, velocityY, consumed);
+    }
+
+    @Override
+    public boolean dispatchNestedPreFling(float velocityX, float velocityY) {
+        return mNestedScrollingChildHelper.dispatchNestedPreFling(velocityX, velocityY);
+    }
 }
