@@ -28,14 +28,14 @@ public class ServiceMethod<ReturnT> {
      * @return RestClient.Call<T>
      * @throws IOException exception
      */
-    public OkHttpCall<ReturnT> invoke(String url, Map<String, String> headers, Map<String, Object> params, RestClient.RequestType type, final Method method) {
+    public OkHttpCall<ReturnT> invoke(String url, Map<String, String> headers, Map<String, Object> queries, Map<String, Object> params, RestClient.RequestType type, final Method method) {
 
         Type returnType = method.getGenericReturnType();
 
         OkHttpCall<ReturnT> call;
         switch (type) {
             case GET:
-                call = new OkHttpCall<>(HttpRequest.get(url, headers, params), returnType);
+                call = new OkHttpCall<>(HttpRequest.get(url, headers, queries), returnType);
                 break;
             case POST:
                 call = new OkHttpCall<>(HttpRequest.post(url, headers, params), returnType);

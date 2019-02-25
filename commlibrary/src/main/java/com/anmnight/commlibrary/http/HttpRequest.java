@@ -27,12 +27,12 @@ public class HttpRequest {
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static String mBaseUrl = "";
 
-    public static Call get(String url, Map<String, String> headers, Map<String, Object> params) {
+    public static Call get(String url, Map<String, String> headers, Map<String, Object> queries) {
 
         StringBuilder str = new StringBuilder(absolutePath(url));
         str.append("?");
-        if (params != null) {
-            for (Map.Entry<String, Object> entry : params.entrySet()) {
+        if (queries != null) {
+            for (Map.Entry<String, Object> entry : queries.entrySet()) {
                 str.append(entry.getKey());
                 str.append("=");
                 str.append(entry.getValue());

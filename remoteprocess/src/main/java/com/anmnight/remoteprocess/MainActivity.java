@@ -3,6 +3,7 @@ package com.anmnight.remoteprocess;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.anmnight.remoteprocess.unit.RoomLoginUnit;
 import com.anmnight.remoteprocess.works.SystemLogWorker;
 
 import java.util.concurrent.TimeUnit;
@@ -23,6 +24,15 @@ public class MainActivity extends Activity {
 
 
         WorkManager.getInstance().enqueue(mPeriodicWorkRequest);
+
+        final RoomLoginUnit loginUnit = new RoomLoginUnit();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                loginUnit.login();
+            }
+        }).start();
 
     }
 }

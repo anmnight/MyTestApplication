@@ -3,7 +3,7 @@ package com.anmnight.commlibrary
 import com.anmnight.commlibrary.http.Call
 import com.anmnight.commlibrary.http.core.Body
 import com.anmnight.commlibrary.http.core.Get
-import com.anmnight.commlibrary.http.core.Params
+import com.anmnight.commlibrary.http.core.Query
 
 /**
  * https://github.com/anmnight
@@ -13,7 +13,7 @@ import com.anmnight.commlibrary.http.core.Params
 interface TestApi {
 
     @Get("/user")
-    fun user(@Params("id") id: Int, @Body version: Version): Call<TestEntity>
+    fun user(@Query("id") id: Int, @Body version: Version): Call<TestEntity>
 
     @Get("/version/all")
     fun version(): Call<Version>

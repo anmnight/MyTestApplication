@@ -2,10 +2,12 @@ package com.anmnight.commlibrary.http;
 
 import com.anmnight.commlibrary.http.core.Body;
 import com.anmnight.commlibrary.http.core.Get;
+import com.anmnight.commlibrary.http.core.Header;
 import com.anmnight.commlibrary.http.core.Headers;
-import com.anmnight.commlibrary.http.core.Params;
+import com.anmnight.commlibrary.http.core.Query;
 import com.anmnight.commlibrary.http.core.Post;
 import com.google.gson.Gson;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -25,7 +27,8 @@ public class RestClient {
     private static String mBaseUrl;
     private String mPath;
     private Map<String, String> mHeaders = new HashMap<>();
-    private Map<String, Object> mBody = new HashMap<>();
+    private Map<String, Object> mParams = new HashMap<>();
+    private Map<String, Object> mQuery = new HashMap<>();
 
     public static final class Builder {
 
@@ -71,7 +74,7 @@ public class RestClient {
                     @Override
                     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                         performParser(proxy, method, args);
-                        return loadServiceMethod().invoke(mPath, mHeaders, mBody, mRequestType, method);
+                        return loadServiceMethod().invoke(mPath, mHeaders, mQuery, mParams, mRequestType, method);
                     }
                 });
     }
@@ -125,9 +128,14 @@ public class RestClient {
             Annotation[] parameterAnnotation = paramsAnnotations[j];
 
             for (Annotation annotation : parameterAnnotation) {
-                if (annotation instanceof Params) {
-                    Params params = (Params) annotation;
-                    mBody.put(params.value(), args[j]);
+                if (annotation instanceof Query) {
+                    Query params = (Query) annotation;
+                    mQuery.put(params.value(), args[j]);
+                }
+
+                if (annotation instanceof Header) {
+                    Header header = (Header) annotation;
+                    mHeaders.put(header.value(), (String) args[j]);
                 }
 
                 if (annotation instanceof Body) {
@@ -139,8 +147,10 @@ public class RestClient {
 
                     map = gson.fromJson(str, map.getClass());
 
-                    mBody.putAll(map);
+                    mParams.putAll(map);
                 }
+
+
             }
         }
 
