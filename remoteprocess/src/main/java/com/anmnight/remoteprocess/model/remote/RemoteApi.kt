@@ -6,7 +6,7 @@ import com.anmnight.commlibrary.http.core.Get
 import com.anmnight.commlibrary.http.core.Header
 import com.anmnight.commlibrary.http.core.Query
 import com.anmnight.remoteprocess.pojo.HotelRoomsInfo
-import com.anmnight.remoteprocess.pojo.RoomInfo
+import com.anmnight.remoteprocess.pojo.RoomTypeInfo
 
 interface RemoteApi {
 
@@ -18,5 +18,5 @@ interface RemoteApi {
             @Header("Authorization") headToken: String,
             @Query("date") today: String,
             @Query("pageIndex") index: Int
-    ): Call<List<RoomInfo.SimpleOrder>>
+    ): Call<List<RoomTypeInfo.RoomInfoBean>>
 }

@@ -1,0 +1,365 @@
+[
+  {
+    "roomCode": "R102",
+    "roomName":"山水人间",
+    "status": [
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },{
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      }
+    ]
+  },
+  {
+    "roomCode": "R103",
+    "roomName":"天上人间",
+    "status": [
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },{
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      }
+    ]
+  },
+  {
+    "roomCode": "R104",
+    "roomName":"混沌人间",
+    "status": [
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },{
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      }
+    ]
+  },
+  {
+    "roomCode": "R105",
+    "roomName":"浮度人间",
+    "status": [
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },{
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      }
+    ]
+  },
+  {
+    "roomCode": "R106",
+    "roomName":"AA人间",
+    "status": [
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },{
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      }
+    ]
+  },
+  {
+    "roomCode": "R107",
+    "roomName":"BB人间",
+    "status": [
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },{
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      }
+    ]
+  },
+  {
+    "roomCode": "R109",
+    "roomName":"CC人间",
+    "status": [
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },{
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      }
+    ]
+  },
+  {
+    "roomCode": "R110",
+    "roomName":"DD人间",
+    "status": [
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },{
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      }
+    ]
+  },
+  {
+    "roomCode": "R111",
+    "roomName":"EE人间",
+    "status": [
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },{
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      }
+    ]
+  },
+  {
+    "roomCode": "R112",
+    "roomName":"FF人间",
+    "status": [
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },{
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      }
+    ]
+  },
+  {
+    "roomCode": "R113",
+    "roomName":"GG人间",
+    "status": [
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },{
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      },
+      {
+        "userName": "json",
+        "isClean": true
+      }
+    ]
+  }
+]

@@ -24,10 +24,7 @@ import java.lang.reflect.Type;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.ResponseBody;
-import okio.Buffer;
 import okio.BufferedSource;
-import okio.ForwardingSource;
-import okio.Okio;
 
 import static com.anmnight.commlibrary.http.Utils.throwIfFatal;
 
@@ -204,48 +201,4 @@ final class OkHttpCall<T> implements Call<T> {
         }
     }
 
-    static final class ExceptionCatchingResponseBody extends ResponseBody {
-        private final ResponseBody delegate;
-        IOException thrownException;
-
-        ExceptionCatchingResponseBody(ResponseBody delegate) {
-            this.delegate = delegate;
-        }
-
-        @Override
-        public MediaType contentType() {
-            return delegate.contentType();
-        }
-
-        @Override
-        public long contentLength() {
-            return delegate.contentLength();
-        }
-
-        @Override
-        public BufferedSource source() {
-            return Okio.buffer(new ForwardingSource(delegate.source()) {
-                @Override
-                public long read(Buffer sink, long byteCount) throws IOException {
-                    try {
-                        return super.read(sink, byteCount);
-                    } catch (IOException e) {
-                        thrownException = e;
-                        throw e;
-                    }
-                }
-            });
-        }
-
-        @Override
-        public void close() {
-            delegate.close();
-        }
-
-        void throwIfCaught() throws IOException {
-            if (thrownException != null) {
-                throw thrownException;
-            }
-        }
-    }
 }

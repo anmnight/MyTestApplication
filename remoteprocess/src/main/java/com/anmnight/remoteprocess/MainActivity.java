@@ -27,12 +27,8 @@ public class MainActivity extends Activity {
 
         final RoomLoginUnit loginUnit = new RoomLoginUnit();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                loginUnit.login();
-            }
-        }).start();
+        loginUnit.login(this);
+
 
     }
 }

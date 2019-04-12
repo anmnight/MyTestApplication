@@ -28,7 +28,7 @@ class ExampleUnitTest {
 
         var old = ""
         for (i in arr) {
-            old += i.toString() + ","
+            old += "$i,"
         }
         old = old.substring(0, old.length - 1)
         //small->big
@@ -44,7 +44,7 @@ class ExampleUnitTest {
 
         var now = ""
         for (i in arr) {
-            now += i.toString() + ","
+            now += "$i,"
         }
         now = now.substring(0, now.length - 1)
 
@@ -65,7 +65,7 @@ class ExampleUnitTest {
 
         var old = ""
         for (i in arr) {
-            old += i.toString() + ","
+            old += "$i,"
         }
         old = old.substring(0, old.length - 1)
 
@@ -85,7 +85,7 @@ class ExampleUnitTest {
 
         var now = ""
         for (i in arr) {
-            now += i.toString() + ","
+            now += "$i,"
         }
         now = now.substring(0, now.length - 1)
 

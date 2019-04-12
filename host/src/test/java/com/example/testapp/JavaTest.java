@@ -5,6 +5,21 @@ import org.w3c.dom.Entity;
 
 public class JavaTest {
 
+
+    @Test
+    public void test() {
+
+        int a = 1;
+        int b = 1;
+
+        System.out.println(a==b);
+
+        b=a;
+
+        System.out.println(a==b);
+
+    }
+
     @Test
     public void testFun() {
 
@@ -23,6 +38,7 @@ public class JavaTest {
             return ret;
         } finally {
             ret = 2;
+            return ret;
 
         }
 
