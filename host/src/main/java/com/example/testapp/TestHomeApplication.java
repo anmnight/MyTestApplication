@@ -9,6 +9,7 @@ import android.os.Process;
 import com.anmnight.commlibrary.view.ActivityAdapter;
 import com.anmnight.commlibrary.view.ActivityAdapterFactory;
 import com.facebook.stetho.Stetho;
+import com.idescout.sql.SqlScoutServer;
 
 import androidx.room.Room;
 
@@ -16,8 +17,7 @@ public class TestHomeApplication extends Application {
 
     private static TestHomeApplication application;
     public ActivityAdapter mViewAdapter;
-
-
+    
     public static TestHomeApplication getInstance() {
         return application;
     }
@@ -30,7 +30,6 @@ public class TestHomeApplication extends Application {
 
         if (isOnMainProcess()) {
             CrashHandler.instance().init();
-
 
             //注册自适配View
             mViewAdapter = new ActivityAdapterFactory.Builder()
