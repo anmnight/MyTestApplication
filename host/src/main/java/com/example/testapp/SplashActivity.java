@@ -6,12 +6,8 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.idescout.sql.SqlScoutServer;
-
 
 public class SplashActivity extends Activity {
-
-    private SqlScoutServer sqlScoutServer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,31 +16,9 @@ public class SplashActivity extends Activity {
 
         Log.d("start", getPackageName());
 
-        sqlScoutServer = SqlScoutServer.create(this, getPackageName());
 
     }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-        sqlScoutServer.resume();
-    }
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        sqlScoutServer.pause();
-    }
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        sqlScoutServer.destroy();
-    }
 }
