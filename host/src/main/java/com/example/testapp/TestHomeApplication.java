@@ -9,7 +9,6 @@ import android.os.Process;
 import com.anmnight.commlibrary.view.ActivityAdapter;
 import com.anmnight.commlibrary.view.ActivityAdapterFactory;
 import com.facebook.stetho.Stetho;
-import com.idescout.sql.SqlScoutServer;
 
 import androidx.room.Room;
 
