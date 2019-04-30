@@ -27,8 +27,8 @@
         android:theme="@style/HomeTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity" />
-        <activity android:name=".android.RoundImageEntryActivity" />
-        <activity android:name=".android.ScrollFlagEntryActivity" />
+        <activity android:name=".enteries.RoundImageEntryActivity" />
+        <activity android:name=".enteries.ScrollFlagEntryActivity" />
         <activity android:name=".android.service.MessengerServiceEntryActivity" />
 
         <activity android:name=".SplashActivity">
@@ -41,7 +41,7 @@
         <activity android:name=".android.service.WorkManagerEntryActivity" />
 
 
-        <activity android:name=".android.transition.TransitionEntryActivity"/>
+        <activity android:name=".enteries.TransitionEntryActivity"/>
     </application>
 
 </manifest>

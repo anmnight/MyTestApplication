@@ -1,4 +1,4 @@
-package com.example.testapp.android
+package com.example.testapp.enteries
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -8,5 +8,5 @@ import android.app.Activity;
  * anmnight@qq.com
  */
 public interface ActivityAdapter {
-    public void setAutoViewSize(Activity activity);
+    public void setAutoViewSize();
 }
