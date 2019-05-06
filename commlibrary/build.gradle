@@ -47,6 +47,8 @@ dependencies {
     //http
     implementation files('libs/okhttp-3.11.0.jar')
     implementation files('libs/gson-2.8.5.jar')
+
+    implementation rootProject.ext.dependencies.recyclerview
 }
 
 apply from: 'upload.gradle'
