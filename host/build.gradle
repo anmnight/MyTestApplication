@@ -77,6 +77,7 @@ dependencies {
     kapt rootProject.ext.dependencies.roomcompiler
     implementation rootProject.ext.dependencies.stetho
 
+    implementation files('libs/okhttp-3.11.0.jar')
 
     implementation project(path: ':commlibrary')
 

@@ -1,8 +1,8 @@
 package com.anmnight.remoteprocess.unit;
 
-import com.anmnight.commlibrary.http.Call;
-import com.anmnight.commlibrary.http.core.Body;
-import com.anmnight.commlibrary.http.core.Post;
+import com.example.testapp.http.Call;
+import com.example.testapp.http.core.Body;
+import com.example.testapp.http.core.Post;
 import com.anmnight.remoteprocess.pojo.PostLoginBean;
 import com.anmnight.remoteprocess.pojo.LoginUser;
 

@@ -2,7 +2,7 @@ package com.anmnight.remoteprocess;
 
 import android.app.Application;
 
-import com.anmnight.commlibrary.http.RestClient;
+import com.example.testapp.http.RestClient;
 import com.anmnight.remoteprocess.database.RemoteDatabase;
 import com.facebook.stetho.Stetho;
 
