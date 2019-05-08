@@ -9,41 +9,26 @@ import androidx.appcompat.widget.AppCompatImageView;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
-class BitmapShaderRoundImageView extends AppCompatImageView {
+public class BitmapShaderRoundImageView extends AppCompatImageView {
 
     private Paint mPaint = new Paint();
-    private BitmapShader mBitmapShader;
-
 
     public BitmapShaderRoundImageView(Context context) {
         super(context);
-        init();
     }
 
     public BitmapShaderRoundImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
     }
-
-    private void init() {
-        Drawable drawable = getDrawable();
-        if (!(drawable instanceof BitmapDrawable)) {
-            try {
-                throw new Exception("drawable isn't BitmapDrawable");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        Bitmap bitmap = scale(((BitmapDrawable) drawable).getBitmap());
-
-        mBitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
-
-    }
-
 
     @Override
     public void onDraw(Canvas canvas) {
+
+        Drawable drawable = getDrawable();
+
+        Bitmap bitmap = scale(((BitmapDrawable) drawable).getBitmap());
+
+        BitmapShader mBitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
 
         mPaint.setShader(mBitmapShader);
 
@@ -64,8 +49,19 @@ class BitmapShaderRoundImageView extends AppCompatImageView {
 
         float temp = oWidth > oHeight ? cHeight / oHeight : cWidth / oWidth;
 
+        int x = 0;
+        int y = 0;
+        int len = 0;
+        if (oWidth > oHeight) {
+            x = (oWidth - oHeight) / 2;
+            len = oHeight;
+        } else {
+            y = (oHeight - oWidth) / 2;
+            len = oWidth;
+        }
+
         matrix.postScale(temp, temp);
 
-        return Bitmap.createBitmap(bitmap, 0, 0, oWidth, oHeight, matrix, false);
+        return Bitmap.createBitmap(bitmap, x, y, len, len, matrix, false);
     }
 }

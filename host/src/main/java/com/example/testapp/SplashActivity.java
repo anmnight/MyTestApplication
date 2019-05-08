@@ -1,15 +1,14 @@
 package com.example.testapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
-import com.anmnight.commlibrary.watcher.IProxyClickListener;
-import com.anmnight.commlibrary.watcher.Watcher;
+import com.example.testapp.activities.CoordinatorActivity;
+import com.example.testapp.activities.RoundImageEntryActivity;
 
 public class SplashActivity extends Activity {
 
@@ -17,23 +16,11 @@ public class SplashActivity extends Activity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Log.d("start", getPackageName());
+        findViewById(R.id.coor).setOnClickListener((view)-> startActivity(new Intent(this, CoordinatorActivity.class)));
 
-
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener((view) -> Log.i(tag, "setOnClickListener"));
-
-
+        findViewById(R.id.round).setOnClickListener((view)-> startActivity(new Intent(this, RoundImageEntryActivity.class)));
     }
-
-
-
-
-
 }

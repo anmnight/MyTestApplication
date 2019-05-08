@@ -6,8 +6,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 6
-        versionName '1.1.25'
+        versionCode 8
+        versionName '1.1.30'
         buildToolsVersion '28.0.3'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -42,8 +42,6 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     testImplementation 'com.squareup.okhttp3:mockwebserver:3.11.0'
-
-    implementation files('libs/gson-2.8.5.jar')
 
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }

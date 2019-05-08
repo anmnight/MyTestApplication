@@ -8,37 +8,45 @@ import android.graphics.drawable.Drawable;
 import androidx.appcompat.widget.AppCompatImageView;
 
 import android.util.AttributeSet;
+import android.util.Log;
 
 /**
  * Created by anxiao on 2017/8/11.
  * xfermode round image
  */
 
-class XfermodeRoundImageView extends AppCompatImageView {
+public class XfermodeRoundImageView extends AppCompatImageView {
+
+    private String tag = "XfermodeRoundImageView";
 
     private Paint mPaint = new Paint();
     private PorterDuffXfermode porterDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
-    private Bitmap cBitmap;
-    private Canvas xCanvas;
 
     public XfermodeRoundImageView(Context context) {
         super(context);
-        init();
+
     }
 
     public XfermodeRoundImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+
     }
 
 
-    private void init() {
+
+    @Override
+    public void onDraw(Canvas canvas) {
+
+
 
         int width = getWidth() - getPaddingLeft() - getPaddingRight();
         int height = getHeight() - getPaddingTop() - getPaddingBottom();
 
+        Bitmap cBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas xCanvas = new Canvas(cBitmap);
 
         Drawable drawable = getDrawable();
+
         if (!(drawable instanceof BitmapDrawable)) {
             try {
                 throw new Exception("drawable isn't BitmapDrawable");
@@ -46,19 +54,6 @@ class XfermodeRoundImageView extends AppCompatImageView {
                 e.printStackTrace();
             }
         }
-
-        cBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        xCanvas = new Canvas(cBitmap);
-    }
-
-    @Override
-    public void onDraw(Canvas canvas) {
-
-
-        int width = getWidth() - getPaddingLeft() - getPaddingRight();
-        int height = getHeight() - getPaddingTop() - getPaddingBottom();
-
-        Drawable drawable = getDrawable();
 
         Bitmap bitmap = scale(((BitmapDrawable) drawable).getBitmap());
 

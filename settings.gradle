@@ -1,1 +1,1 @@
-include ':host', ':commlibrary',':remoteprocess'
+include ':host', ':commlibrary'

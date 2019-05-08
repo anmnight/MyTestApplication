@@ -2,20 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.testapp">
-
     <!-- 允许程序打开网络套接字 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 允许程序设置内置sd卡的写权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- 允许程序获取网络状态 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <!-- 允许程序读写手机状态和身份 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 允许程序设置内置sd卡的写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 允许程序获取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许程序读写手机状态和身份 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.INSTALL_SHORTCUT"/>
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
-
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <application
         android:name=".TestHomeApplication"
@@ -26,11 +20,10 @@
         android:supportsRtl="true"
         android:theme="@style/HomeTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activities.CoordinatorActivity"></activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".enteries.RoundImageEntryActivity" />
-        <activity android:name=".enteries.ScrollFlagEntryActivity" />
+        <activity android:name=".activities.RoundImageEntryActivity" />
         <activity android:name=".android.service.MessengerServiceEntryActivity" />
-
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,9 +32,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".android.service.WorkManagerEntryActivity" />
-
-
-        <activity android:name=".enteries.TransitionEntryActivity"/>
+        <activity android:name=".activities.TransitionEntryActivity" />
     </application>
 
 </manifest>

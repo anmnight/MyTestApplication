@@ -11,4 +11,6 @@ public class BaseParent {
     public void testFun(){
         System.out.println("im parent");
     }
+
+
 }

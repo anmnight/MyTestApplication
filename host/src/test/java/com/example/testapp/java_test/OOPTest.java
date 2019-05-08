@@ -14,11 +14,18 @@ public class OOPTest {
         //编译类型 BaseParent
         //执行类型 Child
 
-        BaseParent baseParent = new Child();
-        System.out.println(baseParent.field);
-        baseParent.parentFun();
+//        BaseParent baseParent = new Child();
+//        System.out.println(baseParent.field);
+//        baseParent.parentFun();
 
-        //baseParent.childFun();
+//        baseParent.childFun();
+
+
+        Child child = new Child();
+
+
+        child.testFun();
+
     }
 
 
