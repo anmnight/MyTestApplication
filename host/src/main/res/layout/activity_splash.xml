@@ -22,4 +22,11 @@
         android:layout_height="wrap_content"
         android:text="Round"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <androidx.viewpager.widget.TitleViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="500dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
