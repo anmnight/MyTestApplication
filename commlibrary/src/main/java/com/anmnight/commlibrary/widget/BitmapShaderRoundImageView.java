@@ -3,13 +3,11 @@ package com.anmnight.commlibrary.widget;
 import android.content.Context;
 import android.graphics.*;
 import android.graphics.drawable.BitmapDrawable;
-
-import androidx.appcompat.widget.AppCompatImageView;
-
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.widget.ImageView;
 
-public class BitmapShaderRoundImageView extends AppCompatImageView {
+public class BitmapShaderRoundImageView extends ImageView {
 
     private Paint mPaint = new Paint();
 

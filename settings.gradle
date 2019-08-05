@@ -1,1 +1,1 @@
-include ':host', ':commlibrary'
+include ':host', ':commlibrary', ':threadtest','ipcapp1','ipcapp2'

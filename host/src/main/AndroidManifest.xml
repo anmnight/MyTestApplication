@@ -20,32 +20,25 @@
         android:supportsRtl="true"
         android:theme="@style/HomeTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.CoordinatorActivity"/>
+        <activity android:name=".activities.TestTouchActivity"></activity>
 
+        <service
+            android:name=".services.TestService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".activities.CoordinatorActivity" />
         <activity android:name=".activities.RoundImageEntryActivity" />
-        <activity android:name=".android.service.MessengerServiceEntryActivity" />
-
-
-
+        <activity android:name=".services.MessengerServiceEntryActivity" />
         <activity android:name=".SplashActivity">
-
-        </activity>
-
-
-        <activity android:name=".MainActivity" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
-
-
-        <activity android:name=".android.service.WorkManagerEntryActivity" />
-
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".services.WorkManagerEntryActivity" />
     </application>
 
 </manifest>

@@ -3,7 +3,6 @@ package com.example.testapp.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.TitleViewPager;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -33,9 +32,7 @@ public class CoordinatorActivity extends AppCompatActivity {
         }
 
 
-        TitleViewPager titleViewPager = findViewById(R.id.viewpager);
 
-        titleViewPager.setAdapter(new ViewPagerAdapter());
 
 
     }

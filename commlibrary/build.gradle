@@ -35,15 +35,13 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //android
-    implementation rootProject.ext.dependencies.appcompat
-
+    implementation 'androidx.appcompat:appcompat:1.0.2'
 
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     testImplementation 'com.squareup.okhttp3:mockwebserver:3.11.0'
 
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }
 
 apply from: 'upload.gradle'
