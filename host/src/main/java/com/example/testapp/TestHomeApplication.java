@@ -1,5 +1,6 @@
 package com.example.testapp;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
@@ -8,18 +9,26 @@ import android.os.Process;
 
 import com.anmnight.commlibrary.view.ActivityAdapter;
 import com.anmnight.commlibrary.view.ActivityAdapterFactory;
-import com.facebook.stetho.Stetho;
+import com.anmnight.commlibrary.watcher.HookHelper;
 
-import androidx.room.Room;
+import java.util.Stack;
 
 public class TestHomeApplication extends Application {
 
     private static TestHomeApplication application;
     public ActivityAdapter mViewAdapter;
-
+    private String tag = "TestHomeApplication";
 
     public static TestHomeApplication getInstance() {
         return application;
+    }
+
+    private static Stack<Activity> activities = new Stack<>();
+
+    public static void finishApp() {
+        for (Activity activity : activities) {
+            activity.finish();
+        }
     }
 
     @Override
@@ -28,19 +37,21 @@ public class TestHomeApplication extends Application {
 
         application = this;
 
-        if (isOnMainProcess()) {
-            CrashHandler.instance().init();
+        CrashHandler.INSTANCE().init();
+
+        //注册自适配View
+        mViewAdapter = new ActivityAdapterFactory.Builder()
+                .setType(ActivityAdapterFactory.Type.WIDTH)
+                .build(1080, 1920, 420, application);
 
 
-            //注册自适配View
-            mViewAdapter = new ActivityAdapterFactory.Builder()
-                    .setType(ActivityAdapterFactory.Type.WIDTH)
-                    .build(1080, 1920, 420, application);
-
+        try {
+            HookHelper.hookInstrumentation();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
-
 
     public boolean isMainThread() {
         return Looper.getMainLooper() == Looper.myLooper();
@@ -63,6 +74,8 @@ public class TestHomeApplication extends Application {
         String process = getApplicationName(TestHomeApplication.this, pid);
         return process.isEmpty() || process.equalsIgnoreCase(PROCESS_NAME);
     }
+
+
 
 
 

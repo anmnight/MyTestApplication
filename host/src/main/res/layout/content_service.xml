@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.testapp.mytestapplication.com.example.anxiao.lesson_java.ServiceActivity"
     tools:showIn="@layout/activity_service">
 
     <LinearLayout

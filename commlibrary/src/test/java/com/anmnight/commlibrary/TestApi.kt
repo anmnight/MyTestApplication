@@ -1,9 +1,9 @@
 package com.anmnight.commlibrary
 
-import com.anmnight.commlibrary.http.Call
-import com.anmnight.commlibrary.http.core.Body
-import com.anmnight.commlibrary.http.core.Get
-import com.anmnight.commlibrary.http.core.Query
+import com.example.testapp.http.Call
+import com.example.testapp.http.core.Body
+import com.example.testapp.http.core.Get
+import com.example.testapp.http.core.Query
 
 /**
  * https://github.com/anmnight

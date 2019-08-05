@@ -7,20 +7,17 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     private Thread.UncaughtExceptionHandler mUncaughtExceptionHandler;
 
-    private Handler mHandler;
-
     private static class CrashHandlerHolder {
         static CrashHandler crashHandler = new CrashHandler();
     }
 
-    public static CrashHandler instance() {
+    public static CrashHandler INSTANCE() {
         return CrashHandlerHolder.crashHandler;
     }
 
-    CrashHandler() {
+    private CrashHandler() {
         HandlerThread thread = new HandlerThread("toast_thread");
         thread.start();
-        mHandler = new Handler(thread.getLooper());
     }
 
     public void init() {
@@ -34,9 +31,8 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         if (!handlerException(throwable) && mUncaughtExceptionHandler != null) {
             mUncaughtExceptionHandler.uncaughtException(thread, throwable);
         } else {
-
-            // TODO: 启动发送log service
-
+            System.out.println(throwable.getMessage());
+            TestHomeApplication.finishApp();
         }
 
     }

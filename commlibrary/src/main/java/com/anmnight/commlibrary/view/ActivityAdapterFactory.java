@@ -49,7 +49,7 @@ public class ActivityAdapterFactory implements ActivityAdapter {
     }
 
     @Override
-    public void setAutoViewSize(Activity activity) {
+    public void setAutoViewSize() {
 
         /**
          * density / dpi 像素密度
@@ -91,7 +91,7 @@ public class ActivityAdapterFactory implements ActivityAdapter {
         displayMetrics.scaledDensity = targetDensity;
         displayMetrics.densityDpi = targetDensityDpi;
 
-        DisplayMetrics activityMetrics = activity.getResources().getDisplayMetrics();
+        DisplayMetrics activityMetrics = mApp.getResources().getDisplayMetrics();
         activityMetrics.density = targetDensity;
         activityMetrics.scaledDensity = targetDensity;
         activityMetrics.densityDpi = targetDensityDpi;

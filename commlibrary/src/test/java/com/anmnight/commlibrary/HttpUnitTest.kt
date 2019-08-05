@@ -1,6 +1,6 @@
 package com.anmnight.commlibrary
 
-import com.anmnight.commlibrary.http.RestClient
+import com.example.testapp.http.RestClient
 import com.google.gson.Gson
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
