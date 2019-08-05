@@ -77,10 +77,5 @@ dependencies {
     kapt rootProject.ext.dependencies.roomcompiler
     implementation rootProject.ext.dependencies.stetho
 
-    kapt project(path: ':fastcoding')
-    implementation project(path: ':fastcoding')
-
     implementation project(path: ':commlibrary')
-
-
 }
