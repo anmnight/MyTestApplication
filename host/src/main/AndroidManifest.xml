@@ -20,7 +20,16 @@
         android:supportsRtl="true"
         android:theme="@style/HomeTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.TestTouchActivity"></activity>
+        <activity android:name=".activities.DampLayoutActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".activities.TestTouchActivity" />
 
         <service
             android:name=".services.TestService"
@@ -30,13 +39,9 @@
         <activity android:name=".activities.CoordinatorActivity" />
         <activity android:name=".activities.RoundImageEntryActivity" />
         <activity android:name=".services.MessengerServiceEntryActivity" />
-        <activity android:name=".SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".SplashActivity"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".services.WorkManagerEntryActivity" />
     </application>
