@@ -21,14 +21,18 @@
 
         <activity android:name=".activities.DampLayoutActivity" />
         <activity android:name=".activities.CoordinatorActivity" />
-        <activity android:name=".activities.AutoLoadImageListActivity" />
 
-        <activity android:name=".activities.CustomerImageActivity">
+        <activity android:name=".activities.AutoLoadImageListActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+        <activity android:name=".activities.CustomerImageActivity" />
+
 
     </application>
 

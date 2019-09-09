@@ -1,10 +1,9 @@
 package com.anmnight.imageloader;
 
-import android.graphics.BitmapFactory;
-
 import com.anmnight.imageloader.base.DiskCache;
 import com.anmnight.imageloader.base.Downloader;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -30,12 +29,10 @@ public abstract class DownloadAndSaveTask implements Runnable {
     public void run() {
 
         byte[] image = downloadAndMakeDiskCache(imageUrl);
-
         if (image == null) {
             onDownloadError(new Throwable("save or download error"));
             return;
         }
-
         onLoaded(imageUrl, image);
         onComplete();
 
@@ -43,14 +40,29 @@ public abstract class DownloadAndSaveTask implements Runnable {
 
     //磁盘缓存
     private byte[] downloadAndMakeDiskCache(String path) {
+
         try {
             InputStream stream = downloader.getStream(path);
-            diskCache.put(stream, mNameGenerate.generate(path), this);
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+            int ch;
+            while ((ch = stream.read()) != -1) {
+                outputStream.write(ch);
+            }
+            outputStream.write(stream.available());
             stream.close();
-            return diskCache.get(mNameGenerate.generate(path));
+
+            return outputStream.toByteArray();
+
+
+            //todo make disk cache
+//            diskCache.put(stream, mNameGenerate.generate(path), this);
+//            stream.close();
+//            return diskCache.get(mNameGenerate.generate(path));
         } catch (IOException e) {
             return null;
         }
+
 
     }
 

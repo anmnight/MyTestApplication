@@ -13,11 +13,11 @@ public interface DiskCache {
 
     public byte[] get(String key);
 
-    public void put(InputStream inputStream, String key, DownloadAndSaveTask listener) throws IOException;
+    public void put(InputStream inputStream, String key, DownloadAndSaveTask listener);
 
-    public boolean remove(String key) throws IOException;
+    public boolean remove(String key);
 
-    public void close() throws IOException;
+    public void close();
 
 
 }

@@ -16,16 +16,11 @@ public class LruDiskCache implements DiskCache {
 
     private File cacheDir;
     private HexNameGenerate nameGenerate;
-    private DiskLruCache cache;
+
 
     public LruDiskCache(File cacheDir, HexNameGenerate nameGenerate) {
         this.cacheDir = cacheDir;
         this.nameGenerate = nameGenerate;
-        try {
-            this.cache = DiskLruCache.open(cacheDir, 1, 1, Integer.MAX_VALUE);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 
@@ -38,7 +33,9 @@ public class LruDiskCache implements DiskCache {
     public byte[] get(String key) {
 
         InputStream stream = null;
-        try (DiskLruCache.Snapshot snapshot = cache.get(nameGenerate.generate(key))) {
+        try {
+            DiskLruCache cache = DiskLruCache.open(cacheDir, 1, 1, Integer.MAX_VALUE);
+            DiskLruCache.Snapshot snapshot = cache.get(nameGenerate.generate(key));
             if (snapshot == null) {
                 return null;
             }
@@ -61,26 +58,31 @@ public class LruDiskCache implements DiskCache {
     }
 
     @Override
-    public void put(InputStream inputStream, String key, DownloadAndSaveTask listener) throws IOException {
+    public void put(InputStream inputStream, String key, DownloadAndSaveTask listener) {
 
-        DiskLruCache.Editor editor = cache.edit(nameGenerate.generate(key));
-        OutputStream os = new BufferedOutputStream(editor.newOutputStream(0));
-        int len;
-        byte[] buffer = new byte[1024];
-        int cont = 0;
-        while ((len = inputStream.read(buffer)) != -1) {
-            os.write(buffer, 0, len);
-            cont += len;
-            listener.onProgress(inputStream.available(), cont);
+        try {
+            DiskLruCache cache = DiskLruCache.open(cacheDir, 1, 1, Integer.MAX_VALUE);
+            DiskLruCache.Editor editor = cache.edit(nameGenerate.generate(key));
+            OutputStream os = new BufferedOutputStream(editor.newOutputStream(0));
+            int len;
+            byte[] buffer = new byte[1024];
+            int cont = 0;
+            while ((len = inputStream.read(buffer)) != -1) {
+                os.write(buffer, 0, len);
+                cont += len;
+                listener.onProgress(inputStream.available(), cont);
+            }
+            editor.commit();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        editor.commit();
-
 
     }
 
     @Override
     public boolean remove(String key) {
         try {
+            DiskLruCache cache = DiskLruCache.open(cacheDir, 1, 1, Integer.MAX_VALUE);
             return cache.remove(nameGenerate.generate(key));
         } catch (IOException e) {
             return false;
@@ -90,10 +92,10 @@ public class LruDiskCache implements DiskCache {
     @Override
     public void close() {
         try {
+            DiskLruCache cache = DiskLruCache.open(cacheDir, 1, 1, Integer.MAX_VALUE);
             cache.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        cache = null;
     }
 }
