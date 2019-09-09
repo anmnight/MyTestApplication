@@ -1,11 +1,12 @@
 package com.example.testapp;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.os.Looper;
 import android.os.Process;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.anmnight.commlibrary.view.ActivityAdapter;
 import com.anmnight.commlibrary.view.ActivityAdapterFactory;
@@ -23,10 +24,10 @@ public class TestHomeApplication extends Application {
         return application;
     }
 
-    private static Stack<Activity> activities = new Stack<>();
+    private static Stack<AppCompatActivity> activities = new Stack<>();
 
     public static void finishApp() {
-        for (Activity activity : activities) {
+        for (AppCompatActivity activity : activities) {
             activity.finish();
         }
     }

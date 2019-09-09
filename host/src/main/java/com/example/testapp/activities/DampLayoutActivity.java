@@ -22,7 +22,7 @@ public class DampLayoutActivity extends AppCompatActivity {
         //https://segmentfault.com/a/1190000019272870
         RecyclerView list = findViewById(R.id.list);
         DampLayout dampLayout = findViewById(R.id.damp_layout);
-        dampLayout.setCallback(y -> Log.d(tag, "onScrollY : " + y));
+//        dampLayout.setCallback(y -> Log.d(tag, "onScrollY : " + y));
 
         DampListAdapter adapter = new DampListAdapter(this);
         list.setAdapter(adapter);

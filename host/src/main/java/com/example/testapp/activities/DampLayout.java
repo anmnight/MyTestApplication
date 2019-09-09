@@ -3,6 +3,7 @@ package com.example.testapp.activities;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
@@ -13,6 +14,7 @@ import androidx.core.view.NestedScrollingParent2;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 public class DampLayout extends LinearLayout implements NestedScrollingParent2 {
 
     private static final int MAX_HEIGHT = 400;
@@ -22,6 +24,8 @@ public class DampLayout extends LinearLayout implements NestedScrollingParent2 {
     private ReboundAnimator animator = null;
     private boolean isFirstRunAnim;//针对冗余fling期间，保证回弹动画只执行一次
     private Callback callback;
+    private String tag = "DampLayout";
+
 
     public DampLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -29,6 +33,7 @@ public class DampLayout extends LinearLayout implements NestedScrollingParent2 {
         headerView = new View(context);
         footerView = new View(context);
     }
+
 
     @Override
     protected void onFinishInflate() {//在setContentView之后、onMeasure之前调用的方法
@@ -78,16 +83,21 @@ public class DampLayout extends LinearLayout implements NestedScrollingParent2 {
     public void onNestedPreScroll(@NonNull View target, int dx, int dy, @NonNull int[] consumed, int type) {
         // 如果在自定义ViewGroup之上还有父View交给我来处理
         getParent().requestDisallowInterceptTouchEvent(true);
+
         if (type == ViewCompat.TYPE_TOUCH) {//手指触发的滑动
             // dy>0向下scroll dy<0向上scroll
-            boolean hiddenTop = dy > 0 && getScrollY() < MAX_HEIGHT && !target.canScrollVertically(-1);
+            boolean hiddenTop = dy > 0 && getScrollY() < MAX_HEIGHT && !target.canScrollVertically(-1);//向上
             boolean showTop = dy < 0 && !target.canScrollVertically(-1);
+
             boolean hiddenBottom = dy < 0 && getScrollY() > MAX_HEIGHT && !target.canScrollVertically(1);
             boolean showBottom = dy > 0 && !target.canScrollVertically(1);
+
             if (hiddenTop || showTop || hiddenBottom || showBottom) {
                 if (animator.isStarted()) {
                     animator.pause();
                 }
+                Log.d(tag, "damping : " + damping(dy));
+
                 scrollBy(0, damping(dy));
                 if (animator.isPaused()) {//手动cancel 避免内存泄漏
                     animator.cancel();
@@ -101,6 +111,7 @@ public class DampLayout extends LinearLayout implements NestedScrollingParent2 {
     @Override
     public void onNestedScroll(@NonNull View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type) {
         getParent().requestDisallowInterceptTouchEvent(true);
+
         if (type == ViewCompat.TYPE_NON_TOUCH) {//非手指触发的滑动，即Filing
             //解决冗余fling问题
             if (((Math.floor(getScrollY()) == 0) || ((Math.ceil(getScrollY()) == 2 * MAX_HEIGHT))) && !isFirstRunAnim) {
