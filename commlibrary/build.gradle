@@ -1,11 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 27
+        minSdkVersion rootProject.ext.android.libaryMinSdkVersion
+        targetSdkVersion rootProject.ext.android.libaryTargetSdkVersion
         versionCode 8
         versionName '1.1.30'
         buildToolsVersion '28.0.3'
@@ -43,5 +45,3 @@ dependencies {
     testImplementation 'com.squareup.okhttp3:mockwebserver:3.11.0'
 
 }
-
-apply from: 'upload.gradle'

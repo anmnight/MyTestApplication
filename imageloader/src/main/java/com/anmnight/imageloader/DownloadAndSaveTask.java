@@ -1,5 +1,7 @@
 package com.anmnight.imageloader;
 
+import android.graphics.BitmapFactory;
+
 import com.anmnight.imageloader.base.DiskCache;
 import com.anmnight.imageloader.base.Downloader;
 
@@ -26,32 +28,31 @@ public abstract class DownloadAndSaveTask implements Runnable {
 
     @Override
     public void run() {
-        onStart();
-        try {
-            byte[] image = downloadAndMakeDiskCache(imageUrl);
-            if (image.length > 0) {
-                onLoaded(imageUrl, image);
-            }
-        } catch (Exception e) {
-            onDownloadError(new Throwable(e.getMessage()));
-        } finally {
-            onComplete();
+
+        byte[] image = downloadAndMakeDiskCache(imageUrl);
+
+        if (image == null) {
+            onDownloadError(new Throwable("save or download error"));
+            return;
         }
+
+        onLoaded(imageUrl, image);
+        onComplete();
+
     }
 
     //磁盘缓存
-    private byte[] downloadAndMakeDiskCache(String path) throws IOException {
-        synchronized (diskCache) {
+    private byte[] downloadAndMakeDiskCache(String path) {
+        try {
             InputStream stream = downloader.getStream(path);
             diskCache.put(stream, mNameGenerate.generate(path), this);
             stream.close();
             return diskCache.get(mNameGenerate.generate(path));
+        } catch (IOException e) {
+            return null;
         }
 
     }
-
-
-    abstract void onStart();
 
     //下载监听
     public abstract void onProgress(int sum, int count);

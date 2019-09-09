@@ -1,7 +1,5 @@
 package com.anmnight.imageloader;
 
-import android.os.AsyncTask;
-
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingDeque;
