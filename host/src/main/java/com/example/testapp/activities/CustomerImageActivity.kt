@@ -11,7 +11,7 @@ class CustomerImageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_customer_image)
 
-        auto_load_img.displayImage("https://up.enterdesk.com/edpic_source/53/a6/78/53a678b383be6eb9607e875339b1d052.jpg");
+        auto_load_img.displayImage("https://up.enterdesk.com/edpic_source/53/a6/78/53a678b383be6eb9607e875339b1d052.jpg")
 
     }
 }
