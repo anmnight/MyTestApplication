@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.anmnight.imageloader.AutoLoadImage
+import com.example.testapp.Constans
 import com.example.testapp.R
 import kotlinx.android.synthetic.main.activity_list.*
 
@@ -26,9 +27,7 @@ class AutoLoadImageListActivity : Activity() {
 
         list.layoutManager = layoutManager
         list.adapter = adapter
-        val path = "https://up.enterdesk.com/edpic_source/53/a6/78/53a678b383be6eb9607e875339b1d052.jpg"
-        val array = arrayListOf(path, path, path, path)
-        adapter.addImages(array)
+        adapter.addImages(Constans.images)
 
 
     }
@@ -38,7 +37,7 @@ class AutoLoadImageListActivity : Activity() {
         val images = arrayListOf<String>()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val itemView = layoutInflater.inflate(R.layout.list_item_autodownloadimage, null, false)
+            val itemView = LayoutInflater.from(this@AutoLoadImageListActivity).inflate(R.layout.list_item_autodownloadimage, parent, false)
             return ViewHolder(itemView)
         }
 
