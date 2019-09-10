@@ -12,6 +12,7 @@ public class BaseDownloader implements Downloader {
     public InputStream getStream(String path) throws IOException {
         URL url = new URL(path);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setConnectTimeout(5000);
         return connection.getInputStream();
     }
 

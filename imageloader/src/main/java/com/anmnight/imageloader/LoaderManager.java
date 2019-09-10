@@ -1,5 +1,15 @@
 package com.anmnight.imageloader;
 
+import android.content.Context;
+
+import com.anmnight.imageloader.base.DiskCache;
+import com.anmnight.imageloader.base.Downloader;
+import com.anmnight.imageloader.base.MemoryCache;
+import com.anmnight.imageloader.cacher.LruDiskCache;
+import com.anmnight.imageloader.cacher.LruMemoryCache;
+import com.anmnight.imageloader.cacher.PathHelper;
+
+import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -16,6 +26,10 @@ public class LoaderManager {
     private static final int KEEP_ALIVE_SECONDS = 30;
     private static final BlockingQueue<Runnable> sPoolWorkQueue = new LinkedBlockingDeque<>();
     private static final Executor THREAD_POOL_EXECUTOR;
+    private static Downloader downloader;
+    private static DiskCache diskCache;
+    private static HexNameGenerate nameGenerate;
+    private static MemoryCache memoryCache;
 
 
     private static final ThreadFactory sThreadFactory = new ThreadFactory() {
@@ -38,8 +52,52 @@ public class LoaderManager {
     }
 
 
-    public static void addTask(DownloadAndSaveTask task) {
+    private static volatile LoaderManager mSingleton;
+
+    public static LoaderManager getInstance(Context context) {
+        if (mSingleton == null) {
+            synchronized (LoaderManager.class) {
+                if (mSingleton == null) {
+                    mSingleton = new LoaderManager(context);
+                }
+            }
+        }
+        return mSingleton;
+    }
+
+
+    public LoaderManager(Context context) {
+        try {
+            downloader = new BaseDownloader();
+            diskCache = new LruDiskCache(PathHelper.externalCacheDir(context));
+            nameGenerate = new HexNameGenerate();
+            memoryCache = new LruMemoryCache();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public Downloader getDownloader() {
+        return downloader;
+    }
+
+    public DiskCache getDiskCache() {
+        return diskCache;
+    }
+
+    public MemoryCache getMemoryCache() {
+        return memoryCache;
+    }
+
+    public HexNameGenerate getNameGenerate() {
+        return nameGenerate;
+    }
+
+    public void addTask(LoadTask task) {
         THREAD_POOL_EXECUTOR.execute(task);
     }
+
 
 }
