@@ -29,8 +29,6 @@ public class LruDiskCache implements DiskCache {
 
     @Override
     public byte[] get(String key) {
-
-        Log.i(tag, "read key : " + key);
         InputStream stream = null;
         try {
             DiskLruCache.Snapshot snapshot = cache.get(nameGenerate.generate(key));

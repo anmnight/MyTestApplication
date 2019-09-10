@@ -2,6 +2,9 @@ package com.anmnight.imageloader;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
@@ -37,6 +40,8 @@ public class AutoLoadImage extends AppCompatImageView {
         this.context = context;
         mainHandler = new Handler(Looper.getMainLooper());
         loaderManager = LoaderManager.getInstance(context);
+        paint = new Paint();
+        paint.setColor(Color.WHITE);
     }
 
 
@@ -79,4 +84,24 @@ public class AutoLoadImage extends AppCompatImageView {
         };
     }
 
+    private Paint paint;
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        float cx = getWidth() / 2;
+        float cy = getHeight() / 2;
+        float radius;
+        if (cx > cy) {
+            radius = cy / 3;
+        } else {
+            radius = cx / 3;
+        }
+
+        canvas.drawCircle(cx, cy, radius, paint);
+        paint.setColor(Color.BLACK);
+        canvas.drawText("asdasd", cx, cy, paint);
+
+    }
 }
