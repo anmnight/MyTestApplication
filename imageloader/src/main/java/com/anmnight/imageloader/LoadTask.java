@@ -68,10 +68,8 @@ public abstract class LoadTask implements Runnable {
     //磁盘缓存
     private byte[] downloadAndMakeDiskCache(String path) {
         try {
-            InputStream stream = downloader.getStream(path);
-            byte[] image = diskCache.put(stream, nameGenerate.generate(path), this);
-            stream.close();
-            return image;
+            Downloader.StreamInfo info = downloader.getStream(path);
+            return diskCache.put(info, nameGenerate.generate(path), this);
         } catch (IOException e) {
             return null;
         }

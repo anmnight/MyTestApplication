@@ -9,7 +9,7 @@ public interface DiskCache {
 
     public byte[] get(String key);
 
-    public byte[] put(InputStream inputStream, String key, LoadTask listener);
+    public byte[] put(Downloader.StreamInfo info, String key, LoadTask listener);
 
     public boolean remove(String key);
 

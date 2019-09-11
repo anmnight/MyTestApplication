@@ -5,9 +5,11 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -58,7 +60,9 @@ public class AutoLoadImage extends AppCompatImageView {
                 loaderManager.getNameGenerate()) {
             @Override
             public void onProgress(int sum, int count) {
-
+                sum += 5;
+                progressAngle = count * 360 / sum;
+                postInvalidate();
             }
 
             @Override
@@ -67,6 +71,7 @@ public class AutoLoadImage extends AppCompatImageView {
                     @Override
                     public void run() {
                         setImageBitmap(image);
+                        invalidate();
                     }
                 });
             }
@@ -74,7 +79,9 @@ public class AutoLoadImage extends AppCompatImageView {
 
             @Override
             void onComplete() {
-
+                if (progressAngle < 360) {
+                    progressAngle = 360;
+                }
             }
 
             @Override
@@ -84,24 +91,38 @@ public class AutoLoadImage extends AppCompatImageView {
         };
     }
 
+
     private Paint paint;
+    private float progressAngle = 0;
+    RectF rectF = new RectF();
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        float cx = getWidth() / 2;
-        float cy = getHeight() / 2;
-        float radius;
-        if (cx > cy) {
-            radius = cy / 3;
-        } else {
-            radius = cx / 3;
+        if (progressAngle < 360) {
+
+            float cx = getWidth() / 2;
+            float cy = getHeight() / 2;
+            float radius;
+            if (cx > cy) {
+                radius = cy / 3;
+            } else {
+                radius = cx / 3;
+            }
+
+            rectF.top = (getHeight() - radius) / 2;
+            rectF.bottom = (getHeight() + radius) / 2;
+            rectF.left = (getWidth() - radius) / 2;
+            rectF.right = (getWidth() + radius) / 2;
+
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setStrokeWidth(2);
+            canvas.drawCircle(cx, cy, radius / 2 + 1, paint);
+            paint.setStyle(Paint.Style.FILL);
+
+
+            canvas.drawArc(rectF, -90, progressAngle, true, paint);
         }
-
-        canvas.drawCircle(cx, cy, radius, paint);
-        paint.setColor(Color.BLACK);
-        canvas.drawText("asdasd", cx, cy, paint);
-
     }
 }

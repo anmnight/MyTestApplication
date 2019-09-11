@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.anmnight.imageloader.LoadTask;
 import com.anmnight.imageloader.base.DiskCache;
+import com.anmnight.imageloader.base.Downloader;
 import com.anmnight.imageloader.utils.DiskLruCache;
 import com.anmnight.imageloader.HexNameGenerate;
 
@@ -56,11 +57,11 @@ public class LruDiskCache implements DiskCache {
     }
 
     @Override
-    public byte[] put(InputStream inputStream, String key, LoadTask listener) {
+    public byte[] put(Downloader.StreamInfo info, String key, LoadTask listener) {
 
         synchronized (cache) {
-            Log.i(tag, "read key : " + key);
             try {
+                InputStream inputStream = info.getStream();
                 DiskLruCache.Editor editor = cache.edit(nameGenerate.generate(key));
                 OutputStream os = new BufferedOutputStream(editor.newOutputStream(0));
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -71,9 +72,10 @@ public class LruDiskCache implements DiskCache {
                     os.write(buffer, 0, len);
                     bos.write(buffer, 0, len);
                     cont += len;
-                    listener.onProgress(inputStream.available(), cont);
+                    listener.onProgress(info.getContentLength(), cont);
                 }
                 editor.commit();
+                inputStream.close();
                 return bos.toByteArray();
             } catch (IOException e) {
                 e.printStackTrace();
