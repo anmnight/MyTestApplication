@@ -9,7 +9,6 @@ import android.graphics.RectF;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -80,7 +79,8 @@ public class AutoLoadImage extends AppCompatImageView {
             @Override
             void onComplete() {
                 if (progressAngle < 360) {
-                    progressAngle = 360;
+                    progressAngle = 0;
+                    postInvalidate();
                 }
             }
 
@@ -100,7 +100,7 @@ public class AutoLoadImage extends AppCompatImageView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if (progressAngle < 360) {
+        if (0 < progressAngle && progressAngle < 360) {
 
             float cx = getWidth() / 2;
             float cy = getHeight() / 2;

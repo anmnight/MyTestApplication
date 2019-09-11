@@ -12,13 +12,14 @@ import com.anmnight.imageloader.cacher.PathHelper;
 import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class LoaderManager {
+class LoaderManager {
 
     private static int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
@@ -26,6 +27,7 @@ public class LoaderManager {
     private static final int KEEP_ALIVE_SECONDS = 30;
     private static final BlockingQueue<Runnable> sPoolWorkQueue = new LinkedBlockingDeque<>();
     private static final Executor THREAD_POOL_EXECUTOR;
+    private static final Executor CACHE_THREAD_POOL;
     private static Downloader downloader;
     private static DiskCache diskCache;
     private static HexNameGenerate nameGenerate;
@@ -49,12 +51,13 @@ public class LoaderManager {
                 sPoolWorkQueue, sThreadFactory);
         downloadQueue.allowCoreThreadTimeOut(true);
         THREAD_POOL_EXECUTOR = downloadQueue;
+        CACHE_THREAD_POOL = Executors.newSingleThreadExecutor();
     }
 
 
     private static volatile LoaderManager mSingleton;
 
-    public static LoaderManager getInstance(Context context) {
+    static LoaderManager getInstance(Context context) {
         if (mSingleton == null) {
             synchronized (LoaderManager.class) {
                 if (mSingleton == null) {
@@ -65,8 +68,7 @@ public class LoaderManager {
         return mSingleton;
     }
 
-
-    public LoaderManager(Context context) {
+    private LoaderManager(Context context) {
         try {
             downloader = new BaseDownloader();
             diskCache = new LruDiskCache(PathHelper.externalCacheDir(context));
@@ -78,24 +80,28 @@ public class LoaderManager {
         }
     }
 
+    static void postToCache(Runnable runnable) {
+        CACHE_THREAD_POOL.execute(runnable);
+    }
 
-    public Downloader getDownloader() {
+
+    Downloader getDownloader() {
         return downloader;
     }
 
-    public DiskCache getDiskCache() {
+    DiskCache getDiskCache() {
         return diskCache;
     }
 
-    public MemoryCache getMemoryCache() {
+    MemoryCache getMemoryCache() {
         return memoryCache;
     }
 
-    public HexNameGenerate getNameGenerate() {
+    HexNameGenerate getNameGenerate() {
         return nameGenerate;
     }
 
-    public void addTask(LoadTask task) {
+    void addTask(LoadTask task) {
         THREAD_POOL_EXECUTOR.execute(task);
     }
 

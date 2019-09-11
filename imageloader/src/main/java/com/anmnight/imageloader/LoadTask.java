@@ -7,6 +7,7 @@ import com.anmnight.imageloader.base.DiskCache;
 import com.anmnight.imageloader.base.Downloader;
 import com.anmnight.imageloader.base.MemoryCache;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -53,26 +54,64 @@ public abstract class LoadTask implements Runnable {
         }
 
         //网络寻找
-        bytes = downloadAndMakeDiskCache(imageUrl);
-        if (bytes == null) {
+        final ByteArrayOutputStream byteArrayOutputStream = download(imageUrl);
+        if (byteArrayOutputStream == null || byteArrayOutputStream.toByteArray() == null) {
             onDownloadError(new Throwable("save or download error"));
             return;
         }
+        bytes = byteArrayOutputStream.toByteArray();
         bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
         memoryCache.put(bitmap, nameGenerate.generate(imageUrl));
+
+        LoaderManager.postToCache(new Runnable() {
+            @Override
+            public void run() {
+                diskCache.put(byteArrayOutputStream.toByteArray(), nameGenerate.generate(imageUrl));
+            }
+        });
         onLoaded(imageUrl, bitmap);
         onComplete();
 
     }
 
-    //磁盘缓存
-    private byte[] downloadAndMakeDiskCache(String path) {
+
+    //解流
+    private ByteArrayOutputStream transSteam(Downloader.StreamInfo streamInfo) {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        InputStream stream = streamInfo.getStream();
         try {
-            Downloader.StreamInfo info = downloader.getStream(path);
-            return diskCache.put(info, nameGenerate.generate(path), this);
+            byte[] buffer = new byte[1024];
+            int len;
+            int count = 0;
+            while ((len = stream.read(buffer)) != -1) {
+                count += len;
+                onProgress(streamInfo.getContentLength(), count);
+                outputStream.write(buffer, 0, len);
+            }
         } catch (IOException e) {
-            return null;
+            onDownloadError(new Throwable(e.getMessage()));
         }
+        return outputStream;
+    }
+
+    //获取流
+    private ByteArrayOutputStream download(String path) {
+        Downloader.StreamInfo info = null;
+        try {
+            info = downloader.getStream(path);
+            return transSteam(info);
+        } catch (IOException e) {
+            onDownloadError(new Throwable(e.getMessage()));
+        } finally {
+            if (info != null) {
+                try {
+                    info.getStream().close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
     }
 
     //下载监听

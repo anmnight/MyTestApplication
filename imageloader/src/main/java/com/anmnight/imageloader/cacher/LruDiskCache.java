@@ -1,8 +1,5 @@
 package com.anmnight.imageloader.cacher;
 
-import android.content.Context;
-import android.util.Log;
-
 import com.anmnight.imageloader.LoadTask;
 import com.anmnight.imageloader.base.DiskCache;
 import com.anmnight.imageloader.base.Downloader;
@@ -57,31 +54,17 @@ public class LruDiskCache implements DiskCache {
     }
 
     @Override
-    public byte[] put(Downloader.StreamInfo info, String key, LoadTask listener) {
-
+    public void put(byte[] bytes, String key) {
         synchronized (cache) {
             try {
-                InputStream inputStream = info.getStream();
                 DiskLruCache.Editor editor = cache.edit(nameGenerate.generate(key));
                 OutputStream os = new BufferedOutputStream(editor.newOutputStream(0));
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                int len;
-                byte[] buffer = new byte[1024];
-                int cont = 0;
-                while ((len = inputStream.read(buffer)) != -1) {
-                    os.write(buffer, 0, len);
-                    bos.write(buffer, 0, len);
-                    cont += len;
-                    listener.onProgress(info.getContentLength(), cont);
-                }
+                os.write(bytes, 0, bytes.length);
                 editor.commit();
-                inputStream.close();
-                return bos.toByteArray();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        return null;
     }
 
     @Override
