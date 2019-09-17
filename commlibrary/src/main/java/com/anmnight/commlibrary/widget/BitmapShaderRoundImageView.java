@@ -5,9 +5,9 @@ import android.graphics.*;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.widget.ImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 
-public class BitmapShaderRoundImageView extends ImageView {
+public class BitmapShaderRoundImageView extends AppCompatImageView {
 
     private Paint mPaint = new Paint();
 
