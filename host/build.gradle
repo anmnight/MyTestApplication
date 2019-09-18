@@ -88,5 +88,4 @@ dependencies {
     implementation rootProject.ext.dependencies.stetho
 
     implementation project(path: ':commlibrary')
-    implementation project(path: ':imageloader')
 }

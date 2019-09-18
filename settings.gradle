@@ -1,1 +1,1 @@
-include ':host', ':commlibrary', ':imageloader'
+include ':host', ':commlibrary'
