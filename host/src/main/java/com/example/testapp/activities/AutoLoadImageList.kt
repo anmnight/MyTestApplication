@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.anmnight.imageloader.AutoLoadImage
 import com.example.testapp.R
+import com.example.testapp.debug
 import com.example.testapp.dp2px
 import com.example.testapp.images
 import kotlinx.android.synthetic.main.activity_auto_load_image_list.*
@@ -26,10 +27,18 @@ class AutoLoadImageList : AppCompatActivity() {
         image_list.adapter = ImageAdapter()
         image_list.addItemDecoration(ImageDecoration())
 
+
     }
 
 
     inner class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
+
+        override fun onViewRecycled(holder: ViewHolder) {
+            super.onViewRecycled(holder)
+            debug("onViewRecycled : ${holder.itemView}")
+
+
+        }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val view = LayoutInflater.from(this@AutoLoadImageList).inflate(R.layout.list_image_simple_item, parent, false)
@@ -42,6 +51,8 @@ class AutoLoadImageList : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.imageView.displayImage(images[position])
+
+
         }
 
 
