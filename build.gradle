@@ -1,16 +1,15 @@
-apply from: 'config.gradle'
-
 buildscript {
 
     repositories {
         jcenter()
         google()
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.50"
-
     }
+
 }
 
 
@@ -23,13 +22,6 @@ allprojects {
         mavenCentral()
         google()
         jcenter()
-        maven {
-            url 'file://D:/localMaven'
-        }
-        maven {
-            url 'http://www.idescout.com/maven/repo/'
-            name 'IDEScout, Inc.'
-        }
     }
 }
 

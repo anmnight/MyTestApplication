@@ -6,7 +6,7 @@ import android.widget.Button
 import com.example.testapp.R
 import kotlinx.android.synthetic.main.activity_customer_image.*
 
-open class CustomerImageActivity : AppCompatActivity() {
+class CustomerImageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

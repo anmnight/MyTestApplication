@@ -8,9 +8,9 @@ import android.os.Process;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.anmnight.commlibrary.view.ActivityAdapter;
-import com.anmnight.commlibrary.view.ActivityAdapterFactory;
-import com.anmnight.commlibrary.watcher.HookHelper;
+import com.example.testapp.tools.view.ActivityAdapter;
+import com.example.testapp.tools.view.ActivityAdapterFactory;
+import com.example.testapp.watcher.HookHelper;
 
 import java.util.Stack;
 
