@@ -34,6 +34,7 @@ public class AutoLoadImage extends AppCompatImageView {
     private String tag = "AutoLoadImage";
     private Handler mainHandler;
     private LoaderManager loaderManager;
+    private String mPath = "";
 
 
     private void init(Context context) {
@@ -45,7 +46,14 @@ public class AutoLoadImage extends AppCompatImageView {
 
 
     public void displayImage(String url) {
-        loaderManager.addTask(createNewTask(url));
+        LoadTask task = createNewTask(url);
+        loaderManager.addTask(task);
+        setTag(task);
+    }
+
+    public void setImageRecycled() {
+        LoadTask task = (LoadTask) getTag();
+        task.setIsRecycled(true);
     }
 
     private LoadTask createNewTask(String url) {
@@ -84,7 +92,6 @@ public class AutoLoadImage extends AppCompatImageView {
             }
         };
     }
-
 
     private Paint paint;
     private float progressAngle = 0;

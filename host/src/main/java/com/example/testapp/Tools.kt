@@ -25,8 +25,18 @@ val images = arrayListOf(
         "http://sjbz.fd.zol-img.com.cn/t_s640x1136c/g5/M00/00/03/ChMkJlfJV_yIPyQAAACzuvmkILEAAU-HQPyXIgAALPS122.jpg"
 )
 
+const val tag = "tools"
+
 fun debug(message: String) {
-    Log.d("tools", message)
+    Log.d(tag, message)
+}
+
+fun info(message: String) {
+    Log.i(tag, message)
+}
+
+fun error(message: String) {
+    Log.e(tag, message)
 }
 
 fun dp2px(dp: Int): Int {

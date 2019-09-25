@@ -2,6 +2,7 @@ package com.anmnight.imageloader;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import com.anmnight.imageloader.base.DiskCache;
 import com.anmnight.imageloader.base.Downloader;
@@ -19,6 +20,8 @@ public abstract class LoadTask implements Runnable {
     private MemoryCache memoryCache;
     private HexNameGenerate nameGenerate;
     private String imageUrl;
+    private boolean isRecycled = false;
+    private String tag = "LoadTask";
 
     LoadTask(
             String imageUrl,
@@ -36,8 +39,14 @@ public abstract class LoadTask implements Runnable {
     @Override
     public void run() {
 
-        //
+        //暂停加载
         if (isPause()) {
+            return;
+        }
+
+        //被回收时不再执行任务
+        if (isRecycled) {
+            Log.i(tag, "recycled : " + imageUrl);
             return;
         }
 
@@ -78,6 +87,10 @@ public abstract class LoadTask implements Runnable {
         onLoaded(imageUrl, bitmap);
         onComplete();
 
+    }
+
+    public void setIsRecycled(boolean isRecycled) {
+        this.isRecycled = isRecycled;
     }
 
 

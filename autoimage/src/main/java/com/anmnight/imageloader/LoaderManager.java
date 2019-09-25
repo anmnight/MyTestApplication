@@ -10,6 +10,7 @@ import com.anmnight.imageloader.cacher.LruMemoryCache;
 import com.anmnight.imageloader.cacher.PathHelper;
 
 import java.io.IOException;
+import java.util.WeakHashMap;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -35,7 +36,6 @@ public class LoaderManager {
     private static MemoryCache memoryCache;
     private final static Object pauseLock = new Object();
     private final static AtomicBoolean paused = new AtomicBoolean(false);
-
 
     private static final ThreadFactory sThreadFactory = new ThreadFactory() {
         private final AtomicInteger mCount = new AtomicInteger(1);
@@ -87,7 +87,6 @@ public class LoaderManager {
         CACHE_THREAD_POOL.execute(runnable);
     }
 
-
     Downloader getDownloader() {
         return downloader;
     }
@@ -104,7 +103,7 @@ public class LoaderManager {
         return nameGenerate;
     }
 
-    void addTask(LoadTask task) {
+    void addTask( LoadTask task) {
         DOWNLOAD_THREAD_POOL.execute(task);
     }
 
