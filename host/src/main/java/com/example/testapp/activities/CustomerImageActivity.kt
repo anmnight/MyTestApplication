@@ -12,8 +12,5 @@ class CustomerImageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_customer_image)
 
-
-
-
     }
 }
