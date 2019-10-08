@@ -25,24 +25,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.android.ViewPagerActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activities.android.ViewPagerActivity"/>
 
         <activity android:name=".activities.AutoLoadImageList" />
+
         <activity android:name=".activities.DampLayoutActivity" />
 
-        <activity android:name=".activities.CustomerImageActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activities.CustomerImageActivity"/>
 
     </application>
 
