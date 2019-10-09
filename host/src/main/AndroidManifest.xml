@@ -17,7 +17,7 @@
         android:theme="@style/HomeTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
-        <activity android:name=".activities.android.LinearLayoutActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,14 +25,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.android.ViewPagerActivity"/>
-
+        <activity android:name=".activities.android.LinearLayoutActivity"/>
+        <activity android:name=".activities.android.ViewPagerActivity" />
         <activity android:name=".activities.AutoLoadImageList" />
-
         <activity android:name=".activities.DampLayoutActivity" />
-
-        <activity android:name=".activities.CustomerImageActivity"/>
-
+        <activity android:name=".activities.CustomerImageActivity" />
     </application>
 
 </manifest>

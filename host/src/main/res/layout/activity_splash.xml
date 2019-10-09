@@ -4,15 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.android.LinearLayoutActivity">
-
-    <com.example.testapp.activities.android.custom.AnimLinearLayout
-        android:id="@+id/anim_linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
-    </com.example.testapp.activities.android.custom.AnimLinearLayout>
+    tools:context=".SplashActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
