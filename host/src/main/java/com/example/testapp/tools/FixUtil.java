@@ -19,7 +19,7 @@ public class FixUtil {
     // .java 编译成 .class       javac -encoding UTF-8 com/dragonforest/app/qqhotfix/util/BugTest.java
     // .class 打包成 jar         jar cvf patch.jar com/dragonforest/app/qqhotfix/util/BugTest.class
     // jar包转化为dex            dx --dex --output=patch.dex patch.jar
-    // 重启
+    // 重启Q
 
     private static String TAG ="FixUtil";
 

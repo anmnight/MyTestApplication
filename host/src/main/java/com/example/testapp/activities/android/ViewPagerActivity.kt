@@ -12,16 +12,7 @@ class ViewPagerActivity : AppCompatActivity() {
 
 
 
-
-
     }
-
-
-
-
-
-
-    
 }
 
 

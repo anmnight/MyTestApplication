@@ -3,6 +3,7 @@ package com.example.testapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.testapp.activities.android.BroadcastActivity
 import com.example.testapp.activities.android.LinearLayoutActivity
 import java.lang.Thread.sleep
 
@@ -15,11 +16,7 @@ class SplashActivity : AppCompatActivity() {
         Thread {
             sleep(3000)
             runOnUiThread {
-
-                startActivity(Intent(this, LinearLayoutActivity::class.java))
-                overridePendingTransition(R.anim.bottom_from_top, R.anim.top_from_bottom)
-                finish()
-
+                startActivity(Intent(this, BroadcastActivity::class.java))
             }
         }.start()
 

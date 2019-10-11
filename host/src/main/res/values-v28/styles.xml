@@ -9,6 +9,14 @@
         <item name="android:textColorSecondary">@color/colorAccent</item>
         <item name="android:textColorSecondaryInverse">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+    </style>
+
+    <style name="AnimationActivity" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:activityOpenEnterAnimation">@anim/layout_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/layout_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/layout_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/layout_right_out</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
