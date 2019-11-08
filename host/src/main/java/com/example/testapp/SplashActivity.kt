@@ -3,8 +3,10 @@ package com.example.testapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import com.example.testapp.activities.android.BroadcastActivity
 import com.example.testapp.activities.android.LinearLayoutActivity
+import com.example.testapp.activities.android.PopupWindowActivity
 import java.lang.Thread.sleep
 
 class SplashActivity : AppCompatActivity() {
@@ -16,10 +18,12 @@ class SplashActivity : AppCompatActivity() {
         Thread {
             sleep(3000)
             runOnUiThread {
-                startActivity(Intent(this, BroadcastActivity::class.java))
+                startActivity(Intent(this, PopupWindowActivity::class.java))
             }
         }.start()
 
 
     }
+
+
 }

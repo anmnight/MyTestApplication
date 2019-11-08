@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/HomeTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".activities.android.BroadcastActivity"/>
+        <activity android:name=".activities.android.PopupWindowActivity"></activity>
+        <activity android:name=".activities.android.BroadcastActivity" />
         <activity android:name=".activities.HotFixActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
@@ -36,7 +37,6 @@
                 <action android:name="com.example.testapp.STATIC" />
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>

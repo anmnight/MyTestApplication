@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.anmnight.imageloader.AutoLoadImage
 import com.example.testapp.*
 import kotlinx.android.synthetic.main.activity_auto_load_image_list.*
 
@@ -32,7 +31,7 @@ class AutoLoadImageList : AppCompatActivity() {
 
         override fun onViewRecycled(holder: ViewHolder) {
             super.onViewRecycled(holder)
-            holder.imageView.setImageRecycled()
+//            holder.imageView.setImageRecycled()
         }
 
 
@@ -46,12 +45,12 @@ class AutoLoadImageList : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.imageView.displayImage(images[position])
+//            holder.imageView.displayImage(images[position])
         }
 
 
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val imageView: AutoLoadImage = itemView.findViewById(R.id.image_item)
+//            val imageView: AutoLoadImage = itemView.findViewById(R.id.image_item)
         }
     }
 
@@ -67,10 +66,10 @@ class AutoLoadImageList : AppCompatActivity() {
 
         override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
             super.onDraw(c, parent, state)
-            val childView = parent.getChildAt(2).findViewById<AutoLoadImage>(R.id.image_item)
-            parent.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-                childView.scrollBy(0, 5)
-            }
+//            val childView = parent.getChildAt(2).findViewById<AutoLoadImage>(R.id.image_item)
+//            parent.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+//                childView.scrollBy(0, 5)
+//            }
         }
     }
 }

@@ -1,1 +1,1 @@
-include ':host',':autoimage'
+include ':host'
