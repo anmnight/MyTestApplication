@@ -1,29 +1,41 @@
 package com.example.testapp
 
-import android.content.Intent
+import android.os.*
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.os.PersistableBundle
-import com.example.testapp.activities.android.BroadcastActivity
-import com.example.testapp.activities.android.LinearLayoutActivity
-import com.example.testapp.activities.android.PopupWindowActivity
-import java.lang.Thread.sleep
+import android.util.Log
+import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
+
+    private val tag = "SplashActivity"
+    private val handlerThread = HandlerThread("worker")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        Thread {
-            sleep(3000)
-            runOnUiThread {
-                startActivity(Intent(this, PopupWindowActivity::class.java))
-            }
-        }.start()
+        handlerThread.start()
+
+        val handlerB = Handler(handlerThread.looper)
 
 
+        button.setOnClickListener {
+
+
+
+        }
     }
 
+
+    class CusThread : Thread() {
+        override fun run() {
+            super.run()
+
+            while (true) {
+                sleep(800)
+                Log.i(tag, "do something...")
+            }
+        }
+    }
 
 }

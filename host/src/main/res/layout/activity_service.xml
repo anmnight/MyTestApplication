@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ServiceActivity"
+    tools:ignore="MissingConstraints">
+
+    <Button
+        android:id="@+id/local_bind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BIND LOCAL" />
+
+    <Button
+        android:id="@+id/local_unbind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UNBIND LOCAL"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/messenger_bind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BIND MESSENGER"
+        app:layout_constraintTop_toBottomOf="@+id/local_bind" />
+
+    <Button
+        android:id="@+id/messenger_unbind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UNBIND MESSENGER"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/remote_unbind" />
+
+    <Button
+        android:id="@+id/remote_bind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BIND REMOTE"
+        app:layout_constraintTop_toBottomOf="@+id/messenger_bind" />
+
+    <Button
+        android:id="@+id/remote_unbind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UNBIND REMOTE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/local_unbind" />
+
+    <Button
+        android:id="@+id/do_something"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="DO_SOMETHING"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

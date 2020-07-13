@@ -16,27 +16,51 @@
         android:supportsRtl="true"
         android:theme="@style/HomeTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".activities.android.PopupWindowActivity"></activity>
-        <activity android:name=".activities.android.BroadcastActivity" />
-        <activity android:name=".activities.HotFixActivity" />
+
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activities.ServiceActivity">
+
+        </activity>
+        <activity android:name=".activities.HotFixActivity" />
         <activity android:name=".activities.android.LinearLayoutActivity" />
         <activity android:name=".activities.android.ViewPagerActivity" />
-        <activity android:name=".activities.AutoLoadImageList" />
-        <activity android:name=".activities.DampLayoutActivity" />
         <activity android:name=".activities.CustomerImageActivity" />
 
-        <receiver android:name=".activities.android.components.StaticBroadcast">
+
+        <service
+            android:name=".services.LocalService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name=".services.MessengerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":messenger">
+
             <intent-filter>
-                <action android:name="com.example.testapp.STATIC" />
+                <action android:name="com.example.testapp.MessengerService" />
             </intent-filter>
-        </receiver>
+
+        </service>
+
+        <service
+            android:name=".services.RemoteService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.example.testapp.RemoteService" />
+            </intent-filter>
+        </service>
+
+
     </application>
 
 </manifest>

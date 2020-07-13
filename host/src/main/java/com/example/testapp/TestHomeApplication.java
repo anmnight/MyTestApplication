@@ -5,11 +5,10 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Looper;
 import android.os.Process;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.testapp.tools.view.ActivityAdapter;
-import com.example.testapp.tools.view.ActivityAdapterFactory;
 import com.example.testapp.watcher.HookHelper;
 
 import java.util.Stack;
@@ -17,7 +16,6 @@ import java.util.Stack;
 public class TestHomeApplication extends Application {
 
     private static TestHomeApplication application;
-    public ActivityAdapter mViewAdapter;
     private String tag = "TestHomeApplication";
 
     public static TestHomeApplication getInstance() {
@@ -37,13 +35,6 @@ public class TestHomeApplication extends Application {
         super.onCreate();
 
         application = this;
-
-        CrashHandler.INSTANCE().init();
-
-        //注册自适配View
-        mViewAdapter = new ActivityAdapterFactory.Builder()
-                .setType(ActivityAdapterFactory.Type.WIDTH)
-                .build(1080, 1920, 420, application);
 
 
         try {
@@ -77,7 +68,17 @@ public class TestHomeApplication extends Application {
     }
 
 
-
+    public String test() {
+        EditText et = new EditText(this);
+        String text = et.getText().toString();
+        StringBuilder temp = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            String t = String.valueOf(text.charAt(i));
+            temp.append(t);
+            temp.append(",");
+        }
+        return temp.substring(0, temp.length() - 1);
+    }
 
 
 }
